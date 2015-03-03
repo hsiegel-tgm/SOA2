@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -92,6 +92,9 @@ In order to understand \gls{soa}, an very important concept is a \textit{Service
 \textbf{When do we speak of a service?}\\
 "A service is also a unit of logic to which service-orientation has been applied to a meaningful extend. It's the application of service-orientation design principles that distingishues a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau} These patterns and principles are discussed in section \ref{sec:dp}. 
 \subsection{SOA}
+\textbf{Service-Oriented Computing}\\
+"Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things ,including its own design paradigm and design principles, design pattern catalogs, pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\
+\textbf{Service-Oriented Architcture}\\
 %"A service-oriented architecture is essentially a collection of services. These services communicate with each other. The communication can involve either simple data passing or it could involve two or more services coordinating some activity. Some means of connecting services to each other is needed ",\cite{soaserviearch}. \\
 "Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation", \cite[page 27]{grau}. Service orientation means, that services of any kind are put into the center of the system, enabling flexible business process (re-)modelling due to a very high business process orientation and loose coupling of the services.\todo{bullshit.}\\  \\
 "Service-oriented architecture (\gls{soa}) is an approach used to create an architecture based upon the use of services. Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.",\cite{searchsoa} \gls{soa} is not a product or framework, it is a design approach or paradigm for good software design.
@@ -101,7 +104,7 @@ SOA has it's underlying business functions provided as Services which can be use
 "It is important to view and position \gls{soa} and service-orientation as being neutral to any one technology platform. By doing so, you have the freedom to continually pursue the strategic goals associated with service-orientation computing by leveragng on-going service technology advancements.",cite[page 29]{grau} \\
 \gls{soa} is often used as a newer approach to \gls{eai}. \cite{soaitwissen}
 \\ \\
-"One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}.
+"One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
 \subsection{REST}
 Rest stands for Representational State Transfer. It is a software architecture style consisting of guidelines and best practices 
 for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs. 
@@ -109,23 +112,81 @@ A perk of those verbs is that they are mostly self-explanatory.
 \subsection{JSON}
 "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C sharp, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.",\cite{json}.
 
-
 \section{Existing Problems}
 \subsection{Historical Overview}
+With the rise of computers, companies have started to invest into the new information technology during the second half of the 20 century.  Mostly, the first thing that has been bought were expensive mainframes, so that some processes could be done with more reliability. Naturally, employees have done some faults and they were not as efficient as computers. \\
+Because of very expensive Hardware and Software which was by far not as evolved as it is today, the implementation of new technologies was quite slow. Computers and Mainframes were mostly used for industries like astronautics or applied researching and eventually even for automating processes such as book keeping. \\ 
+These implementations were quite easy to implement and there was no need for any intercommunication between services.
+\\ \\
+In the early 80s, the whole industry changed. Suddenly, the personal computer (PC) made it possible to afford information technology on a large scale. Computers were not only used for difficult arithmetic operations but they started to be an everyday-life tool to improve the work-flow and the business processes in companies. \\
+Many new kinds of technologies, ranging from OS with GUIs to the rise of the World Wide Web, were leading to an really fast expansion of information technology. \\ 
+But with an higher demand on PCs, the demand for infrastructure rose as well. The need for computer specialist was higher than ever and every company had to invest a lot into their, mostly newly founded,  IT department. \\ \\
+Because of an lack of know-how and systems that had the characteristics to change a lot, the implementation of all the services became a big challenge. Enterprises used a variety of customised applications, at least one for every type of service. \\ \\
+\textbf{ODER:}
+"Historically, many IT projects focused solely on building applications designed specifically to automate business process requirements that were current at theat time. This fulfilles immediate (tactical) needs, bit as mpre pf these single-purpose applications were delivered, it resulted in an IT enterprise filled with islands of logic and data reffered to as application \textit{silos}. As new business requirements would emerge, either new silos were created or integration channels between silos were established. As yet more business change arose, integration channels had to be augumented, even more silos had to be created, and soon the IT enterprise landscape became convoluted ad increasingly burdensome, expensive, and slow to evolve."\cite[page 522]{grau} 
 
+\subsection{Problems}
+Out of these systems, there are many problems that have eventually emerged. \\
+First of all, systems like that are not really agile. Because changes and new technologies were inevitable, time consuming integrations had to be done. If these have simply not been, legacy systems emergered. These were often not remotly changeable. \\
+Also, new challanges such as cloud computing and a more common globalization of Processes made it harder to stick to the old systems. \\
+Because Applications were always providing some kind of service, but hardly seen like a service, they were not as easy reconfigurable and changeable. All the Applications need to communicate with each other and transmit data,so often a start topology was used. It then changed more and more into a Middleware, which had the benefit of only docking the Application to the Middleware once. Nowadays, mostly a bus system gets used, as described in section \ref{sec:esb}. \\
+Due to compatibility concerns, IT-Infrastructure were often Vendor dependent. Therefore we often talk about an SAP-System, because mostly all the components have been bought from SAP, which decreases the agility and may increase the costs.\\
+Furthermore, before \gls{soa}, Applications were not divided into processes, and therefore a \gls{bpm} was made difficult for both the management or the IT-department. \\
+All these restriction lead to increased overall costs and an reduced \gls{roi}.
+%TODO ausschmuecken? besser?
 \section{SOA as an solution} 
+"In many ways, service-orientation emerged in response to these problems. It is a paradigm that provides an alternative to project-specific, silo-based, and integrated application development by adamantly prioritizing the attainment of long-term, strategic business goals.",\cite[page 522]{grau} \\
+The target state of service-orientation is to not have these traditional problems any more. In some cases, due to legacy systems or other problems this is not possible, but still \gls{soa} tries to realize it to whatever extend possible.
+\\ \\
+Service-orientation emerged as a formal method in support of achieving the following goals an benefits associated with service-oriented computing: \\
+\begin{itemize}
+\item Increased Intrinsic Interoperability
+\item Increased Federation
+\item Increased Vendor Diversification Options 
+\item Increased Business and Technology Alignment
+\item Increased \gls{roi}
+\item Increased Organizational Agility
+\item Reduced IT Burden
+\end{itemize} \cite[page 23]{grau}
+These strategic goals the are put into more low-level design principles. These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
+It is one step above \gls{eai} already and it combines important aspects of \gls{bpm}, \gls{oop} and \gls{aop} in it.
 \subsection{Design Principles}
 \label{sec:dp}
-\subsubsection{Service contracts}
-
+Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used. The design paradigm consists of the following points:
+\begin{enumerate}
+\item Standardized Service contracts
+\item Loosly coupled systems
+\item Abstraction of Services
+\item Reusability
+\item Autonomity
+\item Statelessness
+\item Discoverability
+\item Composability
+\end{enumerate}\cite[page 25]{grau}
+\subsubsection{Standardized Service contracts}
+"A service contract expresses the technical interface of a service. "
 \subsubsection{Loosly coupled systems}
 \subsubsection{Abstraction of Services}
 \subsubsection{Reusability}
 \subsubsection{Autonomity}
-\subsubsection{Service contracts}
 \subsubsection{Statelessness}
 \subsubsection{Discoverability}
 \subsubsection{Composability}
+\subsection{SOA Manifesto }
+The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widley known. Of the Value-Groups, both values are important and should be achived, but the left one is always more important. \\
+\textbf{SOA Manifesto:}\\ \\
+"We have been applying service orientation to help organizations 
+consistently deliver sustainable business value, with increased agility
+and cost effectiveness, in line with changing business needs. \\ \\
+Through our work we have come to prioritize: \\
+\begin{itemize}
+\item Business value over technical strategy 
+\item Strategic goals over project-specific benefits 
+\item Intrinsic interoperability over custom integration 
+\item Shared services over specific-purpose implementations 
+\item Flexibility over optimization
+\item Evolutionary refinement over pursuit of initial perfection
+\end{itemize}" \cite{soamaifesto} 
 \subsection{SOA Lifecycle}
 \subsection{BPM}
 \subsubsection{BPML}
@@ -133,6 +194,7 @@ A perk of those verbs is that they are mostly self-explanatory.
 
 \section{Implementation}
 \subsection{ESB}
+\label{sec:esb}
 \subsection{RestFul Services}
 \subsection{Migration of legacy systems}
 \subsection{Protocols}
@@ -150,6 +212,7 @@ A perk of those verbs is that they are mostly self-explanatory.
 \subsection{SOA VS. OOP}
 \subsection{SOA VS. REST}
 \subsection{Practical Context and Real life implementation}
+never done at full extend
 
 
 
@@ -224,11 +287,19 @@ A perk of those verbs is that they are mostly self-explanatory.
   \textit{http://searchsoa.techtarget.com/definition/service-oriented-architecture}
   \newline last used: 03.02.2015, 14:05
 
+<<<<<<< HEAD
 \bibitem{json}
    \textbf{JSON},json.com
   \textit{http://www.json.org/}
   \newline last used: 02.02.2015, 22:15
 
+=======
+ 
+     \bibitem{soamaifesto}
+   \textbf{The SOA Manifesto} \\
+  \textit{http://www.soa-manifesto.org/default.html}
+  \newline last used: 28.02.2015, 14:05
+>>>>>>> 4247067d3922e79c92991fcc66769e86d515c455
 
 
  

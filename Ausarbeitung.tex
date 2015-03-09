@@ -108,9 +108,9 @@ SOA has it's underlying business functions provided as Services which can be use
 \\ \\
 "One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
 \subsection{REST}
-Rest stands for Representational State Transfer. It is a software architecture style consisting of guidelines and best practices 
-for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs. 
-A perk of those verbs is that they are mostly self-explanatory. 
+Rest stands for REpresentational State Transfer. It is a software architecture style consisting of guidelines and best practices 
+for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs(Uniform Resource Identifiers). 
+A perk of those verbs is that they are mostly self-explanatory. REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.)
 \subsection{JSON}
 "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C sharp, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.",\cite{json}.
 
@@ -209,17 +209,143 @@ site 112 grey book
 \section{Implementation}
 \subsection{ESB}
 \label{sec:esb}
-\subsection{RestFul Services}
+\subsection{RestFul Web Services}
+RESTful web services are built to work best on the Web. RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations. If you want to access resources like data and functionallaty in the REST architectural style you have to use Uniform Resource Identifiers which are typicaly links 
+on the Web. The REST architectural style constrains an architecture to a client/server architecture and is designed to use a stateless communication protocol, typically HTTP. In the REST architecture style, clients and servers exchange representations of resources by using a standardized interface and protocol. //
+The following principles encourage RESTful applications to be simple, lightweight, and fast:
+\\
+\begin{itemize}
+\item Resource identification through URI: 
+A RESTful web service exposes a set of resources that identify the targets of the interaction with its clients. Resources are identified by URIs, which provide a global addressing space for resource and service discovery. See The @Path Annotation and URI Path Templates for more information.\\
+\item Uniform interface: 
+Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted by using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource\\
+\item Self-descriptive messages: 
+Resources are decoupled from their representation so that their content can be accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG, JSON, and others. Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control. \\
+\item Stateful interactions through hyperlinks:
+Every interaction with a resource is stateless; that is, request messages are self-contained. Stateful interactions are based on the concept of explicit state transfer. Several techniques exist to exchange state, such as URI rewriting, cookies, and hidden form fields. State can be embedded in response messages to point to valid future states of the interaction.\\
+\end{itemize}
+\cite{RESTful}
+
 \subsection{Migration of legacy systems}
+"Due to the frequency of change in business requirements and evolution in technology, the need
+to evolve existing software systems is ever increasing. This results in demand for new methods
+to support this process,in particular where the transition towards modern architectures is concerned.
+SOAs are steadily becoming mainstream software engineering practice. Reports show that
+more than 50 percent of large, newly developed applications and business processes designed during
+the year 2007 used service-oriented architectures to some extent.",\cite{legacy}.
+\\
 \subsection{Protocols}
 \subsubsection{XML}
+XML stands for EXtensible Markup Language.XML was designed to describe data.
+XML is a software- and hardware-independent tool for carrying information.\\
+Besides HTML and XHTML the most widespread RESTful HTTP-enviroment.\\
+Example:\\
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+<orders xmlns="http://example.com/schemas/ordermanagment">
+  <order href="/orders/442820205">
+    <customer>
+  ...
+    <customer>
+  </order>
+</orders>
+\end{lstlisting}
+Buch REST und HTTP Seite 83
 \subsubsection{JSON}
+The focus lies ,if compared to XML, in datastructure and not text.
+Does not support namespaces and schemed based validation but is easier to understand
+than XML.\\
+Example:\\
+\begin{lstlisting}
+{"widget": {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "image": { 
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "hOffset": 250,
+        "vOffset": 250,
+        "alignment": "center"
+    },
+    "text": {
+        "data": "Click Here",
+        "size": 36,
+        "style": "bold",
+        "name": "text1",
+        "hOffset": 250,
+        "vOffset": 100,
+        "alignment": "center",
+        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+    }
+}}
+\end{lstlisting}
+todo{ better Example}
 \subsubsection{SOAP}
+SOAP was originally a shortcut for "Simple Object Access Protocol", but since it isn't simple 
+and it isn't used to access object only the protocol was correct. Since version 1.2 the shortcut
+was abolished and SOAP now stands for itself.
+todo{Example + what is does}
+SOA in der Praxis S 268
 \subsubsection{WSDL}
-\subsubsection{UUID}
+Web Service Description Language is a XML based Interface communicationinterface description language
+which is used to describe web services which are called by SOAP-Messages.
+Currently there are two Versions:\\
+1.1 : Which is used Worldwide and is supported by nearly every tool \\
+2.0 : Brings some improvments but they are not relevant in the praxis\\
 
+todo{ SOA in der Praxis S 263 Example}
+\subsubsection{UUID}
+"A UUID (Universal Unique Identifier) is a 128-bit number used to uniquely identify some object or entity on the Internet. Depending on the specific mechanisms used, a UUID is either guaranteed to be different or is, at least, extremely likely to be different from any other UUID generated until 3400 A.D.A guaranteed UUID contains a reference to the network address of the host that generated the UUID, a timestamp (a record of the precise time of a transaction), and a randomly generated component.A UUID is specified as part of the tModel data structure, which represents a service type (a generic representation of a registered service) in the UDDI (Universal Description, Discovery, and Integration) registry. This mechanism is used to discover Web services."\cite{UUID}
 
 \section{Code Snippets}
+Rest Servlet
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+  <context:component-scan base-package="at.xion.watcher" />
+  <mvc:annotation-driven />
+</beans>
+\end{lstlisting}
+Web XML
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>WatcherTomcat</display-name>
+  <servlet>
+    <servlet-name>rest</servlet-name>
+    <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>rest</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+</web-app>
+\end{lstlisting}
+REST JAVA
+\begin{lstlisting}
+@RequestMapping("/addToken")
+  public String addToken(@RequestParam(value = "token") String token, @RequestParam(value = "user") String user) throws IOException {
+\end{lstlisting}
+\begin{lstlisting}
+@RequestMapping("/removeToken")
+  public void removeToken(@RequestParam(value = "token") String token)
+\end{lstlisting}
 \section{Comparison}
 \subsection{Pro and Contra of SOA}
 \subsection{SOA VS. EAI}
@@ -308,7 +434,7 @@ Whereas \gls{soa} can not be seen as an implementation but more as an design pri
   \newline last used: 03.02.2015, 14:05
 
 \bibitem{json}
-   \textbf{JSON},json.com
+  \textbf{JSON},json.com
   \textit{http://www.json.org/}
   \newline last used: 02.02.2015, 22:15
 
@@ -324,7 +450,20 @@ Whereas \gls{soa} can not be seen as an implementation but more as an design pri
   \textit{http://searchsoa.techtarget.com/definition/BPEL}
   \newline last used: 08.03.2015, 13:21
 
+  \bibitem{legacy}
+    \textbf{Migrating Legacy System to Service-Oriented Architecture },Carlos Matos\\
+    \textit{http://kobv.de/opus4}
+    \newline last used : 09.03.2015, 21:50
 
+  \bibitem{RESTful}
+    \textbf{What Are RESTful Web Services},Oracle
+    \textit{http://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html}
+    \newline last used : 09.03.2015, 22:30
+
+    \bibitem{UUID}
+    \textbf{UUID (Universal Unique Identifier) definition},Margaret Rouse\\
+    \textit{http://searchsoa.techtarget.com/definition/UUID}
+    \newline last used : 09.03.2015, 23:55
 
  
 \end{thebibliography}

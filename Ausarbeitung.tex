@@ -36,6 +36,7 @@ right  = 2.00cm]{geometry}
 \newglossaryentry{roi} {name=ROI, description={Return of Investment}}
 \newglossaryentry{esb} {name=ESB, description={Enterprise Service Bus}}
 \newglossaryentry{eai} {name=EAI, description={Enterprise Application Integration}}
+\newglossaryentry{erp} {name=ERP, description={Enterprise Resource Planning}}
 
 \begin{document}
 \begin{titlepage}
@@ -90,7 +91,8 @@ Vogt \textsc{Andreas}
 In order to understand \gls{soa}, an very important concept is a \textit{Service}. \\
 "Services are what you connect together using Web Services. A service is the endpoint of a connection. Also, a service has some type of underlying computer system that supports the connection offered. ",\cite{service1} \\ Furthermore, a Service has to have a clearly defined function and very often they should belong to one business process. It can be seen as an Interface which provides a specific function.\\ \\
 \textbf{When do we speak of a service?}\\
-"A service is also a unit of logic to which service-orientation has been applied to a meaningful extend. It's the application of service-orientation design principles that distingishues a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau} These patterns and principles are discussed in section \ref{sec:dp}. 
+"A service is also a unit of logic to which service-orientation has been applied to a meaningful extend. It's the application of service-orientation design principles that distingishues a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau} These patterns and principles are discussed in section \ref{sec:dp}. \\
+A service contains it's clearly defined functionality, a description of this functionality and Basic-operations such as binding, selection, publication or discovery \cite[page 8]{soagoesreal}.  
 \subsection{SOA}
 \textbf{Service-Oriented Computing}\\
 "Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things ,including its own design paradigm and design principles, design pattern catalogs, pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\
@@ -164,7 +166,9 @@ Because SOA is only an Design Paradigm and not a concrete implementation, servic
 \item Composability
 \end{enumerate}\cite[page 25]{grau}
 \subsubsection{Standardized Service contracts}
-"A service contract expresses the technical interface of a service. "
+"A service contract expresses the technical interface of a service. ", cite[page 33]{grau} This means that there are interfaces which do contain the metadata to an service.  \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
+\\
+Furthermore, A service contract will often be concluded in Human Readable documents. These are called Service Level Agreements (SLAs) and they often contain information like quality requirements or overall business information. %TODO grauslich.
 \subsubsection{Loosly coupled systems}
 \subsubsection{Abstraction of Services}
 \subsubsection{Reusability}
@@ -191,6 +195,16 @@ Through our work we have come to prioritize: \\
 \subsection{BPM}
 \subsubsection{BPML}
 \subsubsection{BPEL}
+"BPEL (Business Process Execution Language) is an XML-based language that allows Web services in a service-oriented architecture to interconnect and share data.",\cite{bpelsearchsoa}. When using Webserivces, it also is often called WSBPEL. "Programmers use BPEL to define how a business process that involves web services will be executed. BPEL messages are typically used to invoke remote services, orchestrate process execution and manage events and exceptions.\\
+BPEL is often associated with Business Process Management Notation (BPMN), a standard for representing business processes graphically. In many organizations, analysts use BPMN to visualize business processes and developers transform the visualizations to BPEL for execution.\\
+BPEL was standardized by OASIS in 2004 after collaborative efforts to create the language by Microsoft, IBM and other companies.",\cite{bpelsearchsoa}.\\
+\\
+It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easliy combined to a greater one. \cite[page 18]{soagoesreal}
+\section{JAX-WS}
+SOAP-based Web services support in Java EE 5,6 and 7 is based on the Java API ....
+site 112 grey book 
+
+
 
 \section{Implementation}
 \subsection{ESB}
@@ -216,7 +230,8 @@ never done at full extend
 
 
 
-
+\section{Conclusion}
+Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also 
 
 
 
@@ -249,7 +264,12 @@ never done at full extend
   \textit{url}
   \newline last used: dd.mm.yyyy, hh:mm
  
- 
+  
+\bibitem{soagoesreal}
+   \textbf{Who}, When\\
+  \textit{url}
+  \newline last used: dd.mm.yyyy, hh:mm
+    
  
 \bibitem{esoa}
    \textbf{Who}, When\\
@@ -287,19 +307,23 @@ never done at full extend
   \textit{http://searchsoa.techtarget.com/definition/service-oriented-architecture}
   \newline last used: 03.02.2015, 14:05
 
-<<<<<<< HEAD
 \bibitem{json}
    \textbf{JSON},json.com
   \textit{http://www.json.org/}
   \newline last used: 02.02.2015, 22:15
 
-=======
  
      \bibitem{soamaifesto}
    \textbf{The SOA Manifesto} \\
   \textit{http://www.soa-manifesto.org/default.html}
   \newline last used: 28.02.2015, 14:05
->>>>>>> 4247067d3922e79c92991fcc66769e86d515c455
+
+
+     \bibitem{bpelsearchsoa}
+   \textbf{BPEL (Business Process Execution Language) definition},Margaret Rouse \\
+  \textit{http://searchsoa.techtarget.com/definition/BPEL}
+  \newline last used: 08.03.2015, 13:21
+
 
 
  

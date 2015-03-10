@@ -249,6 +249,7 @@ Through our work we have come to prioritize: \\
 \item Poorly Defined Measures of Success 
 \end{itemize}
 \subsubsection{BPML}
+"Business Process Modeling Language (BPML) is an Extensible Markup Language (XML)-based metalanguage developed by the Business Process Management Initiative (BPMI) as a means of modeling business processes, much as XML is, itself, a metalanguage with the ability to model enterprise data. BPML 0.4 is BPMI's first release, and includes specifications for transactions and compensating transactions, dataflow, messages and scheduled events, business rules, security roles, and exceptions. BPMI has identified three crucial aspects of BPML capability: because it will be used for mission critical applications, it must support both synchronous and asynchronous distributed transactions; because it will model business processes deployed over the Internet, it must offer reliable security mechanisms; and because it will be used throughout integrated development environments, it must encompass project management capabilities.\\ An associated query language, Business Process Query Language (BPQL) has been developed by Initiative members as a standard management interface that can be used to deploy and execute defined business processes. According to BPMI, BPML and BPQL will be used to establish a standardized means of managing e-business processes through Business Process Management Systems, similarly to the way that SQL established a standardized means of managing business data through packaged database management systems (DBMSs). Both BPML and BPQL are open specifications.", \cite{bpmldefmr}
 \subsubsection{BPEL}
 \label{sec:bpel}
 "BPEL (Business Process Execution Language) is an XML-based language that allows Web services in a service-oriented architecture to interconnect and share data.",\cite{bpelsearchsoa}. When using Webserivces, it also is often called WSBPEL. "Programmers use BPEL to define how a business process that involves web services will be executed. BPEL messages are typically used to invoke remote services, orchestrate process execution and manage events and exceptions.\\
@@ -258,6 +259,7 @@ BPEL was standardized by OASIS in 2004 after collaborative efforts to create the
 It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easliy combined to a greater one. \cite[page 18]{soagoesreal}
 
 \section{SOA Model if we need it}
+%TODO Servicemodell
 The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.
 \begin{figure}[here!]
 	\centering
@@ -617,6 +619,12 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
    \textbf{loose coupling definition}, Margaret Rouse\\
   \emph{ 	 http://searchnetworking.techtarget.com/definition/loose-coupling}
   \newline last used : 10.02.2015, 20:18
+   	 
+   	  
+\bibitem{bpmldefmr}
+   \textbf{Business Process Modeling Language (BPML) definition}, Margaret Rouse\\
+  \emph{http://searchsoa.techtarget.com/definition/Business-Process-Modeling-Language-BPML}
+  \newline last used : 10.02.2015, 21:09
    	 
  	 
 \end{thebibliography}

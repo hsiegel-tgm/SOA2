@@ -181,11 +181,14 @@ Furthermore, A service contract will often be concluded in Human Readable docume
 \\
 %TODO service contract example!!!
 \subsubsection{Loosly coupled systems}
-
-
-
+Loose coupling is a well known design principle. Basically, it means that services or applications are as independently of each other as possible.\\
+"Loose coupling is an approach to interconnecting the components in a system or network so that those components, also called elements, depend on each other to the least extent practicable. Coupling refers to the degree of direct knowledge that one element has of another.", \cite{loosecoupldef}
 \subsubsection{Abstraction of Services}
-\subsubsection{Service Reusability}
+"The appropriate level of abstraction at which services are described achieves additional agility and alignment between business and IT areas of an enterprise. Abstracting information means taking technical details out of a problem to be solved on a higher level"\cite[page 184]{grau}\\
+\\
+For example, abstraction would be an abstraction into an API.\\
+"Service-orientation continues the evolution of higher-level abstraction use to make creating and changing solutions easier."\cite[page 184]{grau}\\
+\subsubsection{Service Re-usability}
 The following are common design characteristics associated with reusable services:
 \begin{itemize}
 \item The service is defined by an agnositc functional context \\
@@ -195,12 +198,21 @@ The following are common design characteristics associated with reusable service
 \end{itemize}
 In general, reusability is a very important design principle %TODO check
 which gets used in normal \gls{oop} as well. \cite[page 140-150]{grau}
-\subsubsection{Autonomity}
-""
-\subsubsection{Statelessness}
-\subsubsection{Discoverability}
-\subsubsection{Composability}
-\subsection{SOA Manifesto }
+\subsubsection{Service Autonomy}
+"Service-orientation revolves around building flexible systems. Flexibility is, to a large degree, archieved through making services decoupled and autonomous to enable them to be composed, aggregated and changed without affecting other parts of the system. For a service to be autonomous, the service must be as independent from other services with which it interacts, both functionally and from a runtime environment perspective. Java and Java EE provide a highly efficient runtime environment that supports service composition. For example, a Java EE application server support concurrent access to its hosted components, making each access to such a component autonomous from the others.", \cite[page 194]{grau}\\
+\subsubsection{Service Statelessness}
+"Each invocation of a service operation is completely independent from any other invocation, whether by the same consumer or any other service consumer. The service Statelessness principle offers various benefits centered around improved scalability by which additional stateless service instances can be easily provisioned on available environments.", \cite[page 197]{grau}\\
+\\
+"Many real-life business scenarios can be expressed as business processes that include automated steps, which can require manual intervention. Designing and implementing such a process requires some state to be maintained for the duration of the process. Executing an instance of the process definition forms the notation of a session or transaction across multiple service invocations. Therefore, a service implementing the execution of a business process cannot be stateless and may need to even maintain contex information over extended periods".\cite[page 197]{grau} %TODO bullshit schon wieder...
+\subsubsection{Service Discoverability}
+"The two primaty aspects of the Service Discoverability principle are discovery at design-time (which promotes service reuse in a newly developed solution), and discovery at runtime (which involves resolving the appropriate endpoint address for a given service or retrieving other metadata).", \cite[page 204]{grau}\\\\
+\textbf{Design-Time Discoverability}\\
+"At design-time, it is importantant for project teams to be able to effective identify the existence of services that contain logic relevant to the solution they plan to build. This way they can either discover services that they can reuse or confirm that new service logic they plan to build does not already exist. For example, a service is designed to address an Order Management business process for which customer information is required. The service designer mist investigate whether a \texttt{Customer} data type already exists and if so deterine whether it meats the requirements for the Order Management Process service." \cite[page 204-205]{grau}\\\\
+\textbf{Run-Time Discoverability}\\
+"Runtime service discovery refers to the ability of software to programmatically search for services using APIs exposed by the service registry. Doing so allows for the retrieval of the physical location or address of services on the network. Because services may need to be moved from one machine to another or perhaps redundantly deployed on multiple machines, it may be advisable for service addresses not to be hardcoded onto the service consumer logic. [..] In addition to the lookup of a service endpoint address, other artifacts ca be used by service consumers at runtime to identify an appropriate service and build the applicable request message. The JAX-WS Dispatch API allows a service request to be completely built at runtime."\cite[page 205-207]{grau}
+\subsubsection{Service Composability} 
+"The composability of a service is an implicit byproduct of the extend to which the other service-orientation design principles have been successfully applied. [..] For example, a service contract that is standardized allows interaction and composition between services implemented in different languages using different runtime environements."\cite[page 189]{grau}
+\subsection{SOA Manifesto}
 The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widely known. Of the Value-Groups, both values are important and should be archived, but the left one is always more important. \\
 \textbf{The wording of the SOA Manifesto:}\\ \\
 "We have been applying service orientation to help organizations 
@@ -288,7 +300,6 @@ Every interaction with a resource is stateless; that is, request messages are se
 \end{itemize}
 \cite{RESTful}
 
-=======
 %TODO use the esb chapter
 \subsection{Migration of legacy systems}
 "Due to the frequency of change in business requirements and evolution in technology, the need
@@ -552,7 +563,6 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
   \textit{http://searchsoa.techtarget.com/definition/BPEL}
   \newline last used: 08.03.2015, 13:21
 
-<<<<<<< HEAD
   \bibitem{legacy}
     \textbf{Migrating Legacy System to Service-Oriented Architecture },Carlos Matos\\
     \textit{http://kobv.de/opus4}
@@ -568,41 +578,46 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
     \textit{http://searchsoa.techtarget.com/definition/UUID}
     \newline last used : 09.03.2015, 23:55
 
-=======
 \bibitem{bpmdef}
    \textbf{Business Process Management (BPM)}, Margaret Rouse\\
   \emph{http://searchcio.techtarget.com/definition/business-process-management}
-  \newline abgerufen am: 06.10.2014, 22:13
+  \newline last used : 06.10.2014, 22:13
   
 
   \bibitem{bpmchall}
    \textbf{Top Ten Biggest Challenges to BPM Initiatives}, Pearl Zhu\\
   \emph{http://futureofcio.blogspot.co.at/2013/03/top-ten-biggest-challenges-to-bpm.html}
-  \newline abgerufen am: 06.10.2014, 22:32
- 
->>>>>>> df0ebff46426b848dc6953afa5b8d2e691223e1e
- 
+  \newline last used : 06.10.2014, 22:32
+  
  \bibitem{muede2}
    \textbf{What is Business Process Management? }\\
   \emph{http://www.scc-co.com/enterprises-processes/}
-  \newline abgerufen am: 06.10.2014, 22:04
+  \newline last used : 06.10.2014, 22:04
 
 
   \bibitem{soadef}
    \textbf{Key differnces between ESB, EAI and SOA}\\
   \emph{www.innovativearchitects.com/KnowloedgeCenter/Business\%20Connectivity\%20and\%20Interoperability/ESB-EAI-SOA.aspx}
-  \newline abgerufen am: 06.10.2014, 22:18
+  \newline last used : 06.10.2014, 22:18
 
 
 \bibitem{thorstenhorn}
    \textbf{Torsten Horn}\newline
   \emph{http://www.torsten-horn.de/techdocs/eai.htm}
-  \newline abgerufen am: 05.10.2014, 20:25
+  \newline last used : 05.10.2014, 20:25
 
 
 %TODO haeee das is aus dem EAI Referat
     \bibitem{book1}
    \textbf{SOA with Java}, Thomas Erl \\
  	 ISBN: 0-13-385903-4
+ 	 
+ 	 
+\bibitem{loosecoupldef}
+   \textbf{loose coupling definition}, Margaret Rouse\\
+  \emph{ 	 http://searchnetworking.techtarget.com/definition/loose-coupling}
+  \newline last used : 10.02.2015, 20:18
+   	 
+ 	 
 \end{thebibliography}
 \end{document}

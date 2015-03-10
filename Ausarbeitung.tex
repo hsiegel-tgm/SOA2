@@ -307,78 +307,144 @@ to evolve existing software systems is ever increasing. This results in demand f
 to support this process,in particular where the transition towards modern architectures is concerned.
 SOAs are steadily becoming mainstream software engineering practice. Reports show that
 more than 50 percent of large, newly developed applications and business processes designed during
-the year 2007 used service-oriented architectures to some extent.",\cite{legacy}.
+the year 2007 used service-oriented architectures to some extent. However, experience
+also indicates that SOA initiatives rarely start from scratch. The technology market research firm
+Gartner estimates that by 2011 (with 0.8 probability) more than 80 percent of existing applications will
+be at least partly reengineered to participate in service-oriented architectures . This
+represents a significant effort for IT departments of organisations.
+With this growth in SOA adoption, the need for a systematic approach towards reengineering
+for SOA becomes ever more pressing.As legacy systems were not usually built with these concerns in mind, 
+much effort is needed to accommodate them.",\cite{legacy}.
 \\
 \subsection{Protocols}
+
 \subsubsection{XML}
 XML stands for EXtensible Markup Language.XML was designed to describe data.
-XML is a software- and hardware-independent tool for carrying information.\\
+It is a software- and hardware-independent tool for carrying information.\\
 Besides HTML and XHTML the most widespread RESTful HTTP-enviroment.\\
-Example:\\
-\begin{lstlisting}
-<?xml version="1.0" encoding="UTF-8"?>
-<orders xmlns="http://example.com/schemas/ordermanagment">
-  <order href="/orders/442820205">
-    <customer>
-  ...
-    <customer>
-  </order>
-</orders>
-\end{lstlisting}
-Buch REST und HTTP Seite 83
+Nearly all other standards originate from XML.
 \subsubsection{JSON}
-The focus lies ,if compared to XML, in datastructure and not text.
+The focus here lies in datastructure and not text.
 Does not support namespaces and schemed based validation but is easier to understand
 than XML.\\
-Example:\\
+JSON vs XML Example\\
+JSON:
 \begin{lstlisting}
-{"widget": {
-    "debug": "on",
-    "window": {
-        "title": "Sample Konfabulator Widget",
-        "name": "main_window",
-        "width": 500,
-        "height": 500
-    },
-    "image": { 
-        "src": "Images/Sun.png",
-        "name": "sun1",
-        "hOffset": 250,
-        "vOffset": 250,
-        "alignment": "center"
-    },
-    "text": {
-        "data": "Click Here",
-        "size": 36,
-        "style": "bold",
-        "name": "text1",
-        "hOffset": 250,
-        "vOffset": 100,
-        "alignment": "center",
-        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
-    }
-}}
+{{"employees":[
+    {"firstName":"John", "lastName":"Doe"}, 
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+]}
 \end{lstlisting}
-todo{ better Example}
+XML:
+\begin{lstlisting}
+<employees>
+    <employee>
+        <firstName>John</firstName> <lastName>Doe</lastName>
+    </employee>
+    <employee>
+        <firstName>Anna</firstName> <lastName>Smith</lastName>
+    </employee>
+    <employee>
+        <firstName>Peter</firstName> <lastName>Jones</lastName>
+    </employee>
+</employees>
+\end{lstlisting}
 \subsubsection{SOAP}
 SOAP was originally a shortcut for "Simple Object Access Protocol", but since it isn't simple 
 and it isn't used to access object only the protocol was correct. Since version 1.2 the shortcut
-was abolished and SOAP now stands for itself.
-todo{Example + what it does}
-SOA in der Praxis S 268
+was abolished and SOAP now stands for itself. SOAP is an XML based protocol for accessing Web Services.
+
+"Today's applications communicate using Remote Procedure Calls (RPC) between objects like DCOM and CORBA, but HTTP was not designed for this. RPC represents a compatibility and security problem; firewalls and proxy servers will normally block this kind of traffic. A better way to communicate between applications is over HTTP, because HTTP is supported by all Internet browsers and servers. SOAP was created to accomplish this.SOAP provides a way to communicate between applications running on different operating systems, with different technologies and programming languages. A SOAP message is an ordinary XML document containing the following elements":
+\begin{itemize}
+\item An Envelope element that identifies the XML document as a SOAP message
+\item A Header element that contains header information
+\item A Body element that contains call and response information
+\item A Fault element containing errors and status information"
+\end{itemize}
+SOAP Example: \\ In the example below, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in "http://www.example.org/stock".\\
+SOAP request:
+\begin{lstlisting}
+POST /InStock HTTP/1.1
+Host: www.example.org
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetStockPrice>
+    <m:StockName>IBM</m:StockName>
+  </m:GetStockPrice>
+</soap:Body>
+
+</soap:Envelope>
+\end{lstlisting}
+SOAP response:
+\begin{lstlisting}
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetStockPriceResponse>
+    <m:Price>34.5</m:Price>
+  </m:GetStockPriceResponse>
+</soap:Body>
+
+</soap:Envelope>
+\end{lstlisting}
+\cite{soap}
+
 \subsubsection{WSDL}
 Web Service Description Language is a XML based Interface communicationinterface description language
 which is used to describe web services which are called by SOAP-Messages.
 Currently there are two Versions:\\
-1.1 : Which is used Worldwide and is supported by nearly every tool \\
-2.0 : Brings some improvments but they are not relevant in the praxis\\
+1.1 : Which is used Worldwide and is supported by nearly every tool. \\
+2.0 : Brings some improvments but they are not relevant in the praxis so this Version is not often
+used in the praxis.\\
+WSDL describes a Web service. It specifies the location of the service and the operations (or methods) the service exposes.\\
+Example:
+\begin{lstlisting}
+<message name="getTermRequest">
+  <part name="term" type="xs:string"/>
+</message>
 
-todo{ SOA in der Praxis S 263 Example}
-\subsubsection{UUID}
-"A UUID (Universal Unique Identifier) is a 128-bit number used to uniquely identify some object or entity on the Internet. Depending on the specific mechanisms used, a UUID is either guaranteed to be different or is, at least, extremely likely to be different from any other UUID generated until 3400 A.D.A guaranteed UUID contains a reference to the network address of the host that generated the UUID, a timestamp (a record of the precise time of a transaction), and a randomly generated component.A UUID is specified as part of the tModel data structure, which represents a service type (a generic representation of a registered service) in the UDDI (Universal Description, Discovery, and Integration) registry. This mechanism is used to discover Web services."\cite{UUID}
+<message name="getTermResponse">
+  <part name="value" type="xs:string"/>
+</message>
 
+<portType name="glossaryTerms">
+  <operation name="getTerm">
+    <input message="getTermRequest"/>
+    <output message="getTermResponse"/>
+  </operation>
+</portType>
+\end{lstlisting}
+"In this example the <portType> element defines glossaryTerms as the name of a port, and getTerm as the name of an operation.The getTerm operation has an input message called getTermRequest and an output message called getTermResponse.The <message> elements define the parts of each message and the associated data types.Compared to traditional programming, glossaryTerms is a function library, getTerm is a function with getTermRequest as the input parameter, and getTermResponse as the return parameter."
+\cite{wsdl}
+\subsubsection{UDDI}
+"Universal Description, Discovery and Integration (UDDI) is a directory service where businesses can register and search for Web services.
+UDDI is a platform-independent framework for describing services, discovering businesses, and integrating business services by using the Internet.\\
+\begin{itemize}
+\item UDDI stands for Universal Description, Discovery and Integration
+\item UDDI is a directory for storing information about web services
+\item UDDI is a directory of web service interfaces described by WSDL
+\item UDDI communicates via SOAP
+\item UDDI is built into the Microsoft .NET platform
+\end{itemize}
+UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet standards such as XML, HTTP, and DNS protocols.
+UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}
 \section{Code Snippets}
-Rest Servlet
+Rest Servlet with Spring
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -396,7 +462,7 @@ Rest Servlet
   <mvc:annotation-driven />
 </beans>
 \end{lstlisting}
-Web XML
+Web XML for the Tomcat Server
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
@@ -412,7 +478,7 @@ Web XML
   </servlet-mapping>
 </web-app>
 \end{lstlisting}
-REST JAVA
+
 \begin{lstlisting}
 @RequestMapping("/addToken")
   public String addToken(@RequestParam(value = "token") String token, @RequestParam(value = "user") String user) throws IOException {
@@ -565,7 +631,7 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
 
   \bibitem{legacy}
     \textbf{Migrating Legacy System to Service-Oriented Architecture },Carlos Matos\\
-    \textit{http://kobv.de/opus4}
+    \textit{http://opus4.kobv.de/opus4-tuberlin/files/2999/16_7.pdf}
     \newline last used : 09.03.2015, 21:50
 
   \bibitem{RESTful}
@@ -573,10 +639,10 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
     \textit{http://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html}
     \newline last used : 09.03.2015, 22:30
 
-    \bibitem{UUID}
-    \textbf{UUID (Universal Unique Identifier) definition},Margaret Rouse\\
-    \textit{http://searchsoa.techtarget.com/definition/UUID}
-    \newline last used : 09.03.2015, 23:55
+    \bibitem{uddi}
+    \textbf{UDDI },w3school\\
+    \textit{http://www.w3schools.com/webservices/ws_wsdl_uddi.asp}
+    \newline last used : 10.03.2015, 23:55
 
 \bibitem{bpmdef}
    \textbf{Business Process Management (BPM)}, Margaret Rouse\\
@@ -617,7 +683,15 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
    \textbf{loose coupling definition}, Margaret Rouse\\
   \emph{ 	 http://searchnetworking.techtarget.com/definition/loose-coupling}
   \newline last used : 10.02.2015, 20:18
-   	 
- 	 
+
+\bibitem{wsdl}
+   	\textbf{wsdl Documentatin},w3schools
+    \textit{http://www.w3schools.com/webservices/ws_wsdl_documents.asp}
+    \newline last used : 10.03.2015, 23:00
+
+\bibitem{soap}
+	\textbf{soap Documentatin},w3schools
+    \textit{http://www.w3schools.com/webservices/ws_soap_intro.asp}
+    \newline last used : 10.03.2015, 23:10
 \end{thebibliography}
 \end{document}

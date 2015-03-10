@@ -92,7 +92,8 @@ In order to understand \gls{soa}, an very important concept is a \textit{Service
 "Services are what you connect together using Web Services. A service is the endpoint of a connection. Also, a service has some type of underlying computer system that supports the connection offered. ",\cite{service1} \\ Furthermore, a Service has to have a clearly defined function and very often they should belong to one business process. It can be seen as an Interface which provides a specific function.\\ \\
 \textbf{When do we speak of a service?}\\
 "A service is also a unit of logic to which service-orientation has been applied to a meaningful extend. It's the application of service-orientation design principles that distingishues a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau} These patterns and principles are discussed in section \ref{sec:dp}. \\
-A service contains it's clearly defined functionality, a description of this functionality and Basic-operations such as binding, selection, publication or discovery \cite[page 8]{soagoesreal}.  
+A service contains it's clearly defined functionality, a description of this functionality and Basic-operations such as binding, selection, publication or discovery \cite[page 8]{soagoesreal}.  \\
+Seen out of an more business related approach, they usually provide clear incident, problem, change, configuration, release, availibility and cost management - which helps to gain information and overview the services.
 \subsection{SOA}
 \textbf{Service-Oriented Computing}\\
 "Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things ,including its own design paradigm and design principles, design pattern catalogs, pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\
@@ -167,18 +168,41 @@ Because SOA is only an Design Paradigm and not a concrete implementation, servic
 \end{enumerate}\cite[page 25]{grau}
 \subsubsection{Standardized Service contracts}
 "A service contract expresses the technical interface of a service. ", cite[page 33]{grau} This means that there are interfaces which do contain the metadata to an service.  \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
-\\
+The two approaches nowadays are either Top-Down (designing the service contracts at first and then implementing them) or Bottom-up(Building the contracts out of already existing services). \cite[page 151,152]{grau}
+\\ \\
+\textbf{REST}\\
+"For REST services, capturing and communicating various aspects of resources can be necessary, such as the set of resources, relationships between resources, HTTP verbs allowed on resources and supported resource representation formats. Standards such as WADL(Web Application Description Language), can be used to satisfy the mandatory requirements. [..] Even the self-describing contract of HTTP verbs for a REST service establishes a standard-based service contract.", cite[page 151]{grau}
+\\ \\
+\textbf{SLAs} \\
 Furthermore, A service contract will often be concluded in Human Readable documents. These are called Service Level Agreements (SLAs) and they often contain information like quality requirements or overall business information. %TODO grauslich.
+\\ \\
+\textbf{Generation Possibilities within Java} \\
+"JAX-WS defines the wsimport tool, which takes an existing WSDL definintion as input to generate Java skeletons [..] Similarly, the wsgen tool generates WSDL from existing Java code.",\cite[page 151]{grau}
+\\
+%TODO service contract example!!!
 \subsubsection{Loosly coupled systems}
+
+
+
 \subsubsection{Abstraction of Services}
-\subsubsection{Reusability}
+\subsubsection{Service Reusability}
+The following are common design characteristics associated with reusable services:
+\begin{itemize}
+\item The service is defined by an agnositc functional context \\
+	This means that an agnostic functional context is not specific to any one purpose and is therefore considered muli-purpose. It means, that it is idependent of the particular business process or the area of application.
+\item The service logic is highly generic %TODO ???
+\item The service can be used concurrently
+\end{itemize}
+In general, reusability is a very important design principle %TODO check
+which gets used in normal \gls{oop} as well. \cite[page 140-150]{grau}
 \subsubsection{Autonomity}
+""
 \subsubsection{Statelessness}
 \subsubsection{Discoverability}
 \subsubsection{Composability}
 \subsection{SOA Manifesto }
-The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widley known. Of the Value-Groups, both values are important and should be achived, but the left one is always more important. \\
-\textbf{SOA Manifesto:}\\ \\
+The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widely known. Of the Value-Groups, both values are important and should be archived, but the left one is always more important. \\
+\textbf{The wording of the SOA Manifesto:}\\ \\
 "We have been applying service orientation to help organizations 
 consistently deliver sustainable business value, with increased agility
 and cost effectiveness, in line with changing business needs. \\ \\
@@ -192,14 +216,52 @@ Through our work we have come to prioritize: \\
 \item Evolutionary refinement over pursuit of initial perfection
 \end{itemize}" \cite{soamaifesto} 
 \subsection{SOA Lifecycle}
+%TODO
+
+
 \subsection{BPM}
+"Business Process Management is a systematic approach to making an organisation's workflow more effective, more efficiant and more capable of adapting to an ever-changing environement. A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}. 
+\begin{figure}[here!]
+	\centering
+	%\includegraphics[width=0.6\textwidth]{bpm.png}
+	\caption{Business Management cycle \cite{muede2}}
+	\label{fig:anfang}
+	\end{figure}
+\subsubsection{Challenges of BPM \cite{bpmchall}}
+\begin{itemize}
+\item Lack of Business Case
+\item Too Slow to React to the Business Change
+\item Gap between the modelling and the implementation phases
+\item Seen as a One Time Project 
+\item Not Investing in Staff
+\item Poorly Defined Measures of Success 
+\end{itemize}
 \subsubsection{BPML}
 \subsubsection{BPEL}
+\label{sec:bpel}
 "BPEL (Business Process Execution Language) is an XML-based language that allows Web services in a service-oriented architecture to interconnect and share data.",\cite{bpelsearchsoa}. When using Webserivces, it also is often called WSBPEL. "Programmers use BPEL to define how a business process that involves web services will be executed. BPEL messages are typically used to invoke remote services, orchestrate process execution and manage events and exceptions.\\
 BPEL is often associated with Business Process Management Notation (BPMN), a standard for representing business processes graphically. In many organizations, analysts use BPMN to visualize business processes and developers transform the visualizations to BPEL for execution.\\
 BPEL was standardized by OASIS in 2004 after collaborative efforts to create the language by Microsoft, IBM and other companies.",\cite{bpelsearchsoa}.\\
 \\
 It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easliy combined to a greater one. \cite[page 18]{soagoesreal}
+
+\section{SOA Model if we need it}
+The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.
+\begin{figure}[here!]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{xxx}
+	%\caption{EAI can also be seen a contributor of Service Orientation \cite[page 27]{soagoesreal}}
+	\label{fig:soamodelarch}
+	\end{figure}
+	\FloatBarrier
+\textbf{Orchestration}\\
+Orchestration means, that a new Service can be build out of other Services. 
+These other services can be of any kind (also external) and the communication between them is usually koordinated out from an central controlling instance. Orchestration is usually done using (WS-)BPEL as described closer in section \ref{sec:bpel}. This layer is also a reason why \gls{soa} is so flexible and why the systems must be loosely coupled. \cite[page 29]{soagoesreal}\\
+\\
+%mon petit grande 2
+\textbf{SOA models}
+There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
+
 \section{JAX-WS}
 SOAP-based Web services support in Java EE 5,6 and 7 is based on the Java API ....
 site 112 grey book 
@@ -226,6 +288,8 @@ Every interaction with a resource is stateless; that is, request messages are se
 \end{itemize}
 \cite{RESTful}
 
+=======
+%TODO use the esb chapter
 \subsection{Migration of legacy systems}
 "Due to the frequency of change in business requirements and evolution in technology, the need
 to evolve existing software systems is ever increasing. This results in demand for new methods
@@ -349,17 +413,55 @@ REST JAVA
 \section{Comparison}
 \subsection{Pro and Contra of SOA}
 \subsection{SOA VS. EAI}
+"Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution." ,\cite{soadef}
+\begin{figure}[here!]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{b1_25.jpg}
+	%\caption{EAI can also be seen a contributor of Service Orientation \cite[page 25]{book1}}
+	\label{fig:eaipartofso}
+	\end{figure}
 \subsection{SOA VS. OOP}
 \subsection{SOA VS. REST}
-\subsection{Practical Context and Real life implementation}
-never done at full extend
 
 
 
 \section{Conclusion}
-Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also 
+Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
+Nowadays, many of \gls{soa}'s principles are already used in what we declare as good software design, but still many companies have problems with applying the \gls{soa} Principles at a full extend. Often only parts of it get used, if even. This is mainly because changing an infrastructure is not that easy. \\
 
 
+\section{If we need it!!}
+
+\subsection{Implementation Topologies}
+\subsubsection{Peer-to-peer}
+The peer-to-peer (Figure \ref{fig:eai0}) implementation is not very useful. It is quite outdated and it is not really usable for modern systems.
+There is practically no way to achieve any scalability and it gets complicated very soon. 
+\subsubsection{Hub \& Spoke}
+Messages get directed to an centralized unit, where they can be processed. (Figure \ref{fig:eai1}) This centralized unit can be a bottleneck though. 
+\subsubsection{Bus}
+Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2}) The processing distribution in this case is very good. The bus-topology is therefore the most recommended one, because there is no bottleneck when comparing it to a Hub.
+\begin{figure}[here!]
+\centering
+\begin{minipage}[h]{0.3\textwidth}
+\centering
+    %\includegraphics[width=1.0\textwidth]{eai0.png}
+    %\caption{Star-topology \cite{thorstenhorn}}
+    \label{fig:eai0}
+\end{minipage}
+\begin{minipage}[h]{0.3\textwidth}
+\centering
+    %\includegraphics[width=1.0\textwidth]{eai1.png}
+    %\caption{Hub-topology \cite{thorstenhorn}}
+    \label{fig:eai1}
+\end{minipage}
+\begin{minipage}[h]{0.3\textwidth}
+\centering
+    %\includegraphics[width=1.0\textwidth]{eai2.png}
+    %\caption{Bus-topology \cite{thorstenhorn}}
+    \label{fig:eai2}
+\end{minipage}
+\end{figure}
+\FloatBarrier
 
 \listoftables
 \listoffigures
@@ -450,6 +552,7 @@ Whereas \gls{soa} can not be seen as an implementation but more as an design pri
   \textit{http://searchsoa.techtarget.com/definition/BPEL}
   \newline last used: 08.03.2015, 13:21
 
+<<<<<<< HEAD
   \bibitem{legacy}
     \textbf{Migrating Legacy System to Service-Oriented Architecture },Carlos Matos\\
     \textit{http://kobv.de/opus4}
@@ -465,6 +568,41 @@ Whereas \gls{soa} can not be seen as an implementation but more as an design pri
     \textit{http://searchsoa.techtarget.com/definition/UUID}
     \newline last used : 09.03.2015, 23:55
 
+=======
+\bibitem{bpmdef}
+   \textbf{Business Process Management (BPM)}, Margaret Rouse\\
+  \emph{http://searchcio.techtarget.com/definition/business-process-management}
+  \newline abgerufen am: 06.10.2014, 22:13
+  
+
+  \bibitem{bpmchall}
+   \textbf{Top Ten Biggest Challenges to BPM Initiatives}, Pearl Zhu\\
+  \emph{http://futureofcio.blogspot.co.at/2013/03/top-ten-biggest-challenges-to-bpm.html}
+  \newline abgerufen am: 06.10.2014, 22:32
  
+>>>>>>> df0ebff46426b848dc6953afa5b8d2e691223e1e
+ 
+ \bibitem{muede2}
+   \textbf{What is Business Process Management? }\\
+  \emph{http://www.scc-co.com/enterprises-processes/}
+  \newline abgerufen am: 06.10.2014, 22:04
+
+
+  \bibitem{soadef}
+   \textbf{Key differnces between ESB, EAI and SOA}\\
+  \emph{www.innovativearchitects.com/KnowloedgeCenter/Business\%20Connectivity\%20and\%20Interoperability/ESB-EAI-SOA.aspx}
+  \newline abgerufen am: 06.10.2014, 22:18
+
+
+\bibitem{thorstenhorn}
+   \textbf{Torsten Horn}\newline
+  \emph{http://www.torsten-horn.de/techdocs/eai.htm}
+  \newline abgerufen am: 05.10.2014, 20:25
+
+
+%TODO haeee das is aus dem EAI Referat
+    \bibitem{book1}
+   \textbf{SOA with Java}, Thomas Erl \\
+ 	 ISBN: 0-13-385903-4
 \end{thebibliography}
 \end{document}

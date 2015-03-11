@@ -42,7 +42,7 @@ right  = 2.00cm]{geometry}
 \begin{titlepage}
 \begin{center}
 % Oberer Teil der Titelseite:
-\includegraphics[width=0.75\textwidth]{images/logo}\\[1cm]    
+\includegraphics[width=0.6\textwidth]{images/logo}\\[1cm]    
 
 
 
@@ -111,10 +111,11 @@ SOA has it's underlying business functions provided as Services which can be use
 
 \begin{figure}[here!]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{images\b1_25.jpg}
-	%\caption{EAI can also be seen a contributor of Service Orientation \cite[page 25]{book1}}
+	\includegraphics[width=0.5\textwidth]{images/b1_25.jpg}
+	\caption{Processes that have contributed to SOA \cite[page 25]{book1}}
 	\label{fig:eaipartofso}
 	\end{figure}
+	\FloatBarrier
 \subsection{REST}
 Rest stands for REpresentational State Transfer. It is a software architecture style consisting of guidelines and best practices 
 for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs(Uniform Resource Identifiers). 
@@ -124,15 +125,15 @@ A perk of those verbs is that they are mostly self-explanatory. REST is a lightw
 
 \section{Existing Problems}
 \subsection{Historical Overview}
-With the rise of computers, companies have started to invest into the new information technology during the second half of the 20 century.  Mostly, the first thing that has been bought were expensive mainframes, so that some processes could be done with more reliability. Naturally, employees have done some faults and they were not as efficient as computers. \\
-Because of very expensive Hardware and Software which was by far not as evolved as it is today, the implementation of new technologies was quite slow. Computers and Mainframes were mostly used for industries like astronautics or applied researching and eventually even for automating processes such as book keeping. \\ 
-These implementations were quite easy to implement and there was no need for any intercommunication between services.
-\\ \\
-In the early 80s, the whole industry changed. Suddenly, the personal computer (PC) made it possible to afford information technology on a large scale. Computers were not only used for difficult arithmetic operations but they started to be an everyday-life tool to improve the work-flow and the business processes in companies. \\
-Many new kinds of technologies, ranging from OS with GUIs to the rise of the World Wide Web, were leading to an really fast expansion of information technology. \\ 
-But with an higher demand on PCs, the demand for infrastructure rose as well. The need for computer specialist was higher than ever and every company had to invest a lot into their, mostly newly founded,  IT department. \\ \\
-Because of an lack of know-how and systems that had the characteristics to change a lot, the implementation of all the services became a big challenge. Enterprises used a variety of customised applications, at least one for every type of service. \\ \\
-\textbf{ODER:}
+%With the rise of computers, companies have started to invest into the new information technology during the second half of the 20 century.  Mostly, the first thing that has been bought were expensive mainframes, so that some processes could be done with more reliability. Naturally, employees have done some faults and they were not as efficient as computers. \\
+%Because of very expensive Hardware and Software which was by far not as evolved as it is today, the implementation of new technologies was quite slow. Computers and Mainframes were mostly used for industries like astronautics or applied researching and eventually even for automating processes such as book keeping. \\ 
+%These implementations were quite easy to implement and there was no need for any intercommunication between services.
+%\\ \\
+%In the early 80s, the whole industry changed. Suddenly, the personal computer (PC) made it possible to afford information technology on a large scale. Computers were not only used for difficult arithmetic operations but they started to be an everyday-life tool to improve the work-flow and the business processes in companies. \\
+%Many new kinds of technologies, ranging from OS with GUIs to the rise of the World Wide Web, were leading to an really fast expansion of information technology. \\ 
+%But with an higher demand on PCs, the demand for infrastructure rose as well. The need for computer specialist was higher than ever and every company had to invest a lot into their, mostly newly founded,  IT department. \\ \\
+%Because of an lack of know-how and systems that had the characteristics to change a lot, the implementation of all the services became a big challenge. Enterprises used a variety of customised applications, at least one for every type of service. \\ \\
+%\textbf{ODER:}
 "Historically, many IT projects focused solely on building applications designed specifically to automate business process requirements that were current at theat time. This fulfilles immediate (tactical) needs, bit as mpre pf these single-purpose applications were delivered, it resulted in an IT enterprise filled with islands of logic and data reffered to as application \textit{silos}. As new business requirements would emerge, either new silos were created or integration channels between silos were established. As yet more business change arose, integration channels had to be augumented, even more silos had to be created, and soon the IT enterprise landscape became convoluted ad increasingly burdensome, expensive, and slow to evolve."\cite[page 522]{grau} 
 
 \subsection{Problems}
@@ -143,7 +144,6 @@ Because Applications were always providing some kind of service, but hardly seen
 Due to compatibility concerns, IT-Infrastructure were often Vendor dependent. Therefore we often talk about an SAP-System, because mostly all the components have been bought from SAP, which decreases the agility and may increase the costs.\\
 Furthermore, before \gls{soa}, Applications were not divided into processes, and therefore \gls{bpm} was made difficult to realize for both the management and the IT-department. \\
 All these restriction lead to increased overall costs and an reduced \gls{roi}.
-%TODO ausschmuecken? besser?
 \section{SOA as an solution} 
 "In many ways, service-orientation emerged in response to these problems. It is a paradigm that provides an alternative to project-specific, silo-based, and integrated application development by adamantly prioritizing the attainment of long-term, strategic business goals.",\cite[page 522]{grau} \\
 The target state of service-orientation is to not have these traditional problems any more. In some cases, due to legacy systems or other problems this is not possible, but still \gls{soa} tries to realize it to whatever extend possible.
@@ -159,7 +159,14 @@ Service-orientation emerged as a formal method in support of achieving the follo
 \item Reduced IT Burden
 \end{itemize} \cite[page 23]{grau}\\
 These strategic goals the are put into more low-level design principles. These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
-It is one step above \gls{eai} already and it combines important aspects of \gls{bpm}, \gls{oop} and \gls{aop} in it. %TODO grafik
+It is one step above \gls{eai} already and it combines important aspects of \gls{bpm}, \gls{oop} and \gls{aop} in it. 
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/page24}
+	\caption{Goals of SOA\cite[page 24]{grau}}
+	\label{fig:eaipartofso}
+	\end{figure}
+\FloatBarrier
 \subsection{Design Principles}
 \label{sec:dp}
 Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used.\\\\
@@ -182,16 +189,15 @@ The design paradigm consists of the following points:
 "A service contract expresses the technical interface of a service. ", \cite[page 33]{grau}. This means that there are interfaces which do contain the metadata to an service, as well as describing their functionality, their Datatypes and rules of actions. \cite[page 86]{te} \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
 The two approaches nowadays are either Top-Down (designing the service contracts at first and then implementing them) or Bottom-up(Building the contracts out of already existing services). \cite[page 151,152]{grau}
 \\ \\
-\textbf{REST}\\
+\textit{REST}\\
 "For REST services, capturing and communicating various aspects of resources can be necessary, such as the set of resources, relationships between resources, HTTP verbs allowed on resources and supported resource representation formats. Standards such as WADL(Web Application Description Language), can be used to satisfy the mandatory requirements. [..] Even the self-describing contract of HTTP verbs for a REST service establishes a standard-based service contract.", \cite[page 151]{grau}
 \\ \\
-\textbf{SLAs} \\
+\textit{SLAs} \\
 Furthermore, A service contract will often be concluded in Human Readable documents. These are called Service Level Agreements (SLAs) and they often contain information like quality requirements or overall business information. %TODO grauslich.
 \\ \\
-\textbf{Generation Possibilities within Java} \\
+\textit{Service Contract Generation Possibilities within Java} \\
 "JAX-WS defines the wsimport tool, which takes an existing WSDL definintion as input to generate Java skeletons [..] Similarly, the wsgen tool generates WSDL from existing Java code.",\cite[page 151]{grau}
 \\
-%TODO service contract example!!!
 \subsubsection{Loosly coupled systems}
 Coupling describes the relationship between two and more things. Loose coupling, a well known design principle,  tries to minimalize the relationships between a service and other components. \cite[page 87]{te} \\
 "Loose coupling is an approach to interconnecting the components in a system or network so that those components, also called elements, depend on each other to the least extent practicable. Coupling refers to the degree of direct knowledge that one element has of another", \cite{loosecoupldef}.
@@ -222,9 +228,9 @@ This means that: "each invocation of a service operation is completely independe
 \subsubsection{Service Discoverability}
 \label{sec:disc}
 "The two primary aspects of the Service Discoverability principle are discovery at design-time (which promotes service reuse in a newly developed solution), and discovery at runtime (which involves resolving the appropriate endpoint address for a given service or retrieving other metadata).", \cite[page 204]{grau}\\These two enable a dynamic reuseability of a service, increasing therefore the \gls{roi}. This design principle is often implemented using a service registry. \cite[page 89]{te} \\\\
-\textbf{Design-Time Discoverability}\\
+\textit{Design-Time Discoverability}\\
 "At design-time, it is importantant for project teams to be able to effective identify the existence of services that contain logic relevant to the solution they plan to build. This way they can either discover services that they can reuse or confirm that new service logic they plan to build does not already exist. For example, a service is designed to address an Order Management business process for which customer information is required. The service designer mist investigate whether a \texttt{Customer} data type already exists and if so deterine whether it meats the requirements for the Order Management Process service." \cite[page 204-205]{grau}\\\\
-\textbf{Run-Time Discoverability}\\
+\textit{Run-Time Discoverability}\\
 "Runtime service discovery refers to the ability of software to programmatically search for services using APIs exposed by the service registry. Doing so allows for the retrieval of the physical location or address of services on the network. Because services may need to be moved from one machine to another or perhaps redundantly deployed on multiple machines, it may be advisable for service addresses not to be hardcoded onto the service consumer logic. [..] In addition to the lookup of a service endpoint address, other artifacts ca be used by service consumers at runtime to identify an appropriate service and build the applicable request message. The JAX-WS Dispatch API allows a service request to be completely built at runtime."\cite[page 205-207]{grau}
 \subsubsection{Service Composability} 
 "The composability of a service is an implicit byproduct of the extend to which the other service-orientation design principles have been successfully applied. [..] For example, a service contract that is standardized allows interaction and composition between services implemented in different languages using different runtime environements."\cite[page 189]{grau}\\
@@ -270,19 +276,21 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 \end{itemize}
 \begin{figure}[here!]
 	\centering
-	%\includegraphics[width=0.6\textwidth]{images/scly.png}
+	\includegraphics[width=0.6\textwidth]{images/scly.png}
 	\caption{Service lifecycle \cite{slcmoracle}}
 	\label{fig:Servicelifecycle}
 	\end{figure}
+	\FloatBarrier
 \subsection{BPM}
 "Business Process Management is a systematic approach to making an organisation's workflow more effective, more efficiant and more capable of adapting to an ever-changing environment. A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}. \\
 The Business Process level is very important to every service-oriented architecture, as it is seen as the higher-level controlling instance. Service composition and Orchestration are helping to ensure a business process remodelling is made easy and failure-tolerant at any time. \cite[page 114]{te}
 \begin{figure}[here!]
 	\centering
-	%\includegraphics[width=0.6\textwidth]{images/bpm.png}
+	\includegraphics[width=0.6\textwidth]{images/bpm.png}
 	\caption{Business Management lifecycle \cite{muede2}}
 	\label{fig:anfang}
 	\end{figure}
+	\FloatBarrier
 \subsubsection{Challenges of BPM \cite{bpmchall}}
 \begin{itemize}
 \item Lack of Business Case
@@ -307,20 +315,21 @@ It therefore helps to produce code out of a graphical description, and there is 
 \\
 \begin{figure}[here!]
 	\centering
-	%\includegraphics[width=0.6\textwidth]{images/npic1.png}
+	\includegraphics[width=0.6\textwidth]{images/page19}
 	\caption{BPEL as orchestration layer \cite[page 19]{soagoesreal}}
 	\label{fig:bpel}
 	\end{figure}
+	\FloatBarrier
 \subsection{SOA Model}
 The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.\\
 \\\textbf{SOA models}
 There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
 \subsubsection{The SOA Triangle}
-The \gls{soa} triangle is having three main parts.
+The \gls{soa} triangle is consists of three parts:
 \\\\\textbf{The Service consumer} \\
 This is bascially the client, which wants to use a specific service. It is requesting the Service Registry 	for the address of the specific service he wants to access. He is using the Interface Definition Language in order to  access the Service provider in the right way.
 \\\\\textbf{The Service provider}\\ 
-This is the part of the system, which is providing some kind of service to a costumer. It is publishing / registering itself in the SOA registry. For this purpose, WSDL is used. \\ \\
+This is the part of the system, which is providing some kind of service to a costumer. It is publishing / registering itself in the SOA registry. For this purpose, WSDL is used.
 \\\\\textbf{The registry}\\ 
 "An SOA registry is a resource that provides controlled access to data necessary for governance of SOA (service-oriented architecture) projects. In effect, it is a constantly evolving catalog of information about the available services in an SOA implementation. An SOA registry allows businesses to efficiently discover and communicate with each other using Web services. The ultimate goal is to allow fast and reliable communication and interoperability among diverse applications with minimal human oversight.", \cite{soareg}\\
 The registry's task is it therefore to know the metadata and the addresses of the services and discovery / find the right service provider when a service consumer makes a request.
@@ -330,7 +339,7 @@ The UDDI standard is used for locating a service in the registry.
 \centering
 \begin{minipage}[h]{0.4\textwidth}
 \centering
-    %\includegraphics[width=1.0\textwidth]{images/arg3}
+    \includegraphics[width=1.0\textwidth]{images/arg3}
     \caption{SOA's components \cite{arg3}}
     \label{fig:eai0}
 \end{minipage}
@@ -339,7 +348,7 @@ The UDDI standard is used for locating a service in the registry.
 \end{minipage}
 \begin{minipage}[h]{0.4\textwidth}
 \centering
-    %\includegraphics[width=1.0\textwidth]{images/arg1}
+    \includegraphics[width=1.0\textwidth]{images/arg1}
     \caption{Communication protocols between components \cite{arg1}}
     \label{fig:eai1}
 \end{minipage}
@@ -355,54 +364,6 @@ The UDDI standard is used for locating a service in the registry.
 \section{Implementation}
 \subsection{ESB}
 \label{sec:esb}
-"An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures. [..] . In a general sense, an ESB can be thought of as a mechanism that manages access to applications and services (especially legacy versions) to present a single, simple, and consistent interface to end-users via Web- or forms-based client-side front ends.", \cite{esbdef}\\
-Its main task are to:
-\begin{itemize}
-\item Distribute information across an enterprise quickly and easily
-\item Identify Messages and route them between services
-\item Mask differences among underlying platforms, software architectures, message formats and network protocols as they move from service requestor to service provider and back
-\item Ensure information delivery even when some systems or networks may go off-line from time to time.
-\item Re-route, log, and enrich information without requiring applications to be rewritten.
-\item Manages descriptions and definitions of messages and their formats through metadata
-\item Creates an extensible architecture based on pluggable components
-\end{itemize} \cite{esbdef,esbimplpatt}
-
-%TODO soa goes real page 124 und 125 tolle grafiken!
-
-
-%TODO soa goes real page 137 aufbau tolle grafik!
-
-%TODO grau page 137 aufbau tolle grafik!
-%TODO grau goes real page 137 aufbau tolle grafik!
-
-
-\begin{figure}[here!]
-	\centering
-	%\includegraphics[width=0.5\textwidth]{xxx}
-	  \caption{Context based routing within an \gls{esb} \cite[page 394]{grau}}
-    \label{fig:context}
-	\end{figure}
-	\FloatBarrier
-	
-	
-\begin{figure}[here!]
-	\centering
-	%\includegraphics[width=0.5\textwidth]{xxx}
-	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
-    \label{fig:content}
-	\end{figure}
-	\FloatBarrier
-
-
-\begin{figure}[here!]
-	\centering
-	%\includegraphics[width=0.5\textwidth]{xxx}
-	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
-	\label{fig:Datafromtrans}
-	\end{figure}
-	\FloatBarrier
-\subsubsection{OpenESB}
-"OpenESB is a Java based open source enterprise service bus. It can be used as a platform for both Enterprise Application Integration and Service Oriented Application. OpenESB allows you to integrate legacy systems external and internal partners and new developments in your Business Process.  OpenESB is the unique open source ESB relying on standards that provides you with Simplicity, Efficiency, Long term durability, save on your present and future investments with a very low TCO (Total Cost of Ownership).", \cite{Aboutopenesb}
 
 \subsubsection{Implementation Topologies}
 \textbf{Peer-to-peer}\\
@@ -416,24 +377,73 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
 \centering
 \begin{minipage}[h]{0.3\textwidth}
 \centering
-    %\includegraphics[width=1.0\textwidth]{images/eai0.png}
-    %\caption{Star-topology \cite{thorstenhorn}}
+    \includegraphics[width=1.0\textwidth]{images/eai0.png}
+    \caption{Star-topology \cite{thorstenhorn}}
     \label{fig:eai0}
 \end{minipage}
 \begin{minipage}[h]{0.3\textwidth}
 \centering
-    %\includegraphics[width=1.0\textwidth]{images/eai1.png}
-    %\caption{Hub-topology \cite{thorstenhorn}}
+    \includegraphics[width=1.0\textwidth]{images/eai1.png}
+    \caption{Hub-topology \cite{thorstenhorn}}
     \label{fig:eai1}
 \end{minipage}
 \begin{minipage}[h]{0.3\textwidth}
 \centering
-    %\includegraphics[width=1.0\textwidth]{images/eai2.png}
-    %\caption{Bus-topology \cite{thorstenhorn}}
+    \includegraphics[width=1.0\textwidth]{images/eai2.png}
+    \caption{Bus-topology \cite{thorstenhorn}}
     \label{fig:eai2}
 \end{minipage}
 \end{figure}
 \FloatBarrier
+\subsubsection{Enterprise Service Bus and SOA}
+"An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures. [..] . In a general sense, an ESB can be thought of as a mechanism that manages access to applications and services (especially legacy versions) to present a single, simple, and consistent interface to end-users via Web- or forms-based client-side front ends.", \cite{esbdef}\\
+Its main task are to:
+\begin{itemize}
+\item Distribute information across an enterprise quickly and easily
+\item Identify Messages and route them between services
+\item Mask differences among underlying platforms, software architectures, message formats and network protocols as they move from service requestor to service provider and back
+\item Ensure information delivery even when some systems or networks may go off-line from time to time.
+\item Re-route, log, and enrich information without requiring applications to be rewritten.
+\item Manages descriptions and definitions of messages and their formats through metadata
+\item Creates an extensible architecture based on pluggable components
+\end{itemize} \cite{esbdef,esbimplpatt}
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/page137sgr}
+	  \caption{Example for the structure of an ESB. \cite[page 137]{soagoesreal}}
+    \label{fig:context}
+	\end{figure}
+	\FloatBarrier
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/context}
+	  \caption{Context based routing within an \gls{esb} \cite[page 394]{grau}}
+    \label{fig:context}
+	\end{figure}
+	\FloatBarrier
+	
+	
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/content}
+	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
+    \label{fig:content}
+	\end{figure}
+	\FloatBarrier
+
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/page395}
+	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
+	\label{fig:Datafromtrans}
+	\end{figure}
+	\FloatBarrier
+\subsubsection{OpenESB}
+"OpenESB is a Java based open source enterprise service bus. It can be used as a platform for both Enterprise Application Integration and Service Oriented Application. OpenESB allows you to integrate legacy systems external and internal partners and new developments in your Business Process.  OpenESB is the unique open source ESB relying on standards that provides you with Simplicity, Efficiency, Long term durability, save on your present and future investments with a very low TCO (Total Cost of Ownership).", \cite{Aboutopenesb}
+
 
 \subsection{RestFul Web Services}
 RESTful web services are built to work best on the Web. RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations. If you want to access resources like data and functionallaty in the REST architectural style you have to use Uniform Resource Identifiers which are typicaly links 
@@ -711,7 +721,7 @@ With the end of the 20 century, many organisations and companies were doing a ve
 \gls{soa} therefore emerged out of \gls{eai} as a newer design approach. Still, many companies are using systems such as \gls{eai}, because the change to a service-oriented approach might not always be easy. 
 \subsection{SOA VS. OOP}
 %TODO ??
-\subsection{SOA VS. AOP}
+\subsection{SOA VS. AOP} %TODO weg?
 \textbf{Aspect oriented programming (\gls{aop})}\\
 "An aspect is a common feature that's typically scattered across methods, classes, object hierarchies, or even entire object models. It is behavior that looks and smells like it should have structure, but you can't find a way to express this structure in code with traditional object-oriented techniques.\\
 For example, metrics is one common aspect. To generate useful logs from your application, you have to (often liberally) sprinkle informative messages throughout your code. However, metrics is something that your class or object model really shouldn't be concerned about. After all, metrics is irrelevant to your actual application: it doesn't represent a customer or an account, and it doesn't realize a business rule. It's simply orthogonal.
@@ -729,26 +739,24 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
 
 \newpage
 
-
-
-%TODO WHICHTING
-%From QA and acceptance, the project moves to the deployment phase, which is sometimes called the "publish" phase, Shimmin noted, because that is where the services are published into a repository and registry. The artifacts all go into the repository. \cite{soalycman}
-
 \listoftables
 \listoffigures
 \printglossaries
 \begin{thebibliography}{56}
 
 \bibitem{te}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
-
+   \textbf{SOA - Entwurfsprinzipien fuer serviceorientierte Architektur}\\
+   Thomas ERL\\
+   Addison-Wesley \\
+   2008 \\
+	ISBN: 978-3-8273-2651-5 
 
 \bibitem{grau}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
+   \textbf{SOA with Java - Realizing Service-Orientation with Java Technologies}\\
+   Thomas ERL, Andre TOST, Satadru ROY, Philip THOMAS \\ 
+   Prentice Hall \\
+   Massachusetts, 2014 \\
+	ISBN: 978-0-13-3859003-4 
  
  
 \bibitem{gruen}
@@ -764,11 +772,12 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
  
   
 \bibitem{soagoesreal}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
-    
- 
+   \textbf{SOA goes real : Service-orientierte Architekturen erfolgreich planen und einfuehren.}\\
+   Daniel LIEBHART \\ 
+   Carl Hanser Verlag \\
+   Wien, 2007 \\
+	ISBN: 978-3-446-41088-6
+	
 \bibitem{esoa}
    \textbf{Who}, When\\
   \textit{url}

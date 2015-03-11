@@ -454,19 +454,7 @@ Every interaction with a resource is stateless; that is, request messages are se
 
 %TODO use the esb chapter
 \subsection{Migration of legacy systems}
-"Due to the frequency of change in business requirements and evolution in technology, the need
-to evolve existing software systems is ever increasing. This results in demand for new methods
-to support this process,in particular where the transition towards modern architectures is concerned.
-SOAs are steadily becoming mainstream software engineering practice. Reports show that
-more than 50 percent of large, newly developed applications and business processes designed during
-the year 2007 used service-oriented architectures to some extent. However, experience
-also indicates that SOA initiatives rarely start from scratch. The technology market research firm
-Gartner estimates that by 2011 (with 0.8 probability) more than 80 percent of existing applications will
-be at least partly reengineered to participate in service-oriented architectures . This
-represents a significant effort for IT departments of organisations.
-With this growth in SOA adoption, the need for a systematic approach towards reengineering
-for SOA becomes ever more pressing.As legacy systems were not usually built with these concerns in mind, 
-much effort is needed to accommodate them.",\cite{legacy}.
+SOAs are steadily becoming mainstream software engineering practice. Reports show that more than 50 percent of large, newly developed applications and business processes designed during the year 2007 used service-oriented architectures to some extent. However, experience also indicates that SOA initiatives rarely start from scratch. The technology market research firm Gartner estimates that by 2011 (with 0.8 probability) more than 80 percent of existing applications will be at least partly reengineered to participate in service-oriented architectures . This represents a significant effort for IT departments of organisations.Because it has characteristics of loose coupling, published interfaces, and a standard communication model, SOA enables existing legacy systems to expose their functionality as services, presumably without making significant changes to the legacy systems. Migration of legacy systems to service-oriented environments has been achieved within a number of domains, showing that the promise is beginning to be fulfilled.\cite{legacy}.
 \\
 \subsection{Protocols}
 
@@ -479,7 +467,44 @@ Nearly all other standards originate from XML.
 The focus here lies in datastructure and not text.
 Does not support namespaces and schemed based validation but is easier to understand
 than XML.\\
-JSON vs XML Example\\
+\end{lstlisting}
+\subsubsection{SOAP}
+SOAP was originally a shortcut for "Simple Object Access Protocol", but since it isn't simple 
+and it isn't used to access object only the protocol was correct. Since version 1.2 the shortcut
+was abolished and SOAP now stands for itself. SOAP is an XML based protocol for accessing Web Services.
+
+"Today's applications communicate using Remote Procedure Calls (RPC) between objects like DCOM and CORBA, but HTTP was not designed for this. RPC represents a compatibility and security problem; firewalls and proxy servers will normally block this kind of traffic. A better way to communicate between applications is over HTTP, because HTTP is supported by all Internet browsers and servers. SOAP was created to accomplish this.SOAP provides a way to communicate between applications running on different operating systems, with different technologies and programming languages. A SOAP message is an ordinary XML document containing the following elements":
+\begin{itemize}
+\item An Envelope element that identifies the XML document as a SOAP message
+\item A Header element that contains header information
+\item A Body element that contains call and response information
+\item A Fault element containing errors and status information"
+\end{itemize}
+\cite{soap}
+
+\subsubsection{WSDL}
+Web Service Description Language is a XML based Interface communicationinterface description language
+which is used to describe web services which are called by SOAP-Messages.
+Currently there are two Versions:\\
+1.1 : Which is used Worldwide and is supported by nearly every tool. \\
+2.0 : Brings some improvments but they are not relevant in the praxis so this Version is not often
+used in the praxis.\\
+WSDL describes a Web service. It specifies the location of the service and the operations (or methods) the service exposes.\\
+\cite{wsdl}
+\subsubsection{UDDI}
+"Universal Description, Discovery and Integration (UDDI) is a directory service where businesses can register and search for Web services.
+UDDI is a platform-independent framework for describing services, discovering businesses, and integrating business services by using the Internet.\\
+\begin{itemize}
+\item UDDI stands for Universal Description, Discovery and Integration
+\item UDDI is a directory for storing information about web services
+\item UDDI is a directory of web service interfaces described by WSDL
+\item UDDI communicates via SOAP
+\item UDDI is built into the Microsoft .NET platform
+\end{itemize}
+UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet standards such as XML, HTTP, and DNS protocols.
+UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}
+\section{Code Snippets}
+\subsection{JSON vs XML Example}\\
 JSON:
 \begin{lstlisting}
 {{"employees":[
@@ -502,19 +527,8 @@ XML:
     </employee>
 </employees>
 \end{lstlisting}
-\subsubsection{SOAP}
-SOAP was originally a shortcut for "Simple Object Access Protocol", but since it isn't simple 
-and it isn't used to access object only the protocol was correct. Since version 1.2 the shortcut
-was abolished and SOAP now stands for itself. SOAP is an XML based protocol for accessing Web Services.
-
-"Today's applications communicate using Remote Procedure Calls (RPC) between objects like DCOM and CORBA, but HTTP was not designed for this. RPC represents a compatibility and security problem; firewalls and proxy servers will normally block this kind of traffic. A better way to communicate between applications is over HTTP, because HTTP is supported by all Internet browsers and servers. SOAP was created to accomplish this.SOAP provides a way to communicate between applications running on different operating systems, with different technologies and programming languages. A SOAP message is an ordinary XML document containing the following elements":
-\begin{itemize}
-\item An Envelope element that identifies the XML document as a SOAP message
-\item A Header element that contains header information
-\item A Body element that contains call and response information
-\item A Fault element containing errors and status information"
-\end{itemize}
-SOAP Example: \\ In the example below, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in "http://www.example.org/stock".\\
+\subsection{SOAP Example}:
+\\ In the example below, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in "http://www.example.org/stock".\\
 SOAP request:
 \begin{lstlisting}
 POST /InStock HTTP/1.1
@@ -554,17 +568,9 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 </soap:Envelope>
 \end{lstlisting}
-\cite{soap}
 
-\subsubsection{WSDL}
-Web Service Description Language is a XML based Interface communicationinterface description language
-which is used to describe web services which are called by SOAP-Messages.
-Currently there are two Versions:\\
-1.1 : Which is used Worldwide and is supported by nearly every tool. \\
-2.0 : Brings some improvments but they are not relevant in the praxis so this Version is not often
-used in the praxis.\\
-WSDL describes a Web service. It specifies the location of the service and the operations (or methods) the service exposes.\\
-Example:
+subsection{WSDL Example}
+
 \begin{lstlisting}
 <message name="getTermRequest">
   <part name="term" type="xs:string"/>
@@ -581,64 +587,9 @@ Example:
   </operation>
 </portType>
 \end{lstlisting}
-"In this example the <portType> element defines glossaryTerms as the name of a port, and getTerm as the name of an operation.The getTerm operation has an input message called getTermRequest and an output message called getTermResponse.The <message> elements define the parts of each message and the associated data types.Compared to traditional programming, glossaryTerms is a function library, getTerm is a function with getTermRequest as the input parameter, and getTermResponse as the return parameter."
-\cite{wsdl}
-\subsubsection{UDDI}
-"Universal Description, Discovery and Integration (UDDI) is a directory service where businesses can register and search for Web services.
-UDDI is a platform-independent framework for describing services, discovering businesses, and integrating business services by using the Internet.\\
-\begin{itemize}
-\item UDDI stands for Universal Description, Discovery and Integration
-\item UDDI is a directory for storing information about web services
-\item UDDI is a directory of web service interfaces described by WSDL
-\item UDDI communicates via SOAP
-\item UDDI is built into the Microsoft .NET platform
-\end{itemize}
-UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet standards such as XML, HTTP, and DNS protocols.
-UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}
-\section{Code Snippets}
-Rest Servlet with Spring
-\begin{lstlisting}
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:p="http://www.springframework.org/schema/p"
-  xsi:schemaLocation="
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.0.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-  <context:component-scan base-package="at.xion.watcher" />
-  <mvc:annotation-driven />
-</beans>
-\end{lstlisting}
-Web XML for the Tomcat Server
-\begin{lstlisting}
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>WatcherTomcat</display-name>
-  <servlet>
-    <servlet-name>rest</servlet-name>
-    <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>rest</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>
-</web-app>
-\end{lstlisting}
+"In this example the <portType> element defines glossaryTerms as the name of a port, and getTerm as the name of an operation.The getTerm operation has an input message called getTermRequest and an output message called getTermResponse.The <message> elements define the parts of each message and the associated data types.Compared to traditional programming, glossaryTerms is a function library, getTerm is a function with getTermRequest as the input parameter, and getTermResponse as the return parameter."\cite{wsdl}
 
-\begin{lstlisting}
-@RequestMapping("/addToken")
-  public String addToken(@RequestParam(value = "token") String token, @RequestParam(value = "user") String user) throws IOException {
-\end{lstlisting}
-\begin{lstlisting}
-@RequestMapping("/removeToken")
-  public void removeToken(@RequestParam(value = "token") String token)
-\end{lstlisting}
+
 \section{Comparison}
 \subsection{Pro and Contra of SOA}
 Even trough \gls{soa} provides a very flexible and cost efficient environement, but it might not always be the yellow from the egg.
@@ -718,9 +669,8 @@ For example, metrics is one common aspect. To generate useful logs from your app
 \\
 In AOP, a feature like metrics is called a crosscutting concern, as it's a behavior that "cuts" across multiple points in your object models, yet is distinctly different. As a development methodology, AOP recommends that you abstract and encapsulate crosscutting concerns." \cite{aopdef}
 %TODO
-\subsection{SOA VS. REST}
-%TODO andreas vllt? :/
-
+\subsection{SOAP VS. REST}
+One of the major benefits of RESTful API is that it is flexible for data representation, for example you could serialize your data in either XML or JSON format. SOAP on the other hand is the prevailing standard for web services, and hence has better support from other standards (WSDL, WS-*) and tooling from vendors. REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only. SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol. Normaly you should REST when Client and Server operate on a Web environment and SOAP when clients need to have access to objects aviable on servers. You shouldn't use REST When you need to enforce a strict contract between client and server and you shouldn't use SOAP when your bandwidth is very limited.
 
 \section{Conclusion}
 Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
@@ -824,7 +774,7 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
 
   \bibitem{legacy}
     \textbf{Migrating Legacy System to Service-Oriented Architecture },Carlos Matos\\
-    \textit{http://opus4.kobv.de/opus4-tuberlin/files/2999/16\_7.pdf}
+    \textit{http://opus4.kobv.de/opus4-tuberlin/frontdoor/index/index/docId/2999}
     \newline last used : 09.03.2015, 21:50
 
   \bibitem{RESTful}
@@ -961,8 +911,9 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
    \textbf{SOA in Practice
 The Art of Distributed System Design},Nicolai M. Josuttis\\
   \textit{http://www.soa-in-practice.com/soa-glossary.html\#provider}
-  \newline last used : 11.03.2015, 20:49 	 
-   	     	   
+  \newline last used : 11.03.2015, 20:49 
+
+
  	 
  	 
  	 

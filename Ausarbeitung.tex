@@ -311,20 +311,40 @@ It therefore helps to produce code out of a graphical description, and there is 
 	\caption{BPEL as orchestration layer \cite[page 19]{soagoesreal}}
 	\label{fig:bpel}
 	\end{figure}
-\section{SOA Model}
-%TODO Servicemodell
-The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.
-\begin{figure}[here!]
-	\centering
-	%\includegraphics[width=0.5\textwidth]{xxx}
-	%\caption{EAI can also be seen a contributor of Service Orientation \cite[page 27]{soagoesreal}}
-	\label{fig:soamodelarch}
-	\end{figure}
-	\FloatBarrier
-
-%mon petit grande 2
-\textbf{SOA models}
+\subsection{SOA Model}
+The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.\\
+\\\textbf{SOA models}
 There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
+\subsubsection{The SOA Triangle}
+The \gls{soa} triangle is having three main parts.
+\\\\\textbf{The Service consumer} \\
+This is bascially the client, which wants to use a specific service. It is requesting the Service Registry 	for the address of the specific service he wants to access. He is using the Interface Definition Language in order to  access the Service provider in the right way.
+\\\\\textbf{The Service provider}\\ 
+This is the part of the system, which is providing some kind of service to a costumer. It is publishing / registering itself in the SOA registry. For this purpose, WSDL is used. \\ \\
+\\\\\textbf{The registry}\\ 
+"An SOA registry is a resource that provides controlled access to data necessary for governance of SOA (service-oriented architecture) projects. In effect, it is a constantly evolving catalog of information about the available services in an SOA implementation. An SOA registry allows businesses to efficiently discover and communicate with each other using Web services. The ultimate goal is to allow fast and reliable communication and interoperability among diverse applications with minimal human oversight.", \cite{soareg}\\
+The registry's task is it therefore to know the metadata and the addresses of the services and discovery / find the right service provider when a service consumer makes a request.
+The UDDI standard is used for locating a service in the registry.
+
+\begin{figure}[here!]
+\centering
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+    %\includegraphics[width=1.0\textwidth]{images/arg3}
+    \caption{SOA's components \cite{arg3}}
+    \label{fig:eai0}
+\end{minipage}
+\begin{minipage}[h]{0.19\textwidth}
+\vfill
+\end{minipage}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+    %\includegraphics[width=1.0\textwidth]{images/arg1}
+    \caption{Communication protocols between components \cite{arg1}}
+    \label{fig:eai1}
+\end{minipage}
+\end{figure}
+\FloatBarrier
 
 %\section{JAX-WS}
 %SOAP-based Web services support in Java EE 5,6 and 7 is based on the Java API ....
@@ -337,8 +357,6 @@ There exist different SOA models, such as the OASIS model, The SOA Meta model of
 \label{sec:esb}
 "An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures. [..] . In a general sense, an ESB can be thought of as a mechanism that manages access to applications and services (especially legacy versions) to present a single, simple, and consistent interface to end-users via Web- or forms-based client-side front ends.", \cite{esbdef}\\
 Its main task are to:
-
-
 \begin{itemize}
 \item Distribute information across an enterprise quickly and easily
 \item Identify Messages and route them between services
@@ -916,6 +934,37 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
   \textit{ http://www.ibm.com/developerworks/websphere/library/techarticles/0712\_grund/0712\_grund.html}
   \newline last used : 08.03.2015, 20:12 	   	     
    	     	     	     	 
+ 	    	     
+\bibitem{arg1}
+   \textbf{Role of Web Services in SOA} \\
+  \textit{ 	 http://blog.krawler.com/2009/08/role-of-web-services-in-soa/}
+  \newline last used : 08.03.2015, 20:12 	   	     
+   	     	     	     	 
+   	     
+   	     \bibitem{arg2}
+   \textbf{Parts of SOA}, Picture \\
+  \textit{http://en.wikipedia.org/wiki/Service-oriented\_architecture -\textgreater Enterprise SOA. Prentice Hall, 2005}
+  \newline last used : 11.03.2015, 20:34 	
+     	     	     	 
+  \bibitem{arg3}
+   \textbf{What is SOA?}, onjava.com \\
+  \textit{http://www.onjava.com/2005/01/26/soa-intro.html}
+  \newline last used : 11.03.2015, 20:35
+ 	 
+ 	 
+ 	 \bibitem{soareg}
+   \textbf{SOA registry definition}, Margaret Rouse\\
+  \textit{http://searchsoa.techtarget.com/definition/SOA-registry}
+  \newline last used : 11.03.2015, 20:44 	 
+   	     	   
+   	 \bibitem{soaprov}
+   \textbf{SOA in Practice
+The Art of Distributed System Design},Nicolai M. Josuttis\\
+  \textit{http://www.soa-in-practice.com/soa-glossary.html\#provider}
+  \newline last used : 11.03.2015, 20:49 	 
+   	     	   
+ 	 
+ 	 
  	 
  	 
 \end{thebibliography}

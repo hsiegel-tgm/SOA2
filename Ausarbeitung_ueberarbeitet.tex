@@ -90,7 +90,7 @@ Vogt \textsc{Andreas}
 \newpage
 
 \section{Introduction}
-\subsection{Services}
+\subsection{Services} \label{sec:service}
 In order to understand \gls{soa}, an very important concept is a \textit{Service}. \\
 \\
 \textbf{What is a Service?}\\
@@ -123,7 +123,7 @@ SOA has it's underlying business functions provided as Services which can be use
 \begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/b1_25.jpg}
-	\caption{Logics that have contributed to SOA \cite[page 25]{book1}}
+	\caption{Logics that have contributed to SOA \cite[page 25]{grau}}
 	\label{fig:eaipartofso}
 	\end{figure}
 	\FloatBarrier
@@ -138,22 +138,23 @@ SOA has it's underlying business functions provided as Services which can be use
 \textbf{Platforms}\\
 "It is important to view and position \gls{soa} and service-orientation as being neutral to any one technology platform. By doing so, you have the freedom to continually pursue the strategic goals associated with service-orientation computing by leveragng on-going service technology advancements.",\cite[page 29]{grau} \\ A middleware, such as an \gls{esb} (section \ref{sec:esb}) is used in order to access the services.\\
 \\ \\
-\textbf{bal}\\
+\textbf{Success because of \gls{roi}}\\
 "One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
-
-
-	
+\\ \\
+\textbf{\gls{soa}'s actors and contributors}\\
+\gls{soa} has some important logic components. Next to the in section \ref{sec:service} described Service, which contains of a Service Contract, the implementation and the interface, a service repository and the service bus build the important components without whom \gls{soa} would not be the same. Figure \ref{fig:actorsSoa} provides an overview, which help to understand the basic concepts. The service repository is explained in section \ref{sec:servicerepo}.
 	\begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/arg2}
-	\caption{Overview of the components in SOA \cite{arg2}}
-	\label{fig:serviceorientedcomuting}
+	\caption{Overview of the actors in SOA \cite{arg2}}
+	\label{fig:actorsSoa}
 	\end{figure}
 	\FloatBarrier
 \subsection{REST}
 Rest stands for REpresentational State Transfer. It is a software architecture style consisting of guidelines and best practices 
 for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs(Uniform Resource Identifiers). 
-A perk of those verbs is that they are mostly self-explanatory. REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.)
+A perk of those verbs is that they are mostly self-explanatory. REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.)\\
+Code examples for WSDL can be found in section \ref{sec:wsdlexaple}, 
 \subsection{JSON}
 "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C sharp, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.",\cite{json}.
 
@@ -636,8 +637,8 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 </soap:Envelope>
 \end{lstlisting}
 
-subsection{WSDL Example}
-
+\subsection{WSDL Example}
+\label{sec:wsdlexaple}
 \begin{lstlisting}
 <message name="getTermRequest">
   <part name="term" type="xs:string"/>
@@ -787,6 +788,21 @@ http://serviceorientation.com/soaplanning/fourpillars
   \textit{http://www.itwissen.info/definition/lexikon/service-oriented-architecture-SOA-SOA-Architektur.html}
   \newline last used: 03.02.2015, 13:50
 
+%[7]
+   
+   	     \bibitem{arg2}
+   \textbf{Parts of SOA}, Picture \\
+  \textit{http://en.wikipedia.org/wiki/Service-oriented\_architecture -\textgreater Enterprise SOA. Prentice Hall, 2005}
+  \newline last used : 11.03.2015, 20:34 	
+
+
+
+%TODO pasteing
+
+
+
+
+%[8]
 \bibitem{te}
    \textbf{SOA - Entwurfsprinzipien fuer serviceorientierte Architektur}\\
    Thomas ERL\\
@@ -903,10 +919,7 @@ http://serviceorientation.com/soaplanning/fourpillars
   \newline last used : 05.10.2014, 20:25
 
 
-%TODO haeee das is aus dem EAI Referat
-    \bibitem{book1}
-   \textbf{SOA with Java}, Thomas Erl \\
- 	 ISBN: 0-13-385903-4
+
  	 
  	 
 \bibitem{loosecoupldef}
@@ -977,11 +990,7 @@ http://serviceorientation.com/soaplanning/fourpillars
   \textit{ 	 http://blog.krawler.com/2009/08/role-of-web-services-in-soa/}
   \newline last used : 08.03.2015, 20:12 	   	     
    	     	     	     	 
-   	     
-   	     \bibitem{arg2}
-   \textbf{Parts of SOA}, Picture \\
-  \textit{http://en.wikipedia.org/wiki/Service-oriented\_architecture -\textgreater Enterprise SOA. Prentice Hall, 2005}
-  \newline last used : 11.03.2015, 20:34 	
+   	  
      	     	     	 
   \bibitem{arg3}
    \textbf{What is SOA?}, onjava.com \\

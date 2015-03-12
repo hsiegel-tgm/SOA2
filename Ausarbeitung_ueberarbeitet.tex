@@ -76,9 +76,9 @@ Vogt \textsc{Andreas}
 
 \end{center}
 \end{titlepage}
-\small
-\tableofcontents
-\normalsize
+
+{\small\tableofcontents}
+
 
 %HEADER AND FOOTER
 \pagenumbering{arabic}
@@ -89,7 +89,7 @@ Vogt \textsc{Andreas}
 
 \newpage
 
-\section{Introduction}
+\section{General Overview}
 \subsection{Services} \label{sec:service}
 In order to understand \gls{soa}, an very important concept is a \textit{Service}. \\
 \\
@@ -140,8 +140,7 @@ SOA has it's underlying business functions provided as Services which can be use
 \\ \\
 \textbf{Success because of \gls{roi}}\\
 "One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
-\\ \\
-\textbf{\gls{soa}'s actors and contributors}\\
+\\ \\\textbf{\gls{soa}'s actors and contributors}\\
 \gls{soa} has some important logic components. Next to the in section \ref{sec:service} described Service, which contains of a Service Contract, the implementation and the interface, a service repository and the service bus build the important components without whom \gls{soa} would not be the same. Figure \ref{fig:actorsSoa} provides an overview, which help to understand the basic concepts. The service repository is explained in section \ref{sec:servicerepo}.
 	\begin{figure}[here!]
 	\centering
@@ -150,6 +149,7 @@ SOA has it's underlying business functions provided as Services which can be use
 	\label{fig:actorsSoa}
 	\end{figure}
 	\FloatBarrier
+	\newpage
 \subsection{REST}
 Rest stands for REpresentational State Transfer. It is a software architecture style consisting of guidelines and best practices 
 for creating scalable web services.The main idea behind REST is that you are working with the HTTP protocol. Rest is basicly using HTTP verbs, GET, POST, PUT, DELETE and HEAD, in order to act on resources,represented by individual URIs(Uniform Resource Identifiers). 
@@ -172,16 +172,20 @@ Code example for SOAP can be found in section \ref{sec:soapexaple}
 %But with an higher demand on PCs, the demand for infrastructure rose as well. The need for computer specialist was higher than ever and every company had to invest a lot into their, mostly newly founded,  IT department. \\ \\
 %Because of an lack of know-how and systems that had the characteristics to change a lot, the implementation of all the services became a big challenge. Enterprises used a variety of customised applications, at least one for every type of service. \\ \\
 %\textbf{ODER:}
-"Historically, many IT projects focused solely on building applications designed specifically to automate business process requirements that were current at theat time. This fulfilles immediate (tactical) needs, bit as mpre pf these single-purpose applications were delivered, it resulted in an IT enterprise filled with islands of logic and data reffered to as application \textit{silos}. As new business requirements would emerge, either new silos were created or integration channels between silos were established. As yet more business change arose, integration channels had to be augumented, even more silos had to be created, and soon the IT enterprise landscape became convoluted ad increasingly burdensome, expensive, and slow to evolve."\cite[page 522]{grau} 
-
-\subsection{Problems}
-Out of these systems, there are many problems that have eventually emerged. \\
-First of all, systems like that are not really agile. Because changes and new technologies were inevitable, time consuming integrations had to be done. If these have simply not been, legacy systems emerged. These were often not remotely changeable. \\
-Also, new challenges such as cloud computing and a more common globalization of Processes made it harder to stick to the old systems. \\
-Because Applications were always providing some kind of service, but hardly seen like a service, they were not as easy reconfigurable and changeable. All the Applications need to communicate with each other and transmit data,so often a start topology was used. It then changed more and more into a Middle-ware, which had the benefit of only docking the Application to the Middle-ware once. Nowadays, mostly a bus system gets used, as described in section \ref{sec:esb}. \\
+"Historically, many IT projects focused solely on building applications designed specifically to automate business process requirements that were current at that time. This fulfilles immediate (tactical) needs, bit as more of these single-purpose applications were delivered, it resulted in an IT enterprise filled with islands of logic and data referred to as application \textit{silos}. As new business requirements would emerge, either new silos were created or integration channels between silos were established. As yet more business change arose, integration channels had to be augmented, even more silos had to be created, and soon the IT enterprise landscape became convoluted ad increasingly burdensome, expensive, and slow to evolve."\cite[page 522]{grau} 
+\subsection{Problems when not using \gls{soa}}
+Out of these systems, there are many problems that have eventually emerged:
+\\ \\\textbf{Resistant to change}\\
+First of all, systems like these are not really agile. Because changes and new technologies were inevitable, time consuming integrations had to be done. If these integrations were not done, legacy systems emerged. These were often not remotely changeable. \\
+Also, new challenges such as cloud computing and a more common globalization of processes made it harder to stick to the old systems in the last view years. \\
+Because applications were always providing some kind of service or functionality, but hardly seen like a service, they were not as easy reconfigurable and changeable. \\
+\\ \\\textbf{Communication and Data transmission}\\
+All the applications need to communicate with each other and transmit data, so often a start topology was used. It then changed more and more into a Middle-ware with the upcoming of \gls{eai}, which had the benefit of only docking the Application to the Middle-ware once. Nowadays, mostly a bus system gets used (section \ref{sec:esb}). \\
+\\ \\\textbf{Vendor dependency}\\
 Due to compatibility concerns, IT-Infrastructure were often Vendor dependent. Therefore we often talk about an SAP-System, because mostly all the components have been bought from SAP, which decreases the agility and may increase the costs.\\
-Furthermore, before \gls{soa}, Applications were not divided into processes, and therefore \gls{bpm} was made difficult to realize for both the management and the IT-department. \\
-All these restriction lead to increased overall costs and an reduced \gls{roi}.
+\\ \\\textbf{No support to \gls{bpm}}\\
+Furthermore, before \gls{soa}, Applications were not divided into processes, and therefore \gls{bpm} was made difficult to realize for both the management and the IT-department. \\ \\
+All these restrictions lead to increased overall costs and an reduced \gls{roi}.
 \section{SOA as an solution} 
 "In many ways, service-orientation emerged in response to these problems. It is a paradigm that provides an alternative to project-specific, silo-based, and integrated application development by adamantly prioritizing the attainment of long-term, strategic business goals.",\cite[page 522]{grau} \\
 The target state of service-orientation is to not have these traditional problems any more. In some cases, due to legacy systems or other problems this is not possible, but still \gls{soa} tries to realize it to whatever extend possible.
@@ -196,69 +200,74 @@ Service-orientation emerged as a formal method in support of achieving the follo
 \item Increased Organizational Agility
 \item Reduced IT Burden
 \end{itemize} \cite[page 23]{grau}\\
-These strategic goals the are put into more low-level design principles. These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
-It is one step above \gls{eai} already and it combines important aspects of \gls{bpm}, \gls{oop} and \gls{aop} in it. 
+As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,  business and technology alignment, federation and vendor diversification options automatically lead to a increase of the \gls{roi}, the organizational agility and to an reduced IT burden.
 \begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/page24}
 	\caption{Goals of SOA\cite{photos}}
-	\label{fig:eaipartofso}
+	\label{fig:goalssoa}
 	\end{figure}
 \FloatBarrier
+ \noindent
+These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
+These strategic goals the are put into more low-level design principles.
 \subsection{Design Principles}
 \label{sec:dp}
 Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used.\\\\
-These principles also emerged from the theory in software engineering, Separation of Concerns, which means that a problem can be solved easier if divided into smaller parts. This enables to separate a problem into smaller units, and they can then be reused, composed and managed more flexible.  \cite[page 86]{te}\\
+These principles emerged from the theory in software engineering, Separation of Concerns, which means that a problem can be solved easier if divided into smaller parts. This enables to separate a problem into smaller units, and they can then be reused, composed and managed more flexible.  \cite[page 86]{te}\\ Furthermore, they emerged out of all the principles and design considerations that have formed \gls{soa} itself.
 \\
-These paradigms are often already used in \gls{oop}, and they often emerge out of another. For example, if a system is loosly coupled, it automatically comes with more flexibility which therefore helps the service autonomity. \\
+These paradigms are often already used in \gls{oop}, and they often cohere. For example, if a system is loosly coupled, it automatically comes with more flexibility which therefore helps the service autonomity. \\
 Also, it is not always possible to perfectly achieve all the requirements, so when implementing \gls{soa}, these design principles should be used at the \textit{most possible extend}, but we still speak of \gls{soa} even if not all the rules apply to 100\%. \\ \\
 The design paradigm consists of the following points:
 \begin{enumerate}
 \item Standardized Service contracts
 \item Loosly coupled systems
 \item Abstraction of Services
-\item Reusability
-\item Autonomity
-\item Statelessness
-\item Discoverability
-\item Composability
-\end{enumerate}\cite[page 25]{grau}
+\item Service Reusability
+\item Service Autonomity
+\item Service Statelessness
+\item Service Discoverability
+\item Service Composability
+\end{enumerate}\cite[page 25]{grau}\\
+The following discussed principles can be found on searchsoa.com(\cite{photos}) as well, where they are discussed more in detail.
 \subsubsection{Standardized Service contracts}
 \label{sec:StandardizedServicecontracts}
 "A service contract expresses the technical interface of a service. ", \cite[page 33]{grau}. This means that there are interfaces which do contain the metadata to an service, as well as describing their functionality, their Datatypes and rules of actions. \cite[page 86]{te} \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
 The two approaches nowadays are either Top-Down (designing the service contracts at first and then implementing them) or Bottom-up(Building the contracts out of already existing services). \cite[page 151,152]{grau}
-\\ \\
-\textit{REST}\\
-"For REST services, capturing and communicating various aspects of resources can be necessary, such as the set of resources, relationships between resources, HTTP verbs allowed on resources and supported resource representation formats. Standards such as WADL(Web Application Description Language), can be used to satisfy the mandatory requirements. [..] Even the self-describing contract of HTTP verbs for a REST service establishes a standard-based service contract.", \cite[page 151]{grau}
-\\ \\
-\textit{SLAs} \\
-Furthermore, A service contract will often be concluded in Human Readable documents. These are called Service Level Agreements (SLAs) and they often contain information like quality requirements or overall business information. %TODO grauslich.
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.49\textwidth]{images/soajuhu}
+	\caption{Components of a Service contract \cite{photos}}
+	\label{fig:goalssoa}
+	\end{figure}
+\FloatBarrier
+ \noindent\textit{Service Level Agreements} \\
+Furthermore, A service contract will often be concluded in Human Readable documents. These are called Service Level Agreements (SLAs) and they often contain information like quality requirements or overall business information. 
 \\ \\
 \textit{Service Contract Generation Possibilities within Java} \\
 "JAX-WS defines the wsimport tool, which takes an existing WSDL definintion as input to generate Java skeletons [..] Similarly, the wsgen tool generates WSDL from existing Java code.",\cite[page 151]{grau}
-\\
+\newpage \noindent\textit{REST}\\
+"For REST services, capturing and communicating various aspects of resources can be necessary, such as the set of resources, relationships between resources, HTTP verbs allowed on resources and supported resource representation formats. Standards such as WADL(Web Application Description Language), can be used to satisfy the mandatory requirements. [..] Even the self-describing contract of HTTP verbs for a REST service establishes a standard-based service contract.", \cite[page 151]{grau}
 \subsubsection{Loosly coupled systems}
 Coupling describes the relationship between two and more things. Loose coupling, a well known design principle,  tries to minimalize the relationships between a service and other components. \cite[page 87]{te} \\
 "Loose coupling is an approach to interconnecting the components in a system or network so that those components, also called elements, depend on each other to the least extent practicable. Coupling refers to the degree of direct knowledge that one element has of another", \cite{loosecoupldef}.
 \subsubsection{Service Abstraction}
-"Service-orientation continues the evolution of higher-level abstraction use to make creating and changing solutions easier."\cite[page 184]{grau}\\
-"The appropriate level of abstraction at which services are described achieves additional agility and alignment between business and IT areas of an enterprise. Abstracting information means taking technical details out of a problem to be solved on a higher level"\cite[page 184]{grau}\\
-Put into easier words, abstraction means hiding internal details or workflows of a Service in order to gain more flexible and loosely coupled systems. \cite[page 87]{te}
-\\
-For example, abstraction would be an abstraction into an API.\\
+Abstraction, as a well known design principle in object orientation, means that internal details or workflows of a Logic Block should be hidden, in order to gain more flexible and loosely coupled systems. \cite[page 87]{te} For example, abstraction would be an abstraction into an API.\\
+"The appropriate level of abstraction at which services are described achieves additional agility and alignment between business and IT areas of an enterprise. Abstracting information means taking technical details out of a problem to be solved on a higher level"\cite[page 184]{grau}\\\\
+"Service-orientation continues the evolution of higher-level abstraction use to make creating and changing solutions easier."\cite[page 184]{grau}
 \subsubsection{Service Reusability}
-Reusability, as one very important design principle within the whole software engineering world, has the possibility to become even more powerful when using \gls{soa}, due to the other design principles applied and the possibility to regain information about which service or functionality is already available in the design pahse more easily (see section \ref{sec:disc}). \cite[page 87-88]{te}\\
-\\
-The following are common design characteristics associated with reusable services:
-\begin{itemize}
-\item The service is defined by an agnositc functional context \\
-	This means that an agnostic functional context is not specific to any one purpose and is therefore considered muli-purpose. It means, that it is idependent of the particular business process or the area of application.
-\item The service logic is highly generic %TODO ???
-\item The service can be used concurrently
-\end{itemize}
+Reusability, as one very important design principle within the whole software engineering world, has the possibility to become even more powerful when using \gls{soa}, due to the other design principles applied. \\  Because services are already designed to be reusable, not dependent and stateless, they can be combined really easy. This is again achieving a extend of reusability that has never been possible before. Also, the possibility to regain information about which service or functionality is already available in the design phase more easily (see section \ref{sec:disc}) trough the service inventory helps with the composability of a service. \cite[page 87-88]{te}
+%The following are common design characteristics associated with reusable services:
+%\begin{itemize}
+%\item The service is defined by an agnositc functional context \\
+%	This means that an agnostic functional context is not specific to any one purpose and is therefore considered %muli-purpose. It means, that it is idependent of the particular business process or the area of application.
+%\item The service logic is highly generic %TODO ???
+%\item The service can be used concurrently
+%\end{itemize}
+\newpage
 \subsubsection{Service Autonomy}
-"Service-orientation revolves around building flexible systems. Flexibility is, to a large degree, archieved through making services decoupled and autonomous to enable them to be composed, aggregated and changed without affecting other parts of the system. For a service to be autonomous, the service must be as independent from other services with which it interacts, both functionally and from a runtime environment perspective. Java and Java EE provide a highly efficient runtime environment that supports service composition. For example, a Java EE application server support concurrent access to its hosted components, making each access to such a component autonomous from the others.", \cite[page 194]{grau}\\\\
-Also, a service's level of autonomy depends on how much control a service has over it's ressources, and it promotes the availability and the reliability of a service as well. \cite[page 88]{te}
+"Service-orientation revolves around building flexible systems. Flexibility is, to a large degree, archived through making services decoupled and autonomous to enable them to be composed, aggregated and changed without affecting other parts of the system. For a service to be autonomous, the service must be as independent from other services with which it interacts, both functionally and from a runtime environment perspective. Java and Java EE provide a highly efficient runtime environment that supports service composition. For example, a Java EE application server support concurrent access to its hosted components, making each access to such a component autonomous from the others.", \cite[page 194]{grau}\\\\
+Also, a service's level of autonomy depends on how much control a service has over it's resources, and it promotes the availability and the reliability of a service as well. \cite[page 88]{te}
 \subsubsection{Service Statelessness}
 If too many states of a service must be managed, scalability and reliability will suffer. Therefore, a service should be designed in a way that it does not need to keep any state as far as possible. \cite[page 88]{te}\\
 This means that: "each invocation of a service operation is completely independent from any other invocation, whether by the same consumer or any other service consumer. The service Statelessness principle offers various benefits centered around improved scalability by which additional stateless service instances can be easily provisioned on available environments.", \cite[page 197]{grau}\\
@@ -266,20 +275,30 @@ This means that: "each invocation of a service operation is completely independe
 "Many real-life business scenarios can be expressed as business processes that include automated steps, which can require manual intervention. Designing and implementing such a process requires some state to be maintained for the duration of the process. Executing an instance of the process definition forms the notation of a session or transaction across multiple service invocations. Therefore, a service implementing the execution of a business process cannot be stateless and may need to even maintain context information over extended periods",\cite[page 197]{grau}
 \subsubsection{Service Discoverability}
 \label{sec:disc}
-"The two primary aspects of the Service Discoverability principle are discovery at design-time (which promotes service reuse in a newly developed solution), and discovery at runtime (which involves resolving the appropriate endpoint address for a given service or retrieving other metadata).", \cite[page 204]{grau}\\These two enable a dynamic reuseability of a service, increasing therefore the \gls{roi}. This design principle is often implemented using a service registry. \cite[page 89]{te} \\\\
+"The two primary aspects of the Service Discoverability principle are discovery at design-time (which promotes service reuse in a newly developed solution), and discovery at runtime (which involves resolving the appropriate endpoint address for a given service or retrieving other metadata).", \cite[page 204]{grau}\\These two enable a dynamic reuseability of a service, increasing therefore the \gls{roi}. This design principle is often implemented using a service registry. \cite[page 89]{te} \newpage
 \textit{Design-Time Discoverability}\\
-"At design-time, it is importantant for project teams to be able to effective identify the existence of services that contain logic relevant to the solution they plan to build. This way they can either discover services that they can reuse or confirm that new service logic they plan to build does not already exist. For example, a service is designed to address an Order Management business process for which customer information is required. The service designer mist investigate whether a \texttt{Customer} data type already exists and if so deterine whether it meats the requirements for the Order Management Process service." \cite[page 204-205]{grau}\\\\
+"At design-time, it is important for project teams to be able to effective identify the existence of services that contain logic relevant to the solution they plan to build. This way they can either discover services that they can reuse or confirm that new service logic they plan to build does not already exist. For example, a service is designed to address an Order Management business process for which customer information is required. The service designer mist investigate whether a \texttt{Customer} data type already exists and if so deterine whether it meats the requirements for the Order Management Process service." \cite[page 204-205]{grau}\\\\
 \textit{Run-Time Discoverability}\\
-"Runtime service discovery refers to the ability of software to programmatically search for services using APIs exposed by the service registry. Doing so allows for the retrieval of the physical location or address of services on the network. Because services may need to be moved from one machine to another or perhaps redundantly deployed on multiple machines, it may be advisable for service addresses not to be hardcoded onto the service consumer logic. [..] In addition to the lookup of a service endpoint address, other artifacts ca be used by service consumers at runtime to identify an appropriate service and build the applicable request message. The JAX-WS Dispatch API allows a service request to be completely built at runtime."\cite[page 205-207]{grau}
+"Runtime service discovery refers to the ability of software to programmatically search for services using APIs exposed by the service registry. Doing so allows for the retrieval of the physical location or address of services on the network. Because services may need to be moved from one machine to another or perhaps redundantly deployed on multiple machines, it may be advisable for service addresses not to be hardcoded onto the service consumer logic. [..] In addition to the lookup of a service endpoint address, other artifacts can be used by service consumers at runtime to identify an appropriate service and build the applicable request message. The JAX-WS Dispatch API allows a service request to be completely built at runtime."\cite[page 205-207]{grau}
 \subsubsection{Service Composability} 
 "The composability of a service is an implicit byproduct of the extend to which the other service-orientation design principles have been successfully applied. [..] For example, a service contract that is standardized allows interaction and composition between services implemented in different languages using different runtime environements."\cite[page 189]{grau}\\
 Services must be able to be part of any composition, regardless if they were meant to take part at a certain one at the time they were build. \cite[page 89]{te}
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.49\textwidth]{images/serivceorientationdotcom}
+	\caption{Composing of services \cite{photos}}
+	\label{fig:goalssoa}
+	\end{figure}
+\FloatBarrier
+ \noindent
+\newpage
 \subsection{Interoperability}
 When doing research on \gls{soa}, the principle of interoperability is often named, but it is not part of the official design principles named in section \ref{sec:dp}. This is because interoperability, which means the principle of services working together in order to achieve a bigger functionality, is already secured by the other design principles. It these principles were applied at a meaningful extends, interoperability is automatically provided, and it is fundamental to the success of \gls{soa}.\\
 For example, service contracts are standardized so through it's coordination of datamodels interoperability is assured. If the level of coupling is reduced, interoperability is increased, because a call of a service depends on less dependencies. Also, reusability helps a lot in order to achieve interoperability. \cite[page 89-90]{te}
 \subsection{SOA Manifesto}
 The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widely known. Of the Value-Groups, both values are important and should be archived, but the left one is always more important. \\ \\
-\textbf{The wording of the SOA Manifesto:}\\ \\
+\textbf{The wording of the SOA Manifesto:}\\ \\ 
 "We have been applying service orientation to help organizations 
 consistently deliver sustainable business value, with increased agility
 and cost effectiveness, in line with changing business needs. \\ \\
@@ -291,19 +310,19 @@ Through our work we have come to prioritize: \\
 \item Shared services over specific-purpose implementations 
 \item Flexibility over optimization
 \item Evolutionary refinement over pursuit of initial perfection
-\end{itemize}" \cite{soamaifesto} 
+\end{itemize}" \cite{soamaifesto} \newpage
 \subsection{SOA Lifecycle}
 "As is true of service-oriented architecture (SOA) itself, the SOA lifecycle is a wide-ranging topic and even experts differ in their definition of it and the areas they believe need to be emphasized.",\cite{soalycman}.\\\\
 What differentiates the SOA lifecycle from the traditional application lifecycle, is the need for governance to maintain order with loosely coupled services.\cite{soalycman}
 \\
 The SOA lifecycle stretches all the way from understanding context, including enterprise architecture and business architecture, through service analysis and modeling. And that modeling isn't just about functional issues, it's also about non-functional issues such as security, performance, auditing and so on. Then there is development, testing, provisioning, monitoring and change management. \cite{soalycman}\\
-The challenge with the SOA lifecycle is that there are essentially two different lifecycles going on, that overlap. On the one hand there is still the traditional software lifecycle where services are interfaces to running software. But then you also have the service lifecycle and that takes place at the metadata level.\\
+The challenge with the SOA lifecycle is that there are essentially two different lifecycles going on, that overlap. On the one hand there is still the traditional software lifecycle where services are interfaces to running software. But then you also have the service lifecycle (figure \ref{fig:Servicelifecycle}) and that takes place at the metadata level.\\
 As services are updated, composed or reconfigured in the software level, the real goal is to do all the changing at the metadata level."\cite{soalycman}\\
 \\
-With SOA, you're talking about two different types of applications you're building. The first one you're building is the service that is a completely self-contained unit that does a specific thing such as 'return value of bank account.' So there's one lifecycle (figure \ref{fig:Servicelifecycle}) for that service and another lifecycle that applies to compositing that and other services into a final application. \cite{soalycman} \\
-\\
+%With SOA, you're talking about two different types of applications you're building. The first one you're building is the service that is a completely self-contained unit that does a specific thing such as 'return value of bank account.' So there's one lifecycle (figure \ref{fig:Servicelifecycle}) for that service and another lifecycle that applies to compositing that and other services into a final application. \cite{soalycman} \\
+%\\
 Eight steps for building an SOA with services were defined by \cite{soalycman}:
-\begin{itemize}
+\begin{enumerate}
 \item Data collection including gathering of business requirements and use cases
 \item Design including determining service requirements, setting service policies, establishing compliance tasks, \item building and testing models, and constructing data integration
 \item Development including developing the service and composing the application from the services
@@ -312,15 +331,7 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 \item Monitoring/management
 \item Change
 \item Retirement
-\end{itemize}
-\begin{figure}[here!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{images/scly.png}
-	\caption{Service lifecycle \cite{slcmoracle}}
-	\label{fig:Servicelifecycle}
-	\end{figure}
-	\FloatBarrier
-	
+\end{enumerate}
 	
 \begin{figure}[here!]
 \centering
@@ -328,7 +339,7 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 \centering
     \includegraphics[width=1.0\textwidth]{images/sdlc}
     \caption{Normal Software Development cycle \cite{TODO}}
-    \label{fig:eai0}
+    \label{fig:asdas}
 \end{minipage}
 \begin{minipage}[h]{0.14\textwidth}
 \vfill
@@ -341,18 +352,19 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 \end{minipage}
 \end{figure}
 \FloatBarrier	
-	
+	%TODO eine section???
 \subsection{BPM}
-"Business Process Management is a systematic approach to making an organisation's workflow more effective, more efficiant and more capable of adapting to an ever-changing environment. A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}. \\
+BPM stands for Business Process Management and this is a systematic approach to make an organisation's workflow more effective, more efficiant and more capable of adapting to an ever-changing environment. \\
+"A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}. \\
 The Business Process level is very important to every service-oriented architecture, as it is seen as the higher-level controlling instance. Service composition and Orchestration are helping to ensure a business process remodelling is made easy and failure-tolerant at any time. \cite[page 114]{te}
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/bpm.png}
+	\includegraphics[width=0.5\textwidth]{images/bpm.png}
 	\caption{Business Management lifecycle \cite{muede2}}
 	\label{fig:anfang}
 	\end{figure}
-	\FloatBarrier
-\subsubsection{Challenges of BPM \cite{bpmchall}}
+	\FloatBarrier \noindent
+\textbf{Challenges of BPM \cite{bpmchall}}
 \begin{itemize}
 \item Lack of Business Case
 \item Too Slow to React to the Business Change
@@ -361,28 +373,37 @@ The Business Process level is very important to every service-oriented architect
 \item Not Investing in Staff
 \item Poorly Defined Measures of Success 
 \end{itemize}
-\subsubsection{BPML} %TODO
-"Business Process Modeling Language (BPML) is an Extensible Markup Language (XML)-based metalanguage developed by the Business Process Management Initiative (BPMI) as a means of modeling business processes, much as XML is, itself, a metalanguage with the ability to model enterprise data. BPML 0.4 is BPMI's first release, and includes specifications for transactions and compensating transactions, dataflow, messages and scheduled events, business rules, security roles, and exceptions. BPMI has identified three crucial aspects of BPML capability: because it will be used for mission critical applications, it must support both synchronous and asynchronous distributed transactions; because it will model business processes deployed over the Internet, it must offer reliable security mechanisms; and because it will be used throughout integrated development environments, it must encompass project management capabilities.\\ An associated query language, Business Process Query Language (BPQL) has been developed by Initiative members as a standard management interface that can be used to deploy and execute defined business processes. According to BPMI, BPML and BPQL will be used to establish a standardized means of managing e-business processes through Business Process Management Systems, similarly to the way that SQL established a standardized means of managing business data through packaged database management systems (DBMSs). Both BPML and BPQL are open specifications.", \cite{bpmldefmr}
-\subsubsection{BPEL}
+\textbf{BPML and BPQL} \\
+"Business Process Modeling Language (BPML) is an Extensible Markup Language (XML)-based metalanguage developed by the Business Process Management Initiative (BPMI) as a means of modeling business processes. [..] BPML 0.4 includes specifications for transactions and compensating transactions, dataflow, messages and scheduled events, business rules, security roles, and exceptions. \\ An associated query language, Business Process Query Language (BPQL) has been developed as a standard management interface that can be used to deploy and execute defined business processes. According to BPMI, BPML and BPQL will be used to establish a standardized means of managing e-business processes through Business Process Management Systems, similarly to the way that SQL established a standardized means of managing business data through packaged database management systems.", \cite{bpmldefmr}
+\subsubsection{Orchestration using BPEL}
 \label{sec:bpel}
 "BPEL (Business Process Execution Language) is an XML-based language that allows Web services in a service-oriented architecture to interconnect and share data.",\cite{bpelsearchsoa}. When using Webserivces, it also is often called WSBPEL. "Programmers use BPEL to define how a business process that involves web services will be executed. BPEL messages are typically used to invoke remote services, orchestrate process execution and manage events and exceptions.\\
 BPEL is often associated with Business Process Management Notation (BPMN), a standard for representing business processes graphically. In many organizations, analysts use BPMN to visualize business processes and developers transform the visualizations to BPEL for execution.\\
 BPEL was standardized by OASIS in 2004 after collaborative efforts to create the language by Microsoft, IBM and other companies.",\cite{bpelsearchsoa}.\\
 \\
-\textbf{Orchestration}\\
-Orchestration means, that a new Service can be build out of other Services. 
-These other services can be of any kind (also external) and the communication between them is usually koordinated out from an central controlling instance. Orchestration is usually done using (WS-)BPEL as described closer in section \ref{sec:bpel}. This layer is also a reason why \gls{soa} is so flexible and why the systems must be loosely coupled. \cite[page 29]{soagoesreal}\\ \\
-It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easliy combined to a greater one. \cite[page 18]{soagoesreal} \\ \\
-\\
+\textbf{Service Inventory}\\
+When a service was build, it is put into the Service Inventory, from where it can be fetched later on.
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/page19}
-	\caption{BPEL as orchestration layer \cite[page 19]{soagoesreal}}
-	\label{fig:bpel}
+	\includegraphics[width=0.4\textwidth]{images/picservi0}
+	\caption{Service inventory\cite{picservi}}
+	\label{fig:Serviceinventory}
 	\end{figure}
-	\FloatBarrier
+	\FloatBarrier \noindent
+\textbf{Orchestration}\\
+Orchestration means, that a new Service can be build out of other Services which are in the service inventory, as it can be seen in figure \ref{fig:Serviceinventory}. \\
+These other services can be of any kind (also external) and the communication between them is usually coordinated out from an central controlling instance. Orchestration is usually done using (WS-)BPEL. This layer is also a reason why \gls{soa} is so flexible and why the systems must be loosely coupled. \cite[page 29]{soagoesreal}\\ \\
+It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easliy combined to a greater one. \cite[page 18]{soagoesreal} \\ \\
+\\
+%\begin{figure}[here!]
+%	\centering
+%	\includegraphics[width=0.6\textwidth]{images/page19}
+%	\caption{BPEL as orchestration layer \cite[page 19]{soagoesreal}}
+%	\label{fig:bpel}
+%	\end{figure}
+%	\FloatBarrier
 \subsection{SOA Model}
-The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequenz of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.\\
+The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequence of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. These layers can be seen in figure \ref{fig:soamodelarch}.\\
 \\\textbf{SOA models}
 There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
 \subsubsection{The SOA Triangle}
@@ -426,38 +447,37 @@ The UDDI standard is used for locating a service in the registry.
 \section{Implementation}
 \subsection{ESB}
 \label{sec:esb}
-
-\subsubsection{Implementation Topologies}
-\textbf{Peer-to-peer}\\
+\textbf{Implementation Topologies} \\ \\
+\textit{Peer-to-peer - topology}\\
 The peer-to-peer (Figure \ref{fig:eai0}) implementation is not very useful. It is quite outdated and it is not really usable for modern systems.
 There is practically no way to achieve any scalability and it gets complicated very soon. \\\\
-\textbf{Hub \& Spoke}\\
+\textit{Hub \& Spoke  - topology}\\
 Messages get directed to an centralized unit, where they can be processed. (Figure \ref{fig:eai1}) This centralized unit can be a bottleneck though. \\\\
-\textbf{Bus}\\
+\textit{Bus - topology}\\
 Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2}) The processing distribution in this case is very good. The bus-topology is therefore the most recommended one, because there is no bottleneck when comparing it to a Hub.
 \begin{figure}[here!]
 \centering
 \begin{minipage}[h]{0.3\textwidth}
 \centering
     \includegraphics[width=1.0\textwidth]{images/eai0.png}
-    \caption{Star-topology \cite{thorstenhorn}}
+    \caption{Star \cite{thorstenhorn}}
     \label{fig:eai0}
 \end{minipage}
 \begin{minipage}[h]{0.3\textwidth}
 \centering
     \includegraphics[width=1.0\textwidth]{images/eai1.png}
-    \caption{Hub-topology \cite{thorstenhorn}}
+    \caption{Hub \cite{thorstenhorn}}
     \label{fig:eai1}
 \end{minipage}
 \begin{minipage}[h]{0.3\textwidth}
 \centering
     \includegraphics[width=1.0\textwidth]{images/eai2.png}
-    \caption{Bus-topology \cite{thorstenhorn}}
+    \caption{Bus \cite{thorstenhorn}}
     \label{fig:eai2}
 \end{minipage}
 \end{figure}
-\FloatBarrier
-\subsubsection{Enterprise Service Bus and SOA}
+\FloatBarrier \newpage \noindent
+\textbf{Enterprise Service Bus} \\
 "An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures. [..] . In a general sense, an ESB can be thought of as a mechanism that manages access to applications and services (especially legacy versions) to present a single, simple, and consistent interface to end-users via Web- or forms-based client-side front ends.", \cite{esbdef}\\
 Its main task are to:
 \begin{itemize}
@@ -468,8 +488,8 @@ Its main task are to:
 \item Re-route, log, and enrich information without requiring applications to be rewritten.
 \item Manages descriptions and definitions of messages and their formats through metadata
 \item Creates an extensible architecture based on pluggable components
-\end{itemize} \cite{esbdef,esbimplpatt}
-
+\end{itemize} \cite{esbdef,esbimplpatt} \\
+An ESB has is also not a concrete implementation. Mostly, big companies (e.g. IBM, SAP, TIBCO, Orcale ,..) offer ESB implementations, but there are also open source ones, such as openESB for example.
 \begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/page137sgr}
@@ -477,31 +497,60 @@ Its main task are to:
     \label{fig:context}
 	\end{figure}
 	\FloatBarrier
+\newpage\noindent
+\textbf{Routing and Transformation} \\
+An \gls{esb} also offers content (figure \ref{fig:content}) % and context (figure \ref{fig:context}) 
+based  routing and message transformation (figure \ref{fig:Datafromtrans}).\\\\
+First of all, content based routing is routing the message based on its content and not on a destination. By looking into the message and deciding which service might be interested in the message, a high degree of flexibility and scalability is achieved.\\ %With the context based routing, the message is simply transferred the normal way.
+\\The esb can also do an data format transformation, with might output the data just the way a service wants to have it.
 
-\begin{figure}[here!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/context}
-	  \caption{Context based routing within an \gls{esb} \cite[page 394]{grau}}
-    \label{fig:context}
-	\end{figure}
-	\FloatBarrier
+%\begin{figure}[here!]
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{images/context}
+%	  \caption{Context based routing within an \gls{esb} \cite[page 394]{grau}\\This means, the routing is done over load}
+%    \label{fig:context}
+%	\end{figure}
+%	\FloatBarrier
 	
 	
+	
 \begin{figure}[here!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/content}
+\centering
+\begin{minipage}[h]{0.46\textwidth}
+\centering
+  \includegraphics[width=1.0\textwidth]{images/content}
 	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
     \label{fig:content}
-	\end{figure}
-	\FloatBarrier
-
-
-\begin{figure}[here!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/page395}
+\end{minipage}
+\begin{minipage}[h]{0.05\textwidth}
+\vfill
+\end{minipage}
+\begin{minipage}[h]{0.46\textwidth}
+\centering
+\includegraphics[width=1.0\textwidth]{images/page395}
 	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
-	\label{fig:Datafromtrans}
-	\end{figure}
+\label{fig:Datafromtrans}
+\end{minipage}
+\end{figure}	
+	
+	
+	
+	
+%\begin{figure}[here!]
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{images/content}
+%	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
+%    \label{fig:content}
+%	\end{figure}
+%	\FloatBarrier
+
+
+%\begin{figure}[here!]
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{images/page395}
+%	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
+%	\label{fig:Datafromtrans}
+%	\end{figure}
 	\FloatBarrier
 \subsubsection{OpenESB}
 "OpenESB is a Java based open source enterprise service bus. It can be used as a platform for both Enterprise Application Integration and Service Oriented Application. OpenESB allows you to integrate legacy systems external and internal partners and new developments in your Business Process.  OpenESB is the unique open source ESB relying on standards that provides you with Simplicity, Efficiency, Long term durability, save on your present and future investments with a very low TCO (Total Cost of Ownership).", \cite{Aboutopenesb}
@@ -661,69 +710,8 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 \end{lstlisting}
 "In this example the <portType> element defines glossaryTerms as the name of a port, and getTerm as the name of an operation.The getTerm operation has an input message called getTermRequest and an output message called getTermResponse.The <message> elements define the parts of each message and the associated data types.Compared to traditional programming, glossaryTerms is a function library, getTerm is a function with getTermRequest as the input parameter, and getTermResponse as the return parameter."\cite{wsdl}
 
-
-\section{Comparison}
-\subsection{Pro and Contra of SOA}
-Even trough \gls{soa} provides a very flexible and cost efficient environement, but it might not always be the yellow from the egg.
-
-
-
-Service-oriented Architecture vs. Web Services
-
-Too often discussions about service-oriented architectures inadvertently progress into a best practices discussion on web services development. This article will use many of the existing limitations of web service development to explain the costs associated with delivering service-oriented architectures. Web services are by no means the only technological mechanism for delivering an enterprise SOA. There are code libraries, shared components, and EAI solutions. With that said, web services are the most popular approach and are seen used much more often due to their implicitly interoperable transport mechanisms.
-
-Other Reuse Strategies
-
-It is worth taking a moment to walk the SOA timeline. At the root of SOA is code reuse and there have been a number of mechanisms used over the past 30 years for reusing code. It all began with cumbersome error-prone cut and paste techniques. This eventually progressed into code libraries and code includes. These techniques were foundational for many different development platforms until the introduction of object orientation.
-
-Object orientation soon progressed into an underlying design concept and the packaging and deployment mechanism that followed was dubbed component oriented. These components were used to package and deploy reusable code. However, that still required multiple versions of the code and the next step was to use proprietary channels for remotely invoking those components from a single location.
-
-What seems to be the final obstacle in the evolution of code reuse emerges. We now have a standards-based approach for remote invocation of reusable code. This, above all other reasons, is why web services over HTTP are the most common technologies found enabling service orientation in today’s enterprises.
-\\ \\
-\textbf{The Good}\\
-"Service orientation via web services can often be the best approach for enabling core business processes. The most important aspect to finding the SO sweet spot is determining what can be reused. Services are often considered application building blocks. With that comes a great responsibility for the application visionaries. [..] 
-If these services are envisioned and designed with the enterprise in mind, and not the specific application being envisioned, there is a good chance that a reusable service will be delivered. [..] You have to involve the right resources for auditing those services which are thought to be reusable. [..]
-Loosely-coupled, reusable services have a number of other obvious benefits. \\
-Services share schemas and contracts, not classes and types: This speaks to the platform neutrality of services. All services are designed to exchange contracts for behavior and schemas for data structure. Avoiding type system dependency is what ensures interoperability. \\
-Policies define the constraints for accessing the service. This allows services to define a mechanism for communicating no matter what their current capabilities are.\\
-Each of these parts is also individually scalable.\\Services can also see a huge gain in maintainability and extensibility because of their centralized nature.\\ \\
-When you have a need for interoperability, service orientation has obvious benefits. If you need to expose your application’s business logic to a brand new front end hosted on a disparate platform, SOA provides exceptional ROI.
-
- "\cite{pcsoa} \\ \\
-\textbf{The Bad}
-Even trough the performance of \gls{soa} might not be perfect, it should not be used as a driving factor for deciding whether or not to move toward service orientation, because also based on Moores Law, performance isn't really a thing we need to worry about greatly. \cite{pcsoa}\\
-Interoperable security is very complicated: Both method-level security and role-based security become very challenging to implement when considering interoperability concerns. \\
-\\ \\ 
-The tools available today for service-oriented development are still somewhat unsophisticated.
-\\ \\
-
-"The most costly aspect of introducing new technologies and concepts is the investment in your company’s human capital. People are resilient and, in some cases, are very agile, but that agility comes with time and experience.",\cite{pcsoa}
-
-One of the most challenging roles in the service-oriented era is that of the quality assurance engineer. Most services are designed to satisfy the needs of various applications; that makes their requirements somewhat fragmented.
-
-Another not-so-obvious added cost with service orientation is the complexity involved in the test environment setup.
-
-
-Another major problem with versioning of services is any implicit semantic contract changes. Any behavioral changes to an exposed service can negatively impact consuming applications. 
-Consumers could potentially depend on things like error conditions or failure scenarios in previous versions of the service. 
-
-
-As with other distributed technologies, it becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
-
-
-
-
-
-
-2.      Services are autonomous: This is self explanatory really; autonomy, by definition, means self-governing or stand alone. This becomes important when you start to look at services that are defined based on the needs of a specific system or interface. When services can not be independently built, versioned, and deployed, they are destined to fail in the long run. Without careful adherence to this tenet, services will never reach their potential for reuse or longevity.
-
-
-
-
-
-
-
-
+\newpage
+\section{Comparison and Conclusion}
 \subsection{SOA VS. EAI}
 \textbf{EAI}\\
 With the end of the 20 century, many organisations and companies were doing a very poor job integrating their components using point-to-point connections. This was leading to well known problems, such as no agility, scalability, relability, reuse of components and integration legacy systems. These problems lead to a very low cost-efficiency in a company. With \gls{eai}, Middleware was introduced and trough Adapters and Brokers the whole infrastructure got manageable. Still, IT-landscapes were still inefficient and continious change was nearly impossible. \cite[page 115]{te}
@@ -732,24 +720,79 @@ With the end of the 20 century, many organisations and companies were doing a ve
 "Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution and that it is only providing an design structure and principles." ,\cite{soadef}\\
 \\
 \gls{soa} therefore emerged out of \gls{eai} as a newer design approach. Still, many companies are using systems such as \gls{eai}, because the change to a service-oriented approach might not always be easy. 
-\subsection{SOA VS. OOP}
+%\subsection{SOA VS. OOP}
 %TODO ??
-\subsection{SOA VS. AOP} %TODO weg?
-\textbf{Aspect oriented programming (\gls{aop})}\\
-"An aspect is a common feature that's typically scattered across methods, classes, object hierarchies, or even entire object models. It is behavior that looks and smells like it should have structure, but you can't find a way to express this structure in code with traditional object-oriented techniques.\\
-For example, metrics is one common aspect. To generate useful logs from your application, you have to (often liberally) sprinkle informative messages throughout your code. However, metrics is something that your class or object model really shouldn't be concerned about. After all, metrics is irrelevant to your actual application: it doesn't represent a customer or an account, and it doesn't realize a business rule. It's simply orthogonal.
-\\
-In AOP, a feature like metrics is called a crosscutting concern, as it's a behavior that "cuts" across multiple points in your object models, yet is distinctly different. As a development methodology, AOP recommends that you abstract and encapsulate crosscutting concerns." \cite{aopdef}
+%\subsection{SOA VS. AOP} %TODO weg?
+%\textbf{Aspect oriented programming (\gls{aop})}\\
+%"An aspect is a common feature that's typically scattered across methods, classes, object hierarchies, or even entire object models. It is behavior that looks and smells like it should have structure, but you can't find a way to express this structure in code with traditional object-oriented techniques.\\
+%For example, metrics is one common aspect. To generate useful logs from your application, you have to (often liberally) sprinkle informative messages throughout your code. However, metrics is something that your class or object model really shouldn't be concerned about. After all, metrics is irrelevant to your actual application: it doesn't represent a customer or an account, and it doesn't realize a business rule. It's simply orthogonal.
+%\\
+%In AOP, a feature like metrics is called a crosscutting concern, as it's a behavior that "cuts" across multiple points in your object models, yet is distinctly different. As a development methodology, AOP recommends that you abstract and encapsulate crosscutting concerns." \cite{aopdef}
 %TODO
 \subsection{SOAP VS. REST}
 One of the major benefits of RESTful API is that it is flexible for data representation, for example you could serialize your data in either XML or JSON format. SOAP on the other hand is the prevailing standard for web services, and hence has better support from other standards (WSDL, WS-*) and tooling from vendors. REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only. SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol. Normaly you should REST when Client and Server operate on a Web environment and SOAP when clients need to have access to objects aviable on servers. You shouldn't use REST When you need to enforce a strict contract between client and server and you shouldn't use SOAP when your bandwidth is very limited.
 
-\section{Conclusion}
+\subsection{Pro and Contra of SOA}
+Even trough \gls{soa} provides a very flexible and cost efficient environment, but it might not always be the the best solution.
+\\ \\
+\textbf{The Good}\\
+The reusability for sure is a great advantage of \gls{soa}, if they are designed with the right patterns.
+Because services share schemas and contracts, not classes and types, a higher platform neutrality is reached. Avoiding type system dependency is what ensures interoperability. \\
+What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/roi}
+	\caption{ROI \cite{roiph}}
+	\label{fig:roi}
+	\end{figure}
+\FloatBarrier
+ \noindent
+
+
+
+%"Service orientation via web services can often be the best approach for enabling core business processes. The most important aspect to finding the SO sweet spot is determining what can be reused. Services are often considered application building blocks. With that comes a great responsibility for the application visionaries. [..] 
+%If these services are envisioned and designed with the enterprise in mind, and not the specific application being envisioned, there is a good chance that a reusable service will be delivered. [..] You have to involve the right resources for auditing those services which are thought to be reusable. [..]
+%Loosely-coupled, reusable services have a number of other obvious benefits. \\
+%Services share schemas and contracts, not classes and types: This speaks to the platform neutrality of services. All services are designed to exchange contracts for behavior and schemas for data structure. Avoiding type system dependency is what ensures interoperability. \\
+%Policies define the constraints for accessing the service. This allows services to define a mechanism for communicating no matter what their current capabilities are.\\
+%Each of these parts is also individually scalable.\\Services can also see a huge gain in maintainability and extensibility because of their centralized nature.\\ \\
+%When you have a need for interoperability, service orientation has obvious benefits. If you need to expose your application’s business logic to a brand new front end hosted on a disparate platform, SOA provides exceptional ROI.
+% "\cite{pcsoa} \\ \\
+\noindent\textbf{The Bad} \\
+The performance might not be optimal, but nowadays, performance is less important than it was a few years ago. \\
+Because of interoperability, security is more complicated. Also, the tools and know-how available is not exactly great.\\
+Quality assurance and testing might be more difficult, because of the complexity involved in the test environment setup. It therefore becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
+\\
+The last problem is that versioning of services. Any behavioral changes to an exposed service can negatively impact consuming applications, because they could  depend on things like error conditions or failure scenarios in previous versions of the service. \cite{pcsoa}
+
+
+
+
+
+
+
+%Even trough the performance of \gls{soa} might not be perfect, it should not be used as a driving factor for deciding whether or not to move toward service orientation, because also based on Moores Law, performance isn't really a thing we need to worry about greatly. \cite{pcsoa}\\
+%Interoperable security is very complicated: Both method-level security and role-based security become very challenging to implement when considering interoperability concerns. \\
+%\\ \\ 
+%The tools available today for service-oriented development are still somewhat unsophisticated.
+%\\ \\
+%"The most costly aspect of introducing new technologies and concepts is the investment in your company’s human capital. People are resilient and, in some cases, are very agile, but that agility comes with time and experience.",\cite{pcsoa}
+%One of the most challenging roles in the service-oriented era is that of the quality assurance engineer. Most services are designed to satisfy the needs of various applications; that makes their requirements somewhat fragmented.
+%Another not-so-obvious added cost with service orientation is the complexity involved in the test environment setup.
+%Another major problem with versioning of services is any implicit semantic contract changes. Any behavioral changes to an exposed service can negatively impact consuming applications. 
+%Consumers could potentially depend on things like error conditions or failure scenarios in previous versions of the service. 
+%As with other distributed technologies, it becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
+
+\subsection{Conclusion}
 Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
 Yes, "Service orientation tells an incredible story. However, there are a number of issues to consider when designing an enterprise service-oriented architecture." \cite{pcsoa}. Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
 Nowadays, many of \gls{soa}'s principles are already used in what we declare as good software design, but still many companies have problems with applying the \gls{soa} Principles at a full extend. Often only parts of it get used, if even. This is mainly because changing an entire infrastructure is not that easy and companies are not always ready for a big change like that. A missing base of know-how or the engineering approach of 'As long as it works, don't change anything' contribute to the fact, that \gls{soa} is not used by every company yet.
 
 http://serviceorientation.com/soaplanning/fourpillars
+
+
+
+
 
 \newpage
 
@@ -799,13 +842,6 @@ http://serviceorientation.com/soaplanning/fourpillars
   \textit{http://en.wikipedia.org/wiki/Service-oriented\_architecture -\textgreater Enterprise SOA. Prentice Hall, 2005}
   \newline last used : 11.03.2015, 20:34 	
 
-
-
-%TODO pasteing
-
-
-
-
 %[8]
 \bibitem{te}
    \textbf{SOA - Entwurfsprinzipien fuer serviceorientierte Architektur}\\
@@ -814,44 +850,101 @@ http://serviceorientation.com/soaplanning/fourpillars
    2008 \\
 	ISBN: 978-3-8273-2651-5 
 
+\bibitem{json}
+  \textbf{JSON},json.com \\
+  \textit{http://www.json.org/}
+  \newline last used: 02.02.2015, 22:15
 
-
- 
-\bibitem{gruen}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
- 
-
-
-\bibitem{echse}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
- 
-  
-
-	
-\bibitem{esoa}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
   
  
-\bibitem{jweb}
-   \textbf{Who}, When\\
-  \textit{url}
-  \newline last used: dd.mm.yyyy, hh:mm
-    
+\bibitem{picservi}
+   \textbf{Understanding Reuse and Composition: 
+Working with the Service Reusability and Service Composability Principles}\\ Thomas Erl, October 12, 2011 \\
+  \textit{http://www.servicetechmag.com/i55/1011-3}
+  \newline last used: 12.03.2015, 13:39 
+ 
+ 
+ 
+ 
+ %10	 
+\bibitem{loosecoupldef}
+   \textbf{loose coupling definition}, Margaret Rouse\\
+  \textit{ 	 http://searchnetworking.techtarget.com/definition/loose-coupling}
+  \newline last used : 10.02.2015, 20:18 	  
   
+  
+%TODO pasteing
+
+
+  \bibitem{soamaifesto}
+   \textbf{The SOA Manifesto} \\
+  \textit{http://www.soa-manifesto.org/default.html}
+  \newline last used: 28.02.2015, 14:05
+  
+ 	 
+\bibitem{soalycman}
+   \textbf{Understanding the SOA lifecycle},  Rich Seeley\\
+  \textit{ 	 http://searchsoa.techtarget.com/tip/Understanding-the-SOA-lifecycle}
+  \newline last used : 11.03.2015, 12:29 	 
+   	    
+  
+   	  	 
+\bibitem{slcmoracle}
+   \textbf{Fusion Middleware Concepts and Architecture for Oracle Service Bus}, docs.oracle\\
+  \textit{    	  https://docs.oracle.com/cd/E23943\_01/doc.1111/e15020/introduction.htm\#OSBCA107
+}
+  \newline last used : 08.03.2015, 18:31 	 
+  
+  
+  
+\bibitem{bpmdef}
+   \textbf{Business Process Management (BPM)}, Margaret Rouse\\
+  \textit{http://searchcio.techtarget.com/definition/business-process-management}
+  \newline last used : 06.10.2014, 22:13
+ 
+ 
+ \bibitem{muede2}
+   \textbf{What is Business Process Management? }\\
+  \textit{http://www.scc-co.com/enterprises-processes/}
+  \newline last used : 06.10.2014, 22:04
+
+
+  \bibitem{bpmchall}
+   \textbf{Top Ten Biggest Challenges to BPM Initiatives}, Pearl Zhu\\
+  \textit{http://futureofcio.blogspot.co.at/2013/03/top-ten-biggest-challenges-to-bpm.html}
+  \newline last used : 06.10.2014, 22:32
    
+   
+   
+
+\bibitem{thorstenhorn}
+   \textbf{Torsten Horn}\newline
+  \textit{http://www.torsten-horn.de/techdocs/eai.htm}
+  \newline last used : 05.10.2014, 20:25
+
+
+
+
+   	     	  
+\bibitem{esbdef}
+   \textbf{enterprise service bus (ESB) definition}, Margaret Rouse\\
+  \textit{ http://searchsoa.techtarget.com/definition/enterprise-service-bus}
+  \newline last used : 08.03.2015, 19:29 	 
+   	     	     	     	  
+
+
+
+%%%%%%
+
+
  
+ %weg wenn nicht benuetzt
 \bibitem{service1}
    \textbf{Service},service-architecture.com \\
   \textit{http://www.service-architecture.com/articles/web-services/service.html}
   \newline last used: 03.02.2015, 13:39
      
-     
+      %weg wenn nicht benuetzt
      \bibitem{soaserviearch}
    \textbf{Service-Oriented Architecture (SOA) Definition},service-architecture.com \\
   \textit{http://www.service-architecture.com/articles/web-services/service-oriented\_architecture\_soa\_definition.html}
@@ -862,16 +955,8 @@ http://serviceorientation.com/soaplanning/fourpillars
      
     
 
-\bibitem{json}
-  \textbf{JSON},json.com \\
-  \textit{http://www.json.org/}
-  \newline last used: 02.02.2015, 22:15
 
- 
-     \bibitem{soamaifesto}
-   \textbf{The SOA Manifesto} \\
-  \textit{http://www.soa-manifesto.org/default.html}
-  \newline last used: 28.02.2015, 14:05
+     
 
 
      \bibitem{bpelsearchsoa}
@@ -894,21 +979,7 @@ http://serviceorientation.com/soaplanning/fourpillars
     \textit{http://www.w3schools.com/webservices/ws\_wsdl\_uddi.asp}
     \newline last used : 10.03.2015, 23:55
 
-\bibitem{bpmdef}
-   \textbf{Business Process Management (BPM)}, Margaret Rouse\\
-  \textit{http://searchcio.techtarget.com/definition/business-process-management}
-  \newline last used : 06.10.2014, 22:13
   
-
-  \bibitem{bpmchall}
-   \textbf{Top Ten Biggest Challenges to BPM Initiatives}, Pearl Zhu\\
-  \textit{http://futureofcio.blogspot.co.at/2013/03/top-ten-biggest-challenges-to-bpm.html}
-  \newline last used : 06.10.2014, 22:32
-  
- \bibitem{muede2}
-   \textbf{What is Business Process Management? }\\
-  \textit{http://www.scc-co.com/enterprises-processes/}
-  \newline last used : 06.10.2014, 22:04
 
 
   \bibitem{soadef}
@@ -917,19 +988,8 @@ http://serviceorientation.com/soaplanning/fourpillars
   \newline last used : 06.10.2014, 22:18
 
 
-\bibitem{thorstenhorn}
-   \textbf{Torsten Horn}\newline
-  \textit{http://www.torsten-horn.de/techdocs/eai.htm}
-  \newline last used : 05.10.2014, 20:25
 
-
-
- 	 
- 	 
-\bibitem{loosecoupldef}
-   \textbf{loose coupling definition}, Margaret Rouse\\
-  \textit{ 	 http://searchnetworking.techtarget.com/definition/loose-coupling}
-  \newline last used : 10.02.2015, 20:18 	 
+ 	
    	  
 \bibitem{bpmldefmr}
    \textbf{Business Process Modeling Language (BPML) definition}, Margaret Rouse\\
@@ -957,25 +1017,15 @@ http://serviceorientation.com/soaplanning/fourpillars
     \textit{http://aspalliance.com/707\_The\_Good\_the\_Bad\_and\_the\_Ugly\_of\_ServiceOriented\_Architecture.all}
     \newline last used : 11.03.2015, 12:12  
  	 
- 	  	 
-\bibitem{soalycman}
-   \textbf{Understanding the SOA lifecycle},  Rich Seeley\\
-  \textit{ 	 http://searchsoa.techtarget.com/tip/Understanding-the-SOA-lifecycle}
-  \newline last used : 11.03.2015, 12:29 	 
+ 	    \bibitem{roiph}
+  \textbf{Increasing SOA ROI and maximizing automated solutions}\\
+  \textit{ 	 http://searchitchannel.techtarget.com/feature/Increasing-SOA-ROI-and-maximizing-automated-solutions}
+  \newline last used : 12.03.2015, 13:08
+
+
+ 	 
    	  
-   	  
- 	  	 
-\bibitem{slcmoracle}
-   \textbf{Fusion Middleware Concepts and Architecture for Oracle Service Bus}, docs.oracle\\
-  \textit{    	  https://docs.oracle.com/cd/E23943\_01/doc.1111/e15020/introduction.htm\#OSBCA107
-}
-  \newline last used : 08.03.2015, 18:31 	 
-   	     	  
-\bibitem{esbdef}
-   \textbf{enterprise service bus (ESB) definition}, Margaret Rouse\\
-  \textit{ http://searchsoa.techtarget.com/definition/enterprise-service-bus}
-  \newline last used : 08.03.2015, 19:29 	 
-   	     	     	     	  
+
  	     	  
 \bibitem{Aboutopenesb}
    \textbf{About OpenESB }, open-esb.net\\
@@ -1034,8 +1084,6 @@ The Art of Distributed System Design},Nicolai M. Josuttis\\
   \newline last used : 12.03.2015, 11:45
 
 
- 	 
- 	 
  	 
  	 
 \end{thebibliography}

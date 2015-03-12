@@ -63,7 +63,6 @@
 *.acn
 *.acr
 *.glg
-*.glo
 *.gls
 
 # hyperref

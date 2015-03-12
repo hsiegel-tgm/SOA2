@@ -57,19 +57,22 @@ right  = 2.00cm]{geometry}
 
 % Author and supervisor
 \noindent 
-\vspace{5cm}
+\vspace{0.5cm}
 
+
+\small
 \begin{center}
 \large
-Authors: 
 Siegel \textsc{Hannah} \&
 Vogt \textsc{Andreas}
 \end{center}
 
-\vfill
-
 % Bottom of the page
 {\large \today}
+\normalsize
+\vfill
+\begin{abstract}This elaboration aims to explain the basic concepts of Service Oriented Architecture and the surrounding impacts of it. Also, REST, JSON and other important standards are discussed. This work was out own work, and all sources have been clearly identified.
+\end{abstract}
 
 \end{center}
 \end{titlepage}
@@ -89,31 +92,62 @@ Vogt \textsc{Andreas}
 \section{Introduction}
 \subsection{Services}
 In order to understand \gls{soa}, an very important concept is a \textit{Service}. \\
-"Services are what you connect together using Web Services. A service is the endpoint of a connection. Also, a service has some type of underlying computer system that supports the connection offered. ",\cite{service1} \\ Furthermore, a Service has to have a clearly defined function and very often they should belong to one business process. It can be seen as an Interface which provides a specific function, or as a collection of skills. \cite[page 85]{te}\\ \\
-\textbf{When do we speak of a service?}\\
-"A service is also a unit of logic to which service-orientation has been applied to a meaningful extend. It's the application of service-orientation design principles that distinguishes a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau}\\ The patterns and principles which should be applied to a service are discussed in section \ref{sec:dp}. \\\\
-A service contains it's clearly defined functionality, a description of this functionality and Basic-operations such as binding, selection, publication or discovery \cite[page 8]{soagoesreal}.  \\
-Seen out of an more business related approach, they usually provide clear incident, problem, change, configuration, release, availability and cost management - which helps to gain information and overview the services.
-\subsection{SOA}
-\textbf{Service-Oriented Computing}\\
-"Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things ,including its own design paradigm and design principles, design pattern catalogs, pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\\\
-\textbf{Service-Oriented Architcture}\\
-%"A service-oriented architecture is essentially a collection of services. These services communicate with each other. The communication can involve either simple data passing or it could involve two or more services coordinating some activity. Some means of connecting services to each other is needed ",\cite{soaserviearch}. \\
-"Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation", \cite[page 27]{grau}. Service orientation means, that services of any kind are put into the center of the system, enabling flexible business process (re-)modelling due to a very high business process orientation and loose coupling of the services.\todo{bullshit.}\\  \\
-"Service-oriented architecture (\gls{soa}) is an approach used to create an architecture based upon the use of services. Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.",\cite{searchsoa} \gls{soa} is not a product or framework, it is a design approach or paradigm for good software design.
 \\
-SOA has it's underlying business functions provided as Services which can be used by all Application on a shared basis. The applications are using a middleware, for example an \gls{esb}, in order to access it's services. \\
-\\Because \gls{soa} is using the technology of WebServices, it is quite platform independent. 
-"It is important to view and position \gls{soa} and service-orientation as being neutral to any one technology platform. By doing so, you have the freedom to continually pursue the strategic goals associated with service-orientation computing by leveragng on-going service technology advancements.",cite[page 29]{grau} \\
-\gls{soa} is often used as a newer approach to \gls{eai}. \cite{soaitwissen}
-\\ \\
-"One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
+\textbf{What is a Service?}\\
+%A service can be seen as an Interface which provides a specific function, or as a collection of skills. \cite[page 85]{te} \\
+Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.",\cite{searchsoa} \\ The difference between a basic logic and a service is if service-orientation has been applied:
+"It's the application of service-orientation design principles that distinguishes a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau}\\ The patterns and principles which should be applied to a service are discussed in section \ref{sec:dp}. Furthermore, the function of a Service should be clearly defined and very often they are closely related to a business process.  \\\\
+\textbf{What does a Service contain of?}\\
+A service contains it's functionality, a description of this functionality (section \ref{sec:StandardizedServicecontracts} ) and Basic-operations such as binding, selection, publication or discovery (section \ref{sec:soatriangle}) \cite[page 8]{soagoesreal}. \\
+Seen out of an more business related approach, they usually provide clear incident, problem, change, configuration, release, availability and cost management - which helps to gain information and overview the services.\\
+Also, a service can contain other services, as closer discussed in section \ref{sec:bpel}
+%\textbf{What does a Service contain of?}\\
+%"Services are what you connect together using Web Services. A service is the endpoint of a connection. Also, a service has some type of underlying computer system that supports the connection offered. ",\cite{service1} \\ Furthermore, a Service has to have a clearly defined function and very often they should belong to one business process. It can be seen as an Interface which provides a specific function, or as a collection of skills. \cite[page 85]{te}\\ \\
+\subsection{SOA}
+\textbf{Service-Orientation}\\
+Service orientation means, that services of any kind are put into the center of the system, enabling flexible business process (re-)modelling due to a very high business process orientation and loose coupling of the services.\\ \\
+\textbf{Service-Oriented Computing}\\
+"Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things, including its own design paradigm and design principles, design pattern catalogs(\cite{patterns}), pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\ \\ 
 
 \begin{figure}[here!]
 	\centering
+	\includegraphics[width=0.7\textwidth]{images/serviceorientationdotcomwhatissoa}
+	\caption{Overview of the components in Service oriented computing \cite{photos}}
+	\label{fig:serviceorientedcomuting}
+	\end{figure}
+	\FloatBarrier\noindent
+\textbf{Service-Oriented Architcture}\\
+"Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation", \cite[page 27]{grau}. \\
+As is can be seen in figure \ref{fig:eaipartofso}, historically many components contribute to \gls{soa}. \gls{soa} is often used as a newer approach to \gls{eai}, which is why some ideas of \gls{eai} make a part of it. \cite{soaitwissen} Also, software design principles such as \gls{oop} and \gls{aop} have influenced the design patterns and requirements of \gls{soa}. Furthermore, \gls{bpm} - even trough no software design possibility - has done it's influences into the architecture as well. \\
+SOA has it's underlying business functions provided as Services which can be used by all Application on a shared basis. 
+\begin{figure}[here!]
+	\centering
 	\includegraphics[width=0.5\textwidth]{images/b1_25.jpg}
-	\caption{Processes that have contributed to SOA \cite[page 25]{book1}}
+	\caption{Logics that have contributed to SOA \cite[page 25]{book1}}
 	\label{fig:eaipartofso}
+	\end{figure}
+	\FloatBarrier
+\noindent
+%"A service-oriented architecture is essentially a collection of services. These services communicate with each other. The communication can involve either simple data passing or it could involve two or more services coordinating some activity. Some means of connecting services to each other is needed ",\cite{soaserviearch}. \\
+%"Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation", \cite[page 27]{grau}. \\
+% Service orientation means, that services of any kind are put into the center of the system, enabling flexible business process (re-)modelling due to a very high business process orientation and loose coupling of the services.\\  \\
+%"Service-oriented architecture (\gls{soa}) is an approach used to create an architecture based upon the use of services. Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.",\cite{searchsoa} \gls{soa} is not a product or framework, it is a design approach or paradigm for good software design.
+%\\
+%SOA has it's underlying business functions provided as Services which can be used by all Application on a shared basis.  \\
+%\\ \\
+\textbf{Platforms}\\
+"It is important to view and position \gls{soa} and service-orientation as being neutral to any one technology platform. By doing so, you have the freedom to continually pursue the strategic goals associated with service-orientation computing by leveragng on-going service technology advancements.",\cite[page 29]{grau} \\ A middleware, such as an \gls{esb} (section \ref{sec:esb}) is used in order to access the services.\\
+\\ \\
+\textbf{bal}\\
+"One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to save time and money.",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}
+
+
+	
+	\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/arg2}
+	\caption{Overview of the components in SOA \cite{arg2}}
+	\label{fig:serviceorientedcomuting}
 	\end{figure}
 	\FloatBarrier
 \subsection{REST}
@@ -163,7 +197,7 @@ It is one step above \gls{eai} already and it combines important aspects of \gls
 \begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/page24}
-	\caption{Goals of SOA\cite[page 24]{grau}}
+	\caption{Goals of SOA\cite{photos}}
 	\label{fig:eaipartofso}
 	\end{figure}
 \FloatBarrier
@@ -186,6 +220,7 @@ The design paradigm consists of the following points:
 \item Composability
 \end{enumerate}\cite[page 25]{grau}
 \subsubsection{Standardized Service contracts}
+\label{sec:StandardizedServicecontracts}
 "A service contract expresses the technical interface of a service. ", \cite[page 33]{grau}. This means that there are interfaces which do contain the metadata to an service, as well as describing their functionality, their Datatypes and rules of actions. \cite[page 86]{te} \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
 The two approaches nowadays are either Top-Down (designing the service contracts at first and then implementing them) or Bottom-up(Building the contracts out of already existing services). \cite[page 151,152]{grau}
 \\ \\
@@ -281,6 +316,28 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 	\label{fig:Servicelifecycle}
 	\end{figure}
 	\FloatBarrier
+	
+	
+\begin{figure}[here!]
+\centering
+\begin{minipage}[h]{0.3\textwidth}
+\centering
+    \includegraphics[width=1.0\textwidth]{images/sdlc}
+    \caption{Normal Software Development cycle \cite{TODO}}
+    \label{fig:eai0}
+\end{minipage}
+\begin{minipage}[h]{0.14\textwidth}
+\vfill
+\end{minipage}
+\begin{minipage}[h]{0.55\textwidth}
+\centering
+\includegraphics[width=1.0\textwidth]{images/scly.png}
+	\caption{Service lifecycle \cite{slcmoracle}}
+	\label{fig:Servicelifecycle}
+\end{minipage}
+\end{figure}
+\FloatBarrier	
+	
 \subsection{BPM}
 "Business Process Management is a systematic approach to making an organisation's workflow more effective, more efficiant and more capable of adapting to an ever-changing environment. A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}. \\
 The Business Process level is very important to every service-oriented architecture, as it is seen as the higher-level controlling instance. Service composition and Orchestration are helping to ensure a business process remodelling is made easy and failure-tolerant at any time. \cite[page 114]{te}
@@ -325,6 +382,7 @@ The \gls{soa}-model has different layers. On the top level there is the Presenta
 \\\textbf{SOA models}
 There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
 \subsubsection{The SOA Triangle}
+\label{sec:soatriangle}
 The \gls{soa} triangle is consists of three parts:
 \\\\\textbf{The Service consumer} \\
 This is bascially the client, which wants to use a specific service. It is requesting the Service Registry 	for the address of the specific service he wants to access. He is using the Interface Definition Language in order to  access the Service provider in the right way.
@@ -686,12 +744,48 @@ Whereas \gls{soa} can not be seen as an implementation but more as an design pri
 Yes, "Service orientation tells an incredible story. However, there are a number of issues to consider when designing an enterprise service-oriented architecture." \cite{pcsoa}. Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
 Nowadays, many of \gls{soa}'s principles are already used in what we declare as good software design, but still many companies have problems with applying the \gls{soa} Principles at a full extend. Often only parts of it get used, if even. This is mainly because changing an entire infrastructure is not that easy and companies are not always ready for a big change like that. A missing base of know-how or the engineering approach of 'As long as it works, don't change anything' contribute to the fact, that \gls{soa} is not used by every company yet.
 
+http://serviceorientation.com/soaplanning/fourpillars
+
 \newpage
 
 %\listoftables
 \listoffigures
 \printglossaries
 \begin{thebibliography}{56}
+
+ \bibitem{searchsoa}
+   \textbf{service-oriented architecture (SOA) definition},Margaret Rouse \\
+  \textit{http://searchsoa.techtarget.com/definition/service-oriented-architecture}
+  \newline last used: 03.02.2015, 14:05
+
+\bibitem{grau}
+   \textbf{SOA with Java - Realizing Service-Orientation with Java Technologies}\\
+   Thomas ERL, Andre TOST, Satadru ROY, Philip THOMAS \\ 
+   Prentice Hall \\
+   Massachusetts, 2014 \\
+	ISBN: 978-0-13-3859003-4 
+
+ \bibitem{soagoesreal}
+   \textbf{SOA goes real : Service-orientierte Architekturen erfolgreich planen und einfuehren.}\\
+   Daniel LIEBHART \\ 
+   Carl Hanser Verlag \\
+   Wien, 2007 \\
+	ISBN: 978-3-446-41088-6
+
+ \bibitem{patterns}
+  \textbf{SOAPatterns.org}, collection of patterns\\
+  \textit{http://soapatterns.org/}
+  \newline last used : 12.03.2015, 07:18
+
+\bibitem{photos}
+  \textbf{Service Orientation .com}, pictures\\
+  \textit{http://serviceorientation.com}
+  \newline last used : 12.03.2015, 07:12
+
+   \bibitem{soaitwissen}
+   \textbf{SOA (service oriented architecture)},IT Wissen \\
+  \textit{http://www.itwissen.info/definition/lexikon/service-oriented-architecture-SOA-SOA-Architektur.html}
+  \newline last used: 03.02.2015, 13:50
 
 \bibitem{te}
    \textbf{SOA - Entwurfsprinzipien fuer serviceorientierte Architektur}\\
@@ -700,32 +794,23 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
    2008 \\
 	ISBN: 978-3-8273-2651-5 
 
-\bibitem{grau}
-   \textbf{SOA with Java - Realizing Service-Orientation with Java Technologies}\\
-   Thomas ERL, Andre TOST, Satadru ROY, Philip THOMAS \\ 
-   Prentice Hall \\
-   Massachusetts, 2014 \\
-	ISBN: 978-0-13-3859003-4 
- 
+
+
  
 \bibitem{gruen}
    \textbf{Who}, When\\
   \textit{url}
   \newline last used: dd.mm.yyyy, hh:mm
  
- 
+
+
 \bibitem{echse}
    \textbf{Who}, When\\
   \textit{url}
   \newline last used: dd.mm.yyyy, hh:mm
  
   
-\bibitem{soagoesreal}
-   \textbf{SOA goes real : Service-orientierte Architekturen erfolgreich planen und einfuehren.}\\
-   Daniel LIEBHART \\ 
-   Carl Hanser Verlag \\
-   Wien, 2007 \\
-	ISBN: 978-3-446-41088-6
+
 	
 \bibitem{esoa}
    \textbf{Who}, When\\
@@ -753,15 +838,9 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
   \newline last used: 03.02.2015, 13:40
      
      
-     \bibitem{soaitwissen}
-   \textbf{SOA (service oriented architecture)},IT Wissen \\
-  \textit{http://www.itwissen.info/definition/lexikon/service-oriented-architecture-SOA-SOA-Architektur.html}
-  \newline last used: 03.02.2015, 13:50
+  
      
-     \bibitem{searchsoa}
-   \textbf{service-oriented architecture (SOA) definition},Margaret Rouse \\
-  \textit{http://searchsoa.techtarget.com/definition/service-oriented-architecture}
-  \newline last used: 03.02.2015, 14:05
+    
 
 \bibitem{json}
   \textbf{JSON},json.com \\
@@ -935,6 +1014,8 @@ The Art of Distributed System Design},Nicolai M. Josuttis\\
   \textbf{RESTful Web Services Cookbook},Subbu Allamaraju\\
   \textit{http://it-ebooks.info/book/392/}
   \newline last used : 11.03.2015, 22:45
+
+
 
  	 
  	 

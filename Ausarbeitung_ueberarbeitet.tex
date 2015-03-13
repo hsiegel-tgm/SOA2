@@ -174,8 +174,7 @@ An comparison between JSON and XML can be found in section \ref{sec:json}.
 %Because of an lack of know-how and systems that had the characteristics to change a lot, the implementation of all the services became a big challenge. Enterprises used a variety of customised applications, at least one for every type of service. \\ \\
 %\textbf{ODER:}
 "Historically, many IT projects focused solely on building applications designed specifically to automate business process requirements that were current at that time. This fulfilles immediate (tactical) needs, bit as more of these single-purpose applications were delivered, it resulted in an IT enterprise filled with islands of logic and data referred to as application \textit{silos}. As new business requirements would emerge, either new silos were created or integration channels between silos were established. As yet more business change arose, integration channels had to be augmented, even more silos had to be created, and soon the IT enterprise landscape became convoluted ad increasingly burdensome, expensive, and slow to evolve."\cite[page 522]{grau} 
-\newpage
-\subsection{Existing Problems}
+\subsection{Problems}
 Out of these systems, there are many problems that have eventually emerged:
 \\ \\\textbf{Resistant to change}\\
 First of all, systems like these are not really agile. Because changes and new technologies were inevitable, time consuming integrations had to be done. If these integrations were not done, legacy systems emerged. These were often not remotely changeable as they are with \gls{soa}. \\
@@ -205,7 +204,7 @@ Service-orientation emerged as a formal method in support of achieving the follo
 As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,  business and technology alignment, federation and vendor diversification options automatically lead to a increase of the \gls{roi}, the organizational agility and to an reduced IT burden.
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/page24}
+	\includegraphics[width=0.6\textwidth]{images/page24}
 	\caption{Goals of SOA\cite{photos}\\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR}
 	\label{fig:goalssoa}
 	\end{figure}
@@ -213,7 +212,7 @@ As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,
  \noindent
 These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
 These strategic goals the are put into more low-level design principles.
-\newpage
+
 \subsection{Design Principles}
 \label{sec:dp}
 Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used.\\\\
@@ -232,7 +231,7 @@ The design paradigm consists of the following points:
 \item Service Discoverability
 \item Service Composability
 \end{enumerate}\cite[page 25]{grau}\\
-The following discussed principles can be found on searchsoa.com(\cite{photos}) as well, where they are discussed much more in detail.
+The following discussed principles can be found on searchsoa.com(\cite{photos}) as well, where they are discussed much more in detail.\newpage
 \subsubsection{Standardized Service contracts}
 \label{sec:StandardizedServicecontracts}
 "A service contract expresses the technical interface of a service. ", \cite[page 33]{grau}. This means that there are interfaces which do contain the metadata to an service, as well as describing their functionality, their Datatypes and rules of actions. \cite[page 86]{te} \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
@@ -728,9 +727,9 @@ In the example above, a GetStockPrice request is sent to a server. The request h
 \section{Comparison and Conclusion}
 \subsection{SOA VS. EAI}
 \textbf{EAI}\\
-With the end of the 20 century, many organisations and companies were doing a very poor job integrating their components using point-to-point connections. This was leading to well known problems, such as no agility, scalability, relability, reuse of components and integration legacy systems. These problems lead to a very low cost-efficiency in a company. With \gls{eai}, Middleware was introduced and trough Adapters and Brokers the whole infrastructure got manageable. Still, IT-landscapes were still inefficient and continuous change was nearly impossible. \cite[page 115]{te}
+With the rise of \gls{eai}, Middleware was introduced and trough Adapters and Brokers with whom the whole IT-infrastructure got manageable. Still, IT-landscapes were still inefficient and continuous change was nearly impossible.\cite[page 115]{te}
 \\
-\\
+\\\textbf{Difference between SOA and EAI}\\
 "Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution and that it is only providing an design structure and principles." ,\cite{soadef}\\
 \\
 \gls{soa} therefore emerged out of \gls{eai} as a newer design approach. Still, many companies are using systems such as \gls{eai}, because the change to a service-oriented approach might not always be easy. 
@@ -751,13 +750,12 @@ Pro and Contra:\\
 \item REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only.
 \item SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol.
 \end{itemize}
-Conclusion REST:\\
+\textbf{Conclusion REST:}\\
 You should use REST when Client and Server operate on a Web environment.\\
 You shouldn't use REST When you need to enforce a strict contract between client and server\\
-Conclusion SOAP:\\
+\\\textbf{Conclusion SOAP:}\\
 You should use SOAP when when clients need to have access to objects aviable on servers.\\
 You shouldn't use SOAP when your bandwidth is very limited.\\
-
 \subsection{Pro and Contra of SOA}
 Even trough \gls{soa} provides a very flexible and cost efficient environment, but it might not always be the the best solution.
 \\ \\
@@ -771,7 +769,6 @@ What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right.
 	\caption{ROI \cite{roiph}}
 	\label{fig:roi}
 	\end{figure}
-\FloatBarrier
  \noindent
 
 
@@ -812,7 +809,7 @@ The last problem is that versioning of services. Any behavioural changes to an e
 
 \subsection{Conclusion}
 Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
-Yes, "Service orientation tells an incredible story. However, there are a number of issues to consider when designing an enterprise service-oriented architecture." \cite{pcsoa}. Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
+Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
 Nowadays, many of \gls{soa}'s principles are already used in what we declare as good software design, but still many companies have problems with applying the \gls{soa} Principles at a full extend. Often only parts of it get used, if even. This is mainly because changing an entire infrastructure is not that easy and companies are not always ready for a big change like that. A missing base of know-how or the engineering approach of 'As long as it works, don't change anything' contribute to the fact, that \gls{soa} is not used by every company yet.
 
 %TODO http://serviceorientation.com/soaplanning/fourpillars

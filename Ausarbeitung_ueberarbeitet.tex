@@ -157,8 +157,8 @@ for creating scalable web services.The main idea behind REST is that you are wor
 A perk of those verbs is that they are mostly self-explanatory. REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, etc. ). \\
 REST-based architectures are built from resources (pieces of information) that are uniquely identified by URIs. For example, in a RESTful purchasing system, each purchase order has a unique URI.
 REST components manipulate resources by exchanging representations of the resources. For example, a purchase order resource can be represented by an XML document. Within a RESTful purchasing system, a purchase order might be updated by posting an XML document containing the changed purchase order to its URI.
-An code example for WSDL can be found in section \ref{sec:wsdlexaple}, 
-and a code example for SOAP can be found in section \ref{sec:soapexaple}
+An code example for WSDL can be found in section \ref{sec:wsdlexample}, 
+and a code example for SOAP can be found in section \ref{sec:soapexample}
 \subsection{JSON}
 "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C sharp, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.",\cite{json}.\\
 An comparison between JSON and XML can be found in section \ref{sec:json}.
@@ -576,7 +576,20 @@ Resources are manipulated using a fixed set of four create, read, update, delete
 Resources are decoupled from their representation so that their content can be accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG, JSON, and others. Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control. \\
 \item Stateful interactions through hyperlinks:
 Every interaction with a resource is stateless; that is, request messages are self-contained. Stateful interactions are based on the concept of explicit state transfer. Several techniques exist to exchange state, such as URI rewriting, cookies, and hidden form fields. State can be embedded in response messages to point to valid future states of the interaction.\\
+\end{itemize}\\
+HTTP Verbs:
+\begin{itemize}
+\item GET\\
+The HTTP GET method is used to retrieve (or read) a representation of a resource.
+\item PUT\\
+PUT is most-often utilized for update capabilities.
+\item POST\\
+The POST verb is most-often utilized for creation of new resources.
+\item DELETE\\
+DELETE is used to delete a resource identified by a URI.
 \end{itemize}
+\\
+
 \cite{RESTful}
 
 %TODO use the esb chapter
@@ -604,7 +617,15 @@ was abolished and SOAP now stands for itself. SOAP is an XML based protocol for 
 \item A Body element that contains call and response information
 \item A Fault element containing errors and status information"
 \end{itemize}
-\cite{soap}
+\cite{soap}\\
+SOAP envelope structure:\\
+\begin{minipage}[h]{0.46\textwidth}
+\centering
+\includegraphics[width=1.0\textwidth]{images/page395}
+	\caption{http://www.tecchannel.de/webtechnik/soa/458074/nachrichten_verschicken_mit_soap_die_soap_spezifikation/index4.html}
+\label{fig:Soapenvelope}
+\end{minipage}
+\end{figure}	
 \subsubsection{WSDL}
 Web Service Description Language is a XML based Interface communicationinterface description language
 which is used to describe web services which are called by SOAP-Messages.
@@ -625,7 +646,8 @@ UDDI is a platform-independent framework for describing services, discovering bu
 \item UDDI is built into the Microsoft .NET platform
 \end{itemize}
 UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet standards such as XML, HTTP, and DNS protocols.
-UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}
+UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}\\
+A UDDI WSDL and SOAP example can be found here in here: \ref{fig:eai1}
 \section{Code Snippets}
 \subsection{JSON vs XML Example}
 \label{sec:json}
@@ -651,17 +673,12 @@ The following XML example also defines an employees object with 3 employee recor
     </employee>
 </employees>
 \end{lstlisting}
-As it can be that JSON is easier to understand than XML.\cite{jsonxml}
+In this example you can see that JSON is easier to understand ,more compact and more readable than JSON.
+Also as you can see JSON sends less data so it can be faster in transmissions.\cite{jsonxml}
 \subsection{SOAP Example}
-\label{sec:soapelexaple}
-In the example below, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in \texttt{http://www.example.org/stock}.\\
-SOAP request:
+\label{sec:soapeexample}
+\textbf{SOAP request}\\
 \begin{lstlisting}
-POST /InStock HTTP/1.1
-Host: www.example.org
-Content-Type: application/soap+xml; charset=utf-8
-Content-Length: nnn
-
 <?xml version="1.0"?>
 <soap:Envelope
 xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
@@ -675,12 +692,8 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 </soap:Envelope>
 \end{lstlisting}
-SOAP response:
+\textbf{SOAP response}
 \begin{lstlisting}
-HTTP/1.1 200 OK
-Content-Type: application/soap+xml; charset=utf-8
-Content-Length: nnn
-
 <?xml version="1.0"?>
 <soap:Envelope
 xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
@@ -694,9 +707,10 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 </soap:Envelope>
 \end{lstlisting}
+\\ In the example above, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in "http://www.example.org/stock".\cite{soap}\\
 \newpage
 \subsection{WSDL Example}
-\label{sec:wsdlexaple}
+\label{sec:wsdlexample}
 \begin{lstlisting}
 <message name="getTermRequest">
   <part name="term" type="xs:string"/>
@@ -735,7 +749,21 @@ With the end of the 20 century, many organisations and companies were doing a ve
 %In AOP, a feature like metrics is called a crosscutting concern, as it's a behavior that "cuts" across multiple points in your object models, yet is distinctly different. As a development methodology, AOP recommends that you abstract and encapsulate crosscutting concerns." \cite{aopdef}
 %TODO
 \subsection{SOAP VS. REST}
-One of the major benefits of RESTful API is that it is flexible for data representation, for example you could serialize your data in either XML or JSON format. SOAP on the other hand is the prevailing standard for web services, and hence has better support from other standards (WSDL, WS-*) and tooling from vendors. REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only. SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol. Normaly you should REST when Client and Server operate on a Web environment and SOAP when clients need to have access to objects aviable on servers. You shouldn't use REST When you need to enforce a strict contract between client and server and you shouldn't use SOAP when your bandwidth is very limited.
+Pro and Contra:\\ 
+\begin{itemize}
+\item One of the major benefits of RESTful API is that it is flexible for data representation, for example you could serialize your data in either XML or JSON format.
+\item SOAP on the other hand is the prevailing standard for web services, and hence has better support from other standards (WSDL, WS-*) and tooling from vendors.
+\item REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only.
+\item SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol.
+\end{itemize}
+\\
+Conclusion REST:\\
+You should use REST when Client and Server operate on a Web environment.\\
+You shouldn't use REST When you need to enforce a strict contract between client and server\\
+
+Conclusion SOAP:\\
+You should use SOAP when when clients need to have access to objects aviable on servers.\\
+You shouldn't use SOAP when your bandwidth is very limited.\\
 
 \subsection{Pro and Contra of SOA}
 Even trough \gls{soa} provides a very flexible and cost efficient environment, but it might not always be the the best solution.

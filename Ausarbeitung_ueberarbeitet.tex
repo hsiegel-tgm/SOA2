@@ -123,8 +123,8 @@ As it can be seen in figure \ref{fig:eaipartofso}, historically many components 
 SOA has it's underlying business functions provided as Services which can be used by all Application on a shared basis. 
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/b1_25.jpg}
-	\caption{Logics that have contributed to SOA \cite[page 25]{grau}}
+	\includegraphics[width=0.8\textwidth]{images/b1_25}
+	\caption{Logics that have contributed to SOA (\cite[page 25]{grau}, Hannah Siegel)}
 	\label{fig:eaipartofso}
 	\end{figure}
 	\FloatBarrier
@@ -181,7 +181,7 @@ Out of these systems, there are many problems that have eventually emerged:
 First of all, systems like these are not really agile. Because changes and new technologies were inevitable, time consuming integrations had to be done. If these integrations were not done, legacy systems emerged. These were often not remotely changeable as they are with \gls{soa}. \\
 Also, new challenges such as cloud computing and a more common globalization of processes made it harder to stick to the old systems in the last view years. \\
 Because applications were always providing some kind of service or functionality, but hardly seen like a service, they were not as easy reconfigurable and changeable. \\
-\\ \\\textbf{Communication and Data transmission}\\
+\\ \\\textbf{Communication and data transmission}\\
 All the applications need to communicate with each other and transmit data, so often a start topology was used. It then changed more and more into a Middle-ware with the upcoming of \gls{eai}, which had the benefit of only docking the Application to the Middle-ware once. Nowadays, mostly a bus system gets used (section \ref{sec:esb}), what makes it a lot easier to communicate in a heterogeneous environment. \\
 \\ \\\textbf{Vendor dependency}\\
 Due to compatibility concerns, IT-Infrastructures were often Vendor dependent. Therefore we often talk about an SAP-System, because mostly all the components have been bought from SAP, which decreases the agility and may increase the costs.\\
@@ -205,14 +205,15 @@ Service-orientation emerged as a formal method in support of achieving the follo
 As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,  business and technology alignment, federation and vendor diversification options automatically lead to a increase of the \gls{roi}, the organizational agility and to an reduced IT burden.
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/page24}
-	\caption{Goals of SOA\cite{photos}}
+	\includegraphics[width=0.7\textwidth]{images/page24}
+	\caption{Goals of SOA\cite{photos}\\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR}
 	\label{fig:goalssoa}
 	\end{figure}
 \FloatBarrier
  \noindent
 These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
 These strategic goals the are put into more low-level design principles.
+\newpage
 \subsection{Design Principles}
 \label{sec:dp}
 Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used.\\\\
@@ -240,7 +241,7 @@ The two approaches nowadays are either Top-Down (designing the service contracts
 	\centering
 	\includegraphics[width=0.49\textwidth]{images/soajuhu}
 	\caption{Components of a Service contract \cite{photos}}
-	\label{fig:goalssoa}
+	\label{fig:servicecontractcomponents}
 	\end{figure}
 \FloatBarrier
  \noindent\textit{Service Level Agreements} \\
@@ -290,7 +291,7 @@ The composability can be seen in figure \ref{fig:composserv}, where Service B, C
 \begin{figure}[here!]
 	\centering
 	\includegraphics[width=0.49\textwidth]{images/serivceorientationdotcom}
-	\caption{Composing of services \cite{photos}}
+	\caption{Composing of services \cite{photos} \\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR}
 	\label{fig:composserv}
 	\end{figure}
 \FloatBarrier
@@ -324,16 +325,18 @@ As services are updated, composed or reconfigured in the software level, the rea
 \\
 %With SOA, you're talking about two different types of applications you're building. The first one you're building is the service that is a completely self-contained unit that does a specific thing such as 'return value of bank account.' So there's one lifecycle (figure \ref{fig:Servicelifecycle}) for that service and another lifecycle that applies to compositing that and other services into a final application. \cite{soalycman} \\
 %\\
-Eight steps for building an SOA with services were defined by \cite{soalycman}:
+\\
+\textbf{SOA Lifecycle defined by \cite{soalycman}}
 \begin{enumerate}
 \item Data collection including gathering of business requirements and use cases
-\item Design including determining service requirements, setting service policies, establishing compliance tasks \item building and testing models, and constructing data integration
-\item Development including developing the service and composing the application from the services
-\item QA/Test/Acceptance
-\item Deployment
-\item Monitoring/management
-\item Change
-\item Retirement
+\item $\Longrightarrow$ Design including determining service requirements, setting service policies, establishing compliance tasks
+\item $\Longrightarrow$building and testing models, and constructing data integration
+\item $\Longrightarrow$Development including developing the service and composing the application from the services 
+\item $\Longrightarrow$QA/Test/Acceptance  
+\item $\Longrightarrow$Deployment 
+\item $\Longrightarrow$Monitoring/management 
+\item $\Longrightarrow$Change 
+\item $\Longrightarrow$Retirement 
 \end{enumerate}
 	
 \begin{figure}[here!]
@@ -341,7 +344,7 @@ Eight steps for building an SOA with services were defined by \cite{soalycman}:
 \begin{minipage}[h]{0.3\textwidth}
 \centering
     \includegraphics[width=1.0\textwidth]{images/sdlc}
-    \caption{Normal Software Development cycle \cite{TODO}}
+    \caption{Normal Software Development cycle \cite{muede2}}
     \label{fig:asdas}
 \end{minipage}
 \begin{minipage}[h]{0.14\textwidth}
@@ -496,14 +499,7 @@ Its main task are to:
 \item Creates an extensible architecture based on pluggable components
 \end{itemize} \cite{esbdef,esbimplpatt} \\
 An ESB has is also not a concrete implementation. Mostly, big companies (e.g. IBM, SAP, TIBCO, Orcale ,..) offer ESB implementations, but there are also open source ones, such as openESB for example.
-\begin{figure}[here!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/page137sgr}
-	  \caption{Example for the structure of an ESB. \cite[page 137]{soagoesreal}}
-    \label{fig:context}
-	\end{figure}
-	\FloatBarrier
-\noindent
+
 \textbf{Special routing and transformation} \\
 An \gls{esb} also offers content (figure \ref{fig:content}) % and context (figure \ref{fig:context}) 
 based  routing and message transformation (figure \ref{fig:Datafromtrans}).\\\\
@@ -518,26 +514,23 @@ First of all, content based routing is routing the message based on its content 
 %	\end{figure}
 %	\FloatBarrier
 	
-	
-	
-\begin{figure}[here!]
-\centering
-\begin{minipage}[h]{0.46\textwidth}
-\centering
-  \includegraphics[width=1.0\textwidth]{images/content}
-	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
+	\begin{figure}[here!]
+	\centering
+	  \includegraphics[width=0.6\textwidth]{images/esb123}
+	   \caption{Content based routing within an \gls{esb} \\ (\cite[page 394]{grau}, Hannah Siegel)}
     \label{fig:content}
-\end{minipage}
-\begin{minipage}[h]{0.05\textwidth}
-\vfill
-\end{minipage}
-\begin{minipage}[h]{0.46\textwidth}
-\centering
-\includegraphics[width=1.0\textwidth]{images/page395}
-	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
+	\end{figure}
+	\FloatBarrier
+\noindent
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/esb456}
+	\caption{\gls{esb} carrying out data transformation \\ (\cite[page 395]{grau}, Hannah Siegel)}
 \label{fig:Datafromtrans}
-\end{minipage}
-\end{figure}	
+	\end{figure}
+	\FloatBarrier
+\noindent
 	
 	
 	

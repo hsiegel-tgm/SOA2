@@ -569,7 +569,7 @@ Resources are manipulated using a fixed set of four create, read, update, delete
 Resources are decoupled from their representation so that their content can be accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG, JSON, and others. Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control. \\
 \item Stateful interactions through hyperlinks:
 Every interaction with a resource is stateless; that is, request messages are self-contained. Stateful interactions are based on the concept of explicit state transfer. Several techniques exist to exchange state, such as URI rewriting, cookies, and hidden form fields. State can be embedded in response messages to point to valid future states of the interaction.\\
-\end{itemize}\\
+\end{itemize}
 HTTP Verbs:
 \begin{itemize}
 \item GET\\
@@ -581,8 +581,6 @@ The POST verb is most-often utilized for creation of new resources.
 \item DELETE\\
 DELETE is used to delete a resource identified by a URI.
 \end{itemize}
-\\
-
 \cite{RESTful}
 
 %TODO use the esb chapter
@@ -612,13 +610,17 @@ was abolished and SOAP now stands for itself. SOAP is an XML based protocol for 
 \end{itemize}
 \cite{soap}\\
 SOAP envelope structure:\\
-\begin{minipage}[h]{0.46\textwidth}
-\centering
-\includegraphics[width=1.0\textwidth]{images/page395}
-	\caption{http://www.tecchannel.de/webtechnik/soa/458074/nachrichten_verschicken_mit_soap_die_soap_spezifikation/index4.html}
-\label{fig:Soapenvelope}
-\end{minipage}
-\end{figure}	
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/soa_envelope}
+	\caption{soapbild}
+    \label{fig:Soapenvelope}
+	\end{figure}
+	\FloatBarrier
+
+
+	
 \subsubsection{WSDL}
 Web Service Description Language is a XML based Interface communicationinterface description language
 which is used to describe web services which are called by SOAP-Messages.
@@ -700,7 +702,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 </soap:Envelope>
 \end{lstlisting}
-\\ In the example above, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in "http://www.example.org/stock".\cite{soap}\\
+In the example above, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in \texttt{http://www.example.org/stock}.\cite{soap}\\
 \newpage
 \subsection{WSDL Example}
 \label{sec:wsdlexample}
@@ -726,7 +728,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 \section{Comparison and Conclusion}
 \subsection{SOA VS. EAI}
 \textbf{EAI}\\
-With the end of the 20 century, many organisations and companies were doing a very poor job integrating their components using point-to-point connections. This was leading to well known problems, such as no agility, scalability, relability, reuse of components and integration legacy systems. These problems lead to a very low cost-efficiency in a company. With \gls{eai}, Middleware was introduced and trough Adapters and Brokers the whole infrastructure got manageable. Still, IT-landscapes were still inefficient and continious change was nearly impossible. \cite[page 115]{te}
+With the end of the 20 century, many organisations and companies were doing a very poor job integrating their components using point-to-point connections. This was leading to well known problems, such as no agility, scalability, relability, reuse of components and integration legacy systems. These problems lead to a very low cost-efficiency in a company. With \gls{eai}, Middleware was introduced and trough Adapters and Brokers the whole infrastructure got manageable. Still, IT-landscapes were still inefficient and continuous change was nearly impossible. \cite[page 115]{te}
 \\
 \\
 "Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution and that it is only providing an design structure and principles." ,\cite{soadef}\\
@@ -749,11 +751,9 @@ Pro and Contra:\\
 \item REST is easier to understand than SOAP and is closer in design and philosophy to the Web, but it is tied to the HTTP transport model and is point-to-point only.
 \item SOAP is a bit complexer than REST and only uses XML, but security and authorization are part of the protocol.
 \end{itemize}
-\\
 Conclusion REST:\\
 You should use REST when Client and Server operate on a Web environment.\\
 You shouldn't use REST When you need to enforce a strict contract between client and server\\
-
 Conclusion SOAP:\\
 You should use SOAP when when clients need to have access to objects aviable on servers.\\
 You shouldn't use SOAP when your bandwidth is very limited.\\
@@ -1116,6 +1116,13 @@ Working with the Service Reusability and Service Composability Principles}\\ Tho
   \textbf{JSON Tutorial},W3Schools\\
   \textit{http://www.w3schools.com/json/}
   \newline last used : 12.03.2015, 11:45
+  
+  \bibitem{soapbild}
+  \textbf{Nachrichten verschicken mit SOAP - Die SOAP-Spezifikation},02.02.2007, von Dr. Klaus Manhart\\
+  \textit{http://www.tecchannel.de/webtechnik/soa/458074/nachrichten\_verschicken\_mit\_soap\_die\_soap\_spezifikation/index4.html
+}
+  \newline last used : 12.03.2015, 11:45
+
 
 
  	 

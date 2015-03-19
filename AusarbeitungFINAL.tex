@@ -640,21 +640,20 @@ WSDL describes a Web service. It specifies the location of the service and the o
 WSDL file contents:
 \begin{itemize}
 \item Definition \\
-The <definitions> element must be the root element of all WSDL documents. It defines the name of the web service.
+"The definitions element must be the root element of all WSDL documents. It defines the name of the web service.
 \item Message \\
-The <message> element describes the data being exchanged between the web service providers and the consumers.
+The message element describes the data being exchanged between the web service providers and the consumers.
 \item Type \\
-WSDL <types> element takes care of defining the data types that are used by the web service.
+WSDL types element takes care of defining the data types that are used by the web service.
 \item Port Type  \\
-The <portType> element combines multiple message elements to form a complete one-way or round-trip operation.
+The portType element combines multiple message elements to form a complete one-way or round-trip operation.
 \item Binding \\
-The <binding> element provides specific details on how a portType operation will actually be transmitted over the wire.
+The binding element provides specific details on how a portType operation will actually be transmitted over the wire.
 \item Port \\
-A <port> element defines an individual endpoint by specifying a single address for a binding. 
+A port element defines an individual endpoint by specifying a single address for a binding. 
 \item Service \\
-The <service> element defines the ports supported by the web service.
+The <ervice element defines the ports supported by the web service."\cite{wsdl}
 \end{itemize}
-\cite{wsdl}\newpage
 \subsubsection{UDDI}
 "Universal Description, Discovery and Integration (UDDI) is a directory service where businesses can register and search for Web services.
 UDDI is a platform-independent framework for describing services, discovering businesses, and integrating business services by using the Internet.\\
@@ -788,8 +787,8 @@ In the example above, a GetStockPrice request is sent to a server. The request h
 "Definitions : HelloService \\
 Type : Using built-in data types and they are defined in XMLSchema. \\
 Message :\\
-    sayHelloRequest : firstName parameter\\
-    sayHelloresponse: greeting return value\\
+sayHelloRequest : firstName parameter\\
+sayHelloresponse: greeting return value\\
 Port Type : sayHello operation that consists of a request and a response service.\\
 Binding : Direction to use the SOAP HTTP transport protocol.\\
 Service : Service available at http://www.examples.com/SayHello/\\

@@ -603,7 +603,7 @@ DELETE is used to delete a resource identified by a URI.
 
 %TODO use the esb chapter
 \subsection{Migration of legacy systems}
-SOA is steadily becoming mainstream software engineering practice. Reports show that more than 50 percent of large, newly developed applications and business processes designed during the year 2007 used service-oriented architectures to some extent. However, experience also indicates that SOA initiatives rarely start from scratch. The technology market research firm Gartner estimates that by 2011 (with 0.8 probability) more than 80 percent of existing applications will be at least partly reengineered to participate in service-oriented architectures . This represents a significant effort for IT departments of organisations.Because it has characteristics of loose coupling, published interfaces, and a standard communication model, SOA enables existing legacy systems to expose their functionality as services, presumably without making significant changes to the legacy systems. Migration of legacy systems to service-oriented environments has been achieved within a number of domains, showing that the promise is beginning to be fulfilled.\cite{legacy}.
+"SOA is steadily becoming mainstream software engineering practice. Reports show that more than 50 percent of large, newly developed applications and business processes designed during the year 2007 used service-oriented architectures to some extent. However, experience also indicates that SOA initiatives rarely start from scratch. The technology market research firm Gartner estimates that by 2011 (with 0.8 probability) more than 80 percent of existing applications will be at least partly reengineered to participate in service-oriented architectures . This represents a significant effort for IT departments of organisations.Because SOA has characteristics of loose coupling, published interfaces, and a standard communication model, SOA enables existing legacy systems to expose their functionality as services, presumably without making significant changes to the legacy systems. Migration of legacy systems to service-oriented environments has been achieved within a number of domains, showing that the promise is beginning to be fulfilled."\cite{legacy}.
 \\
 \subsection{Communication Standards}
 
@@ -622,7 +622,7 @@ was abolished and SOAP now stands for itself. SOAP is an XML based protocol for 
 "Today's applications communicate using Remote Procedure Calls (RPC) between objects like DCOM and CORBA, but HTTP was not designed for this. RPC represents a compatibility and security problem; firewalls and proxy servers will normally block this kind of traffic. A better way to communicate between applications is over HTTP, because HTTP is supported by all Internet browsers and servers. SOAP was created to accomplish this.SOAP provides a way to communicate between applications running on different operating systems, with different technologies and programming languages. A SOAP message is an ordinary XML document containing the following elements:
 \begin{itemize}
 \item An Envelope element that identifies the XML document as a SOAP message
-\item A Header element that contains header information
+\item A Header element that contains application-specific information (authentication,payment,etc)
 \item A Body element that contains call and response information
 \item A Fault element containing errors and status information"
 \end{itemize}
@@ -637,7 +637,7 @@ SOAP envelope structure:
 	\FloatBarrier
 	
 \subsubsection{WSDL}
-Web Service Description Language is a XML based Interface communicationinterface description language
+Web Service Description Language is a XML based Interface communication interface description language
 which is used to describe web services which are called by SOAP-Messages.
 Currently there are two Versions:\\
 1.1 : Which is used Worldwide and is supported by nearly every tool. \\

@@ -23,6 +23,37 @@ bottom = 2.00cm,
 left   = 2.50cm,
 right  = 2.00cm]{geometry}
 \setcounter{secnumdepth}{4}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\executeiffilenewer}[3]{%
+\ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+{\pdffilemoddate{#2}}>0%
+{\immediate\write18{#3}}\fi%
+}
+\newcommand{\includesvg}[1]{%
+\executeiffilenewer{#1.svg}{#1.pdf}%
+{inkscape -z -D --file=#1.pdf --export-pdf=#1.pdf --export-latex}%
+\input{#1.pdf_tex}%
+}
+
+\lstset{frame=tb,
+  language=XML,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
 
 
 \makeglossaries
@@ -691,6 +722,7 @@ UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (I
 UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}\\
 There are plenty of tools to register your web service or search for them. S
 A UDDI WSDL and SOAP example can be found here in here: \ref{fig:eai1}
+\newpage
 \section{Code Snippets}
 \subsection{JSON vs XML Example}
 \label{sec:json}
@@ -735,6 +767,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 </soap:Envelope>
 \end{lstlisting}
+\newpage\noindent
 \textbf{SOAP response}
 \begin{lstlisting}
 <?xml version="1.0"?>
@@ -751,7 +784,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 </soap:Envelope>
 \end{lstlisting}
 In the example above, a GetStockPrice request is sent to a server. The request has a StockName parameter, and a Price parameter that will be returned in the response. The namespace for the function is defined in \texttt{http://www.example.org/stock}.\cite{soap}\\
-\newpage
+
 \subsection{WSDL Example}
 \label{sec:wsdlexample}
 \begin{lstlisting}
@@ -807,25 +840,24 @@ In the example above, a GetStockPrice request is sent to a server. The request h
    </service>
 </definitions>
 \end{lstlisting}
-"Definitions : HelloService \\
+"\textit{Definitions : HelloService \\
 Type : Using built-in data types and they are defined in XMLSchema. \\
 Message :\\
-    sayHelloRequest : firstName parameter\\
-    sayHelloresponse: greeting return value\\
+sayHelloRequest : firstName parameter\\
+sayHelloresponse: greeting return value\\
 Port Type : sayHello operation that consists of a request and a response service.\\
 Binding : Direction to use the SOAP HTTP transport protocol.\\
 Service : Service available at http://www.examples.com/SayHello/\\
 Port : Associates the binding with the URI http://www.examples.com/SayHello/ where 
-the running service can be accessed."\cite{wsdl}
-
-
+the running service can be accessed.}"\cite{wsdl}
+\newpage
 \section{Comparison and Conclusion}
 \subsection{SOA VS. EAI}
 \textbf{EAI}\\
 With the rise of \gls{eai}, Middleware was introduced and trough Adapters and Brokers with whom the whole IT-infrastructure got manageable. Still, IT-landscapes were still inefficient and continuous change was nearly impossible.\cite[page 115]{te}
 \\
 \\\textbf{Difference between SOA and EAI}\\
-"Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution and that it is only providing an design structure and principles." ,\cite{soadef}\\
+"\textit{Differently than EAI, which deals with linking enterprise applications so they can communicate with one another (by means of an intelligent reasoning engine) and carry out 'batch' data transfers, is the service oriented architecture (\gls{soa}) that provides 'transactional' data transfers, with no third-party software required. SOA is different from the EAI approach in that it does not depend on a third-party solution and that it is only providing an design structure and principles.}" ,\cite{soadef}\\
 \\
 \gls{soa} therefore emerged out of \gls{eai} as a newer design approach. Still, many companies are using systems such as \gls{eai}, because the change to a service-oriented approach might not always be easy. 
 %\subsection{SOA VS. OOP}
@@ -850,67 +882,40 @@ You should use REST when Client and Server operate on a Web environment.\\
 You shouldn't use REST When you need to enforce a strict contract between client and server\\
 \\\textbf{Conclusion SOAP:}\\
 You should use SOAP when when clients need to have access to objects aviable on servers.\\
-You shouldn't use SOAP when your bandwidth is very limited.\\
+You shouldn't use SOAP when your bandwidth is very limited. \newpage
 \subsection{Pro and Contra of SOA}
 Even trough \gls{soa} provides a very flexible and cost efficient environment, but it might not always be the the best solution.
 \\ \\
+%\FloatBarrier
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{images/roi}
+%	\caption{ROI \cite{roiph}}
+%	\label{fig:roi}
+%	\end{figure}
+% \FloatBarrier\noindent
 \textbf{The Good}\\
 The reusability for sure is a great advantage of \gls{soa}, if they are designed with the right patterns.
 Because services share schemas and contracts, not classes and types, a higher platform neutrality is reached. Avoiding type system dependency is what ensures interoperability. \\
-What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}
+What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}  \\\\
+\textbf{The Bad} \\
+The performance might not be optimal, but nowadays, performance is less important than it was a few years ago. \\
+Because of interoperability, security is more complicated. Also, the tools and know-how available is not exactly great.\\
+Quality assurance and testing might be more difficult, because of the complexity involved in the test environment setup. It therefore becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
+\\
+The last problem is that versioning of services. Any behavioural changes to an exposed service can negatively impact consuming applications, because they could  depend on things like error conditions or failure scenarios in previous versions of the service. \cite{pcsoa}
+\FloatBarrier
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/roi}
 	\caption{ROI \cite{roiph}}
 	\label{fig:roi}
 	\end{figure}
- \noindent
-
-
-
-%"Service orientation via web services can often be the best approach for enabling core business processes. The most important aspect to finding the SO sweet spot is determining what can be reused. Services are often considered application building blocks. With that comes a great responsibility for the application visionaries. [..] 
-%If these services are envisioned and designed with the enterprise in mind, and not the specific application being envisioned, there is a good chance that a reusable service will be delivered. [..] You have to involve the right resources for auditing those services which are thought to be reusable. [..]
-%Loosely-coupled, reusable services have a number of other obvious benefits. \\
-%Services share schemas and contracts, not classes and types: This speaks to the platform neutrality of services. All services are designed to exchange contracts for behavior and schemas for data structure. Avoiding type system dependency is what ensures interoperability. \\
-%Policies define the constraints for accessing the service. This allows services to define a mechanism for communicating no matter what their current capabilities are.\\
-%Each of these parts is also individually scalable.\\Services can also see a huge gain in maintainability and extensibility because of their centralized nature.\\ \\
-%When you have a need for interoperability, service orientation has obvious benefits. If you need to expose your application’s business logic to a brand new front end hosted on a disparate platform, SOA provides exceptional ROI.
-% "\cite{pcsoa} \\ \\
-\newpage
-\noindent\textbf{The Bad} \\
-The performance might not be optimal, but nowadays, performance is less important than it was a few years ago. \\
-Because of interoperability, security is more complicated. Also, the tools and know-how available is not exactly great.\\
-Quality assurance and testing might be more difficult, because of the complexity involved in the test environment setup. It therefore becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
-\\
-The last problem is that versioning of services. Any behavioural changes to an exposed service can negatively impact consuming applications, because they could  depend on things like error conditions or failure scenarios in previous versions of the service. \cite{pcsoa}
-
-
-
-
-
-
-
-%Even trough the performance of \gls{soa} might not be perfect, it should not be used as a driving factor for deciding whether or not to move toward service orientation, because also based on Moores Law, performance isn't really a thing we need to worry about greatly. \cite{pcsoa}\\
-%Interoperable security is very complicated: Both method-level security and role-based security become very challenging to implement when considering interoperability concerns. \\
-%\\ \\ 
-%The tools available today for service-oriented development are still somewhat unsophisticated.
-%\\ \\
-%"The most costly aspect of introducing new technologies and concepts is the investment in your company’s human capital. People are resilient and, in some cases, are very agile, but that agility comes with time and experience.",\cite{pcsoa}
-%One of the most challenging roles in the service-oriented era is that of the quality assurance engineer. Most services are designed to satisfy the needs of various applications; that makes their requirements somewhat fragmented.
-%Another not-so-obvious added cost with service orientation is the complexity involved in the test environment setup.
-%Another major problem with versioning of services is any implicit semantic contract changes. Any behavioral changes to an exposed service can negatively impact consuming applications. 
-%Consumers could potentially depend on things like error conditions or failure scenarios in previous versions of the service. 
-%As with other distributed technologies, it becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
-
+ \FloatBarrier\noindent
 \subsection{Conclusion}
 Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
 Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
 Nowadays, many of \gls{soa}'s principles are already used in what we declare as good software design, but still many companies have problems with applying the \gls{soa} Principles at a full extend. Often only parts of it get used, if even. This is mainly because changing an entire infrastructure is not that easy and companies are not always ready for a big change like that. A missing base of know-how or the engineering approach of 'As long as it works, don't change anything' contribute to the fact, that \gls{soa} is not used by every company yet.
-
-%TODO http://serviceorientation.com/soaplanning/fourpillars
-
-
-
 
 
 \newpage

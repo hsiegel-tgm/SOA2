@@ -125,7 +125,7 @@ Service-oriented computing is seen as an umbrella term to all the components. It
 	\label{fig:serviceorientedcomuting}
 	\end{figure}
 	\FloatBarrier\noindent
-\textbf{Service-Oriented Architcture}\\
+\textbf{Service-Oriented Architecture}\\
 "\textit{Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation}"\cite[page 27]{grau}. \\
 \gls{soa} has it's underlying business functions provided as Services which can be used by all Application on a shared basis, therefore enabling service orientation. \\
 \newpage
@@ -383,14 +383,21 @@ Also as it can be seen, the \gls{bpm}-lifecycle as described in \ref{fig:bpmlc} 
 \textbf{Challenges of BPM }
 What makes Business Process Management so difficult, is the integration between higher-level business cases and lower-level IT-realization. There is a lack of business cases, so not every process is build as one in a company, at least not always. Mostly, even trough not that much with SOA, the IT landscape is mostly too slowly to react to business change immediately, and it also has the challange of a gap between modeling and implementation.\\
 Some problems, which do result out of the management approach are that BPM is seen as a one time project, that there is not enough investment into staff and that the mesures of success are often defined quite poorly.\cite{bpmchall}\\ \\ \noindent
-\textbf{BPML and BPQL} \\ %TODO
-The Business Process Modeling Language (BPML) is an XML-based metalanguage which is modeling business processes.\\It includes specigications for transactions, dataflow, messages and scheduled events, security roles and exceptions. An associated query language, Business Process Query Language (BPQL) has been developed as well.  \cite{bpmldefmr}
+\textbf{BPML and BPQL} \\
+The Business Process Modeling Language (BPML) is an XML-based metalanguage which is modeling business processes.\\It includes specifications for transactions, dataflow, messages and scheduled events, security roles and exceptions. An associated query language, Business Process Query Language (BPQL) has been developed as well.  \cite{bpmldefmr}
 %"Business Process Modeling Language (BPML) is an Extensible Markup Language (XML)-based metalanguage developed by the Business Process Management Initiative (BPMI) as a means of modeling business processes. [..] BPML 0.4 includes specifications for transactions and compensating transactions, dataflow, messages and scheduled events, business rules, security roles, and exceptions. \\ An associated query language, Business Process Query Language (BPQL) has been developed as a standard management interface that can be used to deploy and execute defined business processes. According to BPMI, BPML and BPQL will be used to establish a standardized means of managing e-business processes through Business Process Management Systems, similarly to the way that SQL established a standardized means of managing business data through packaged database management systems." \cite{bpmldefmr}
 \subsubsection{Orchestration with BPEL}
 \label{sec:bpel} %TODO BPEL screenshot
 \textbf{BPEL} \\ 
 BPEL, which stands for Business Process Execution Language, is an XML-based language that allows Web services in a service-oriented architecture to interconnect and share data.\\ When using Webserivces, it also is often called WSBPEL.\\ BPEL is used to define business process which enables an orchestration process. 
 BPEL is often associated with Business Process Management Notation (BPMN), a standard for representing business processes graphically.\\
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/screenshot2}
+	\caption{BPEL designer in JDeveloper, Oracle\cite{bpelsc}}
+	\label{fig:Serviceinventory}
+	\end{figure}
+	\FloatBarrier \noindent
 %Programmers use BPEL to define how a business process that involves web services will be executed. BPEL messages are typically used to invoke remote services, orchestrate process execution and manage events and exceptions.\\
 %BPEL is often associated with Business Process Management Notation (BPMN), a standard for representing business processes graphically. In many organizations, analysts use BPMN to visualize business processes and developers transform the visualizations to BPEL for execution.\\
 BPEL was standardized by OASIS in 2004 .\cite{bpelsearchsoa}.\\
@@ -420,16 +427,16 @@ It therefore helps to produce code out of a graphical description, and there is 
 The \gls{soa}-model has different layers. On the top level there is the Presentation Layer, which is the User Interface, which can be a normal Client Application as we know it but also a Fat Client. Then we speak of the Orchestration Layer, Where the flow of an Application is beeing a sequence of certain services. In the Orchestration layer, a data transfer between these Services is possible as well. And then there comes the service layer, in which the Services are. In between there is some kind of integration Architecture, which would normally be an \gls{esb}. In the application layer, applications that already exists and Databases or systems are put. In the Visualized Infrastructure, the Hardware can be found. %These layers can be seen in figure \ref{fig:soamodelarch}.\\
 \newpage\noindent\textbf{SOA models}\\
 There exist different SOA models, such as the OASIS model, The SOA Meta model of the W3C and each of the bigger companies such as IBM, SAP or Oracle have their own interpretation.
-\subsubsection{The SOA Triangle}
+\subsubsection{The SOA Triangle} %TODO crosscheck
 \label{sec:soatriangle}
 The \gls{soa} triangle (figure \ref{fig:servicetri}) is consists of three parts:
 \\\\\textbf{The Service consumer} \\
-This is bascially the client, which wants to use a specific service. It is requesting the Service Registry 	for the address of the specific service he wants to access. He is using the Interface Definition Language in order to  access the Service provider in the right way.
+This is basically the client, which wants to use a specific service. It is requesting the Service Registry 	for the address of the specific service he wants to access. He is using the Interface Definition Language in order to  access the Service provider in the right way.
 \\\\\textbf{The Service provider}\\ 
 This is the part of the system, which is providing some kind of service to a costumer. It is publishing / registering itself in the SOA registry. For this purpose, WSDL is used.
 \\\\\textbf{The registry}\\ 
-"An SOA registry is a resource that provides controlled access to data necessary for governance of SOA (service-oriented architecture) projects. In effect, it is a constantly evolving catalog of information about the available services in an SOA implementation. An SOA registry allows businesses to efficiently discover and communicate with each other using Web services. The ultimate goal is to allow fast and reliable communication and interoperability among diverse applications with minimal human oversight.", \cite{soareg}\\
-The registry's task is it therefore to know the metadata and the addresses of the services and discovery / find the right service provider when a service consumer makes a request.
+"An SOA registry - also called service directory - is a resource that provides controlled access to data necessary for governance of SOA (service-oriented architecture) projects. In effect, it is a constantly evolving catalog of information about the available services in an SOA implementation. An SOA registry allows businesses to efficiently discover and communicate with each other using Web services. The ultimate goal is to allow fast and reliable communication and interoperability among diverse applications with minimal human oversight.", \cite{soareg}\\
+The registry's task is it therefore to know the metadata and the addresses of the services and discovery / find the right service provider when a service consumer makes a request. \\ 
 The UDDI standard is used for locating a service in the registry.
 \begin{figure}[here!]
 \centering
@@ -471,7 +478,7 @@ The UDDI standard is used for locating a service in the registry.
 \label{sec:esb}
 \textbf{Possible communication ways between applications} \\ \\
 \textit{Peer-to-peer - topology}\\
-The peer-to-peer (Figure \ref{fig:eai0}) implementation is not very useful. It is quite outdated and it is not really usable for modern systems.
+The peer-to-peer (Figure \ref{fig:eai0}) implementation is not very useful. It is quite outdated and it is not really usable for modern systems. \\
 There is practically no way to achieve any scalability and it gets complicated very soon. \\\\
 \textit{Hub \& Spoke  - topology}\\
 Messages get directed to an centralized unit, where they can be processed. (Figure \ref{fig:eai1}) This centralized unit can be a bottleneck though. \\\\
@@ -500,7 +507,8 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
 \end{figure}
 \FloatBarrier  \noindent
 \textbf{Enterprise Service Bus} \\
-"An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures. [..] . In a general sense, an ESB can be thought of as a mechanism that manages access to applications and services (especially legacy versions) to present a single, simple, and consistent interface to end-users via Web- or forms-based client-side front ends.", \cite{esbdef}\\
+"\textit{An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures.}" \cite{esbdef} \\
+It manages the integration of all compnents and offers an standard user interface of some kind. \cite{esbdef}\\
 Its main task are to:
 \begin{itemize}
 \item Distribute information across an enterprise quickly and easily
@@ -508,14 +516,14 @@ Its main task are to:
 \item Mask differences among underlying platforms, software architectures, message formats and network protocols as they move from service requestor to service provider and back
 \item Ensure information delivery even when some systems or networks may go off-line from time to time.
 \item Re-route, log, and enrich information without requiring applications to be rewritten.
-\item Manages descriptions and definitions of messages and their formats through metadata
-\item Creates an extensible architecture based on pluggable components
+\item Manage descriptions and definitions of messages and their formats through metadata
+\item Create an extensible architecture based on pluggable components
 \end{itemize} \cite{esbdef,esbimplpatt} \\
-An ESB has is also not a concrete implementation. Mostly, big companies (e.g. IBM, SAP, TIBCO, Orcale ,..) offer ESB implementations, but there are also open source ones, such as openESB for example.
+An \gls{esb} has is not a concrete implementation. Mostly, big companies (e.g. IBM, SAP, TIBCO, Orcale ,..) offer ESB implementations, but there are also open source ones, such as openESB for example.
 \\\\
 \textbf{Special routing and transformation} \\
 An \gls{esb} also offers content (figure \ref{fig:content}) % and context (figure \ref{fig:context}) 
-based  routing and message transformation (figure \ref{fig:Datafromtrans}).\\\\
+based  routing and message transformation (figure \ref{fig:Datafromtrans}). These two are interesting and important facts for SOA.\\\\
 First of all, content based routing is routing the message based on its content and not on a destination. By looking into the message and deciding which service might be interested in the message, a high degree of flexibility and scalability is achieved.\\ %With the context based routing, the message is simply transferred the normal way.
 \\The esb can also do an data format transformation, with might output the data just the way a service wants to have it.
 
@@ -563,9 +571,9 @@ First of all, content based routing is routing the message based on its content 
 %	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
 %	\label{fig:Datafromtrans}
 %	\end{figure}
-	\FloatBarrier
-\subsubsection{OpenESB}
-"OpenESB is a Java based open source enterprise service bus. It can be used as a platform for both Enterprise Application Integration and Service Oriented Application. OpenESB allows you to integrate legacy systems external and internal partners and new developments in your Business Process.  OpenESB is the unique open source ESB relying on standards that provides you with Simplicity, Efficiency, Long term durability, save on your present and future investments with a very low TCO (Total Cost of Ownership).", \cite{Aboutopenesb}
+%	\FloatBarrier
+%\subsubsection{OpenESB}
+%"OpenESB is a Java based open source enterprise service bus. It can be used as a platform for both Enterprise Application Integration and Service Oriented Application. OpenESB allows you to integrate legacy systems external and internal partners and new developments in your Business Process.  OpenESB is the unique open source ESB relying on standards that provides you with Simplicity, Efficiency, Long term durability, save on your present and future investments with a very low TCO (Total Cost of Ownership).", \cite{Aboutopenesb}
 
 
 \subsection{RestFul Web Services}
@@ -577,8 +585,6 @@ First of all, content based routing is routing the message based on its content 
     \label{fig:restcomm}
 	\end{figure}
 	\FloatBarrier \noindent
-
-
 RESTful web services are built to work best on the Web. RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations. If you want to access resources like data and functionallaty in the REST architectural style you have to use Uniform Resource Identifiers which are typicaly links 
 on the Web. The REST architectural style constrains an architecture to a client/server architecture and is designed to use a stateless communication protocol, typically HTTP. In the REST architecture style, clients and servers exchange representations of resources by using a standardized interface and protocol. \\
 The following principles encourage RESTful applications to be simple, lightweight, and fast:
@@ -1160,6 +1166,12 @@ Working with the Service Reusability and Service Composability Principles}\\ Tho
   \newline last used : 19.03.2015, 13:30
 
  	 
+ 	 
+
+  \bibitem{bpelsc}
+  \textbf{The BPEL designer in JDeveloper.}, oracle.com, SOA Suite\\
+  \textit{http://www.oracle.com/technetwork/middleware/soasuite/bpel-01-098840.html}
+  \newline last used : 19.03.2015, 19:29
  	 
 \end{thebibliography}
 \end{document}

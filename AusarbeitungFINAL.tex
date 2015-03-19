@@ -110,7 +110,7 @@ Service orientation means, that services of any kind are put into the center of 
 \textbf{Service-Oriented Computing}\\
 "Service-oriented computing is an umbrella term that represents a distinct distributed computing platform. As such, it encompasses many things, including its own design paradigm and design principles, design pattern catalogs(\cite{patterns}), pattern languages, and a distinct architectural model, along with related concepts, technologies, and frameworks.",\cite[page 22]{grau}\\ \\ 
 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/serviceorientationdotcomwhatissoa}
 	\caption{Overview of the interactions in Service oriented computing \cite{photos}}
@@ -121,7 +121,7 @@ Service orientation means, that services of any kind are put into the center of 
 "Service Oriented Architecture is a technology architectural model for service-oriented solutions with distinct characteristics in support of realizing service-orientation", \cite[page 27]{grau}. \\
 As it can be seen in figure \ref{fig:eaipartofso}, historically many components contribute to \gls{soa}. \gls{soa} is often used as a newer approach to \gls{eai}, which is why it may seem quite similar at times.  \cite{soaitwissen} Also, software design principles such as \gls{oop} and \gls{aop} have influenced the design patterns and requirements of \gls{soa}. Furthermore, \gls{bpm} - even trough no software design possibility - has done it's influences into the architecture as well. \\
 SOA has it's underlying business functions provided as Services which can be used by all Application on a shared basis. 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/b1_25}
 	\caption{Logics that have contributed to SOA (\cite[page 25]{grau}, Hannah Siegel)}
@@ -143,7 +143,7 @@ SOA has it's underlying business functions provided as Services which can be use
 "One of the keys to SOA architecture is that interactions occur with loosely coupled services that operate independently. SOA architecture allows for service reuse, making it unnecessary to start from scratch when upgrades and other modifications are needed. This is a benefit to businesses that seek ways to \textit{save time and money.}",\cite{searchsoa}. The aspect of an \gls{roi} is very important within the concept of \gls{soa}!
 \\ \\\textbf{\gls{soa}'s actors and contributors}\\
 \gls{soa} has some important logic components. Next to the in section \ref{sec:service} described Service, which contains of a Service Contract, the implementation and the interface, a service repository and the service bus build the important components without whom \gls{soa} would not be the same. Figure \ref{fig:actorsSoa} provides an overview, which help to understand the basic concepts. The service repository is explained in section \ref{sec:soatriangle}.
-	\begin{figure}[here!]
+	\begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/arg2}
 	\caption{Overview of the actors in SOA \cite{arg2}}
@@ -202,7 +202,7 @@ Service-orientation emerged as a formal method in support of achieving the follo
 \item Reduced IT Burden
 \end{itemize} \cite[page 23]{grau}\\
 As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,  business and technology alignment, federation and vendor diversification options automatically lead to a increase of the \gls{roi}, the organizational agility and to an reduced IT burden.
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{images/page24}
 	\caption{Goals of SOA\cite{photos}\\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR}
@@ -236,7 +236,7 @@ The following discussed principles can be found on searchsoa.com(\cite{photos}) 
 \label{sec:StandardizedServicecontracts}
 "A service contract expresses the technical interface of a service. ", \cite[page 33]{grau}. This means that there are interfaces which do contain the metadata to an service, as well as describing their functionality, their Datatypes and rules of actions. \cite[page 86]{te} \\ If these services are implemented as a Webservice, for example, most commonly an description document in Form of an WSDL definition will be used, or an XML Schema. \\
 The two approaches nowadays are either Top-Down (designing the service contracts at first and then implementing the service) or Bottom-up(Building the contracts out of already existing services). \cite[page 151,152]{grau}
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.49\textwidth]{images/soajuhu}
 	\caption{Components of a Service contract \cite{photos}\\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR }
@@ -287,7 +287,7 @@ This means that: "each invocation of a service operation is completely independe
 Services must be able to be part of any composition, regardless if they were meant to take part at a certain one at the time they were build. \cite[page 89]{te} \\
 The composability can be seen in figure \ref{fig:composserv}, where Service B, C and D are using service A, but Service A can also be used independently.
 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.49\textwidth]{images/serivceorientationdotcom}
 	\caption{Composing of services \cite{photos} \\ SOA Principles of Service Design, (c) Prentice Hall/PearsonPTR}
@@ -338,7 +338,7 @@ As services are updated, composed or reconfigured in the software level, the rea
 \item $\Longrightarrow$Retirement 
 \end{enumerate}
 	
-\begin{figure}[here!]
+\begin{figure}
 \centering
 \begin{minipage}[h]{0.3\textwidth}
 \centering
@@ -365,7 +365,7 @@ BPM stands for Business Process Management and this is a systematic approach to 
 "A business process in an activity or an set of activities that will accomplish a specific organisational goal. The goal of BPM is to reduce human error and miscommunication and focus stakeholders on the requirements of their roles. BPM is a subset of infrastructure management, an administrative area concerned with maintaining and optimizing an organization's equipment and core operations.", \cite{bpmdef}.
 \\ \\\textbf{What has BPM to do with SOA?}\\
 The Business Process level is very important to every service-oriented architecture, as it is seen as the higher-level controlling instance. Service composition and Orchestration are helping to ensure a business process remodelling is made easy and failure-tolerant at any time. \cite[page 114]{te}
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/bpm.png}
 	\caption{Business Management lifecycle \cite{muede2}}
@@ -391,7 +391,7 @@ BPEL was standardized by OASIS in 2004 after collaborative efforts to create the
 \\
 \textbf{Service Inventory}\\
 When a service was build, it is put into the Service Inventory, from where it can be fetched later on. In figure \ref{fig:Serviceinventory}, Service A is put into the inventory for where it was part in two new compositions. 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{images/picservi0}
 	\caption{Service inventory\cite{picservi}}
@@ -403,7 +403,7 @@ Orchestration means, that a new Service can be build out of other Services which
 These other services can be of any kind (also external) and the communication between them is usually coordinated out from an central controlling instance. Orchestration is usually done using (WS-)BPEL. This layer is also a reason why \gls{soa} is so flexible and why the systems must be loosely coupled. \cite[page 29]{soagoesreal}\\ \\
 It therefore helps to produce code out of a graphical description, and there is no need to code it all out once again. Such systems should interact with other systems such as \gls{erp}-systems and without \gls{soa} it would be hard to realize. Using BPEL, smaller parts of an application can be easily combined to a greater one. \cite[page 18]{soagoesreal} \\ \\
 \\
-%\begin{figure}[here!]
+%\begin{figure}
 %	\centering
 %	\includegraphics[width=0.6\textwidth]{images/page19}
 %	\caption{BPEL as orchestration layer \cite[page 19]{soagoesreal}}
@@ -425,7 +425,7 @@ This is the part of the system, which is providing some kind of service to a cos
 "An SOA registry is a resource that provides controlled access to data necessary for governance of SOA (service-oriented architecture) projects. In effect, it is a constantly evolving catalog of information about the available services in an SOA implementation. An SOA registry allows businesses to efficiently discover and communicate with each other using Web services. The ultimate goal is to allow fast and reliable communication and interoperability among diverse applications with minimal human oversight.", \cite{soareg}\\
 The registry's task is it therefore to know the metadata and the addresses of the services and discovery / find the right service provider when a service consumer makes a request.
 The UDDI standard is used for locating a service in the registry.
-\begin{figure}[here!]
+\begin{figure}
 \centering
 	\includegraphics[width=0.6\textwidth]{images/tri_sm}
 	  \caption{SOA Components \cite{arg3,arg1}, Hannah Siegel}
@@ -434,7 +434,7 @@ The UDDI standard is used for locating a service in the registry.
 
 	\end{figure}
 	\FloatBarrier
-%\begin{figure}[here!]
+%\begin{figure}
 %\centering
 %\begin{minipage}[h]{0.4\textwidth}
 %\centering
@@ -471,7 +471,7 @@ There is practically no way to achieve any scalability and it gets complicated v
 Messages get directed to an centralized unit, where they can be processed. (Figure \ref{fig:eai1}) This centralized unit can be a bottleneck though. \\\\
 \textit{Bus - topology}\\
 Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2}) The processing distribution in this case is very good. The bus-topology is therefore the most recommended one, because there is no bottleneck when comparing it to a Hub.
-\begin{figure}[here!]
+\begin{figure}
 \centering
 \begin{minipage}[h]{0.3\textwidth}
 \centering
@@ -513,7 +513,7 @@ based  routing and message transformation (figure \ref{fig:Datafromtrans}).\\\\
 First of all, content based routing is routing the message based on its content and not on a destination. By looking into the message and deciding which service might be interested in the message, a high degree of flexibility and scalability is achieved.\\ %With the context based routing, the message is simply transferred the normal way.
 \\The esb can also do an data format transformation, with might output the data just the way a service wants to have it.
 
-%\begin{figure}[here!]
+%\begin{figure}
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{images/context}
 %	  \caption{Context based routing within an \gls{esb} \cite[page 394]{grau}\\This means, the routing is done over load}
@@ -521,7 +521,7 @@ First of all, content based routing is routing the message based on its content 
 %	\end{figure}
 %	\FloatBarrier
 	
-	\begin{figure}[here!]
+	\begin{figure}
 	\centering
 	  \includegraphics[width=0.6\textwidth]{images/esb123}
 	   \caption{Content based routing within an \gls{esb} \\ (\cite[page 394]{grau}, Hannah Siegel)}
@@ -530,7 +530,7 @@ First of all, content based routing is routing the message based on its content 
 	\FloatBarrier
 \noindent
 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{images/esb456}
 	\caption{\gls{esb} carrying out data transformation \\ (\cite[page 395]{grau}, Hannah Siegel)}
@@ -542,7 +542,7 @@ First of all, content based routing is routing the message based on its content 
 	
 	
 	
-%\begin{figure}[here!]
+%\begin{figure}
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{images/content}
 %	   \caption{Content based routing within an \gls{esb} \cite[page 394]{grau}}
@@ -551,7 +551,7 @@ First of all, content based routing is routing the message based on its content 
 %	\FloatBarrier
 
 
-%\begin{figure}[here!]
+%\begin{figure}
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{images/page395}
 %	\caption{\gls{esb} carrying out data transformation \cite[page 395]{grau}}
@@ -618,7 +618,7 @@ was abolished and SOAP now stands for itself. SOAP is an XML based protocol for 
 \cite{soap}\\
 SOAP envelope structure:\\
 
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.3\textwidth]{images/soa_envelope}
 	\caption{soapbild}
@@ -636,6 +636,24 @@ Currently there are two Versions:\\
 2.0 : Brings some improvements but they are not relevant in the praxis so this version is not often
 used.\\
 WSDL describes a Web service. It specifies the location of the service and the operations (or methods) the service exposes.\\
+
+WSDL file contents:
+\begin{itemize}
+\item Definition \\
+The <definitions> element must be the root element of all WSDL documents. It defines the name of the web service.
+\item Message \\
+The <message> element describes the data being exchanged between the web service providers and the consumers.
+\item Type \\
+WSDL <types> element takes care of defining the data types that are used by the web service.
+\item Port Type  \\
+The <portType> element combines multiple message elements to form a complete one-way or round-trip operation.
+\item Binding \\
+The <binding> element provides specific details on how a portType operation will actually be transmitted over the wire.
+\item Port \\
+A <port> element defines an individual endpoint by specifying a single address for a binding. 
+\item Service \\
+The <service> element defines the ports supported by the web service.
+\end{itemize}
 \cite{wsdl}\newpage
 \subsubsection{UDDI}
 "Universal Description, Discovery and Integration (UDDI) is a directory service where businesses can register and search for Web services.
@@ -649,6 +667,7 @@ UDDI is a platform-independent framework for describing services, discovering bu
 \end{itemize}
 UDDI uses World Wide Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet standards such as XML, HTTP, and DNS protocols.
 UDDI uses WSDL to describe interfaces to web services Additionally, cross platform programming features are addressed by adopting SOAP, known as XML Protocol messaging specifications found at the W3C Web site."\cite{uddi}\\
+There are plenty of tools to register your web service or search for them. S
 A UDDI WSDL and SOAP example can be found here in here: \ref{fig:eai1}
 \section{Code Snippets}
 \subsection{JSON vs XML Example}
@@ -714,22 +733,68 @@ In the example above, a GetStockPrice request is sent to a server. The request h
 \subsection{WSDL Example}
 \label{sec:wsdlexample}
 \begin{lstlisting}
-<message name="getTermRequest">
-  <part name="term" type="xs:string"/>
-</message>
+<definitions name="HelloService"
+   targetNamespace="http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns="http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+   <message name="SayHelloRequest">
+      <part name="firstName" type="xsd:string"/>
+   </message>
+	
+   <message name="SayHelloResponse">
+      <part name="greeting" type="xsd:string"/>
+   </message>
 
-<message name="getTermResponse">
-  <part name="value" type="xs:string"/>
-</message>
+   <portType name="Hello_PortType">
+      <operation name="sayHello">
+         <input message="tns:SayHelloRequest"/>
+         <output message="tns:SayHelloResponse"/>
+      </operation>
+   </portType>
 
-<portType name="glossaryTerms">
-  <operation name="getTerm">
-    <input message="getTermRequest"/>
-    <output message="getTermResponse"/>
-  </operation>
-</portType>
+   <binding name="Hello_Binding" type="tns:Hello_PortType">
+      <soap:binding style="rpc"
+         transport="http://schemas.xmlsoap.org/soap/http"/>
+      <operation name="sayHello">
+         <soap:operation soapAction="sayHello"/>
+         <input>
+            <soap:body
+               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+               namespace="urn:examples:helloservice"
+               use="encoded"/>
+         </input>
+		
+         <output>
+            <soap:body
+               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+               namespace="urn:examples:helloservice"
+               use="encoded"/>
+         </output>
+      </operation>
+   </binding>
+
+   <service name="Hello_Service">
+      <documentation>WSDL File for HelloService</documentation>
+      <port binding="tns:Hello_Binding" name="Hello_Port">
+         <soap:address
+            location="http://www.examples.com/SayHello/" />
+      </port>
+   </service>
+</definitions>
 \end{lstlisting}
-"In this example the \textless portType\textgreater element defines glossaryTerms as the name of a port, and getTerm as the name of an operation. The getTerm operation has an input message called getTermRequest and an output message called getTermResponse. The \textless message\textgreater elements define the parts of each message and the associated data types.Compared to traditional programming, glossaryTerms is a function library, getTerm is a function with getTermRequest as the input parameter, and getTermResponse as the return parameter."\cite{wsdl}
+"Definitions : HelloService \\
+Type : Using built-in data types and they are defined in XMLSchema. \\
+Message :\\
+    sayHelloRequest : firstName parameter\\
+    sayHelloresponse: greeting return value\\
+Port Type : sayHello operation that consists of a request and a response service.\\
+Binding : Direction to use the SOAP HTTP transport protocol.\\
+Service : Service available at http://www.examples.com/SayHello/\\
+Port : Associates the binding with the URI http://www.examples.com/SayHello/ where 
+the running service can be accessed."\cite{wsdl}
 
 
 \section{Comparison and Conclusion}
@@ -771,7 +836,7 @@ Even trough \gls{soa} provides a very flexible and cost efficient environment, b
 The reusability for sure is a great advantage of \gls{soa}, if they are designed with the right patterns.
 Because services share schemas and contracts, not classes and types, a higher platform neutrality is reached. Avoiding type system dependency is what ensures interoperability. \\
 What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}
-\begin{figure}[here!]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/roi}
 	\caption{ROI \cite{roiph}}
@@ -1028,9 +1093,9 @@ Working with the Service Reusability and Service Composability Principles}\\ Tho
   \newline last used : 10.03.2015, 21:09
 
 \bibitem{wsdl}
-   	\textbf{WSDL Documentation},w3schools \\
-    \textit{http://www.w3schools.com/webservices/ws\_wsdl\_documents.asp}
-    \newline last used : 10.03.2015, 23:00
+   	\textbf{WSDL Documentation},tutorialspoint \\
+    \textit{http://www.tutorialspoint.com/wsdl/index.htm}
+    \newline last used : 19.03.2015, 22:00
 
 \bibitem{soap}
 	\textbf{SOAP Documentation},w3schools \\

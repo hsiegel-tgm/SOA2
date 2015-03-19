@@ -95,13 +95,14 @@ Vogt \textsc{Andreas}
 In order to understand \gls{soa}, an very important concept is a \textit{Service}. \\
 \\
 \textbf{What is a Service?}\\
+A service is a unit of logic, which provides a specific function, same as other applications do as well. But still, what difference a service from a 
 %A service can be seen as an Interface which provides a specific function, or as a collection of skills. \cite[page 85]{te} \\
-Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.",\cite{searchsoa} \\ The difference between a basic logic and a service is if service-orientation has been applied:
-"It's the application of service-orientation design principles that distinguishes a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems",\cite[page 29]{grau}\\ The patterns and principles which should be applied to a service are discussed in section \ref{sec:dp}. Furthermore, the function of a Service should be clearly defined and very often they are closely related to a business process.  \\\\
+"\textit{Services (such as RESTful Web services) carry out some small function, such as producing data, validating a customer, or providing simple analytical services.}",\cite{searchsoa} \\ The difference between a basic logic and a service is if service-orientation has been applied:
+"\textit{It's the application of service-orientation design principles that distinguishes a unit of logic as a service compared to other units of logic that may exist solely as objects, components, Web services, REST services or cloud based systems}",\cite[page 29]{grau}\\ The patterns and principles which should be applied to a service are discussed in section \ref{sec:dp}. Furthermore, the function of a Service should be clearly defined and very often they are closely related to a business process.  \\\\
 \textbf{What does a Service contain of?}\\
 A service contains it's functionality, a description of this functionality (section \ref{sec:StandardizedServicecontracts} ) and Basic-operations such as binding, selection, publication or discovery (section \ref{sec:soatriangle}) \cite[page 8]{soagoesreal}. \\
 Seen out of an more business related approach, they usually provide clear incident, problem, change, configuration, release, availability and cost management - which helps to gain information and overview the services.\\
-Also, a service can contain other services, as closer discussed in section \ref{sec:bpel}
+Also, a service can contain other services, as closer discussed in section \ref{sec:bpel}.
 %\textbf{What does a Service contain of?}\\
 %"Services are what you connect together using Web Services. A service is the endpoint of a connection. Also, a service has some type of underlying computer system that supports the connection offered. ",\cite{service1} \\ Furthermore, a Service has to have a clearly defined function and very often they should belong to one business process. It can be seen as an Interface which provides a specific function, or as a collection of skills. \cite[page 85]{te}\\ \\
 \subsection{SOA}
@@ -563,6 +564,16 @@ First of all, content based routing is routing the message based on its content 
 
 
 \subsection{RestFul Web Services}
+
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/REST}
+	\caption{Rest communication \cite{vogtbild1}}
+    \label{fig:restcomm}
+	\end{figure}
+	\FloatBarrier \noindent
+
+
 RESTful web services are built to work best on the Web. RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations. If you want to access resources like data and functionallaty in the REST architectural style you have to use Uniform Resource Identifiers which are typicaly links 
 on the Web. The REST architectural style constrains an architecture to a client/server architecture and is designed to use a stateless communication protocol, typically HTTP. In the REST architecture style, clients and servers exchange representations of resources by using a standardized interface and protocol. \\
 The following principles encourage RESTful applications to be simple, lightweight, and fast:
@@ -616,17 +627,14 @@ was abolished and SOAP now stands for itself. SOAP is an XML based protocol for 
 \item A Fault element containing errors and status information"
 \end{itemize}
 \cite{soap}\\
-SOAP envelope structure:\\
-
+SOAP envelope structure:
 \begin{figure}[here!]
 	\centering
-	\includegraphics[width=0.3\textwidth]{images/soa_envelope}
-	\caption{soapbild}
+	\includegraphics[width=0.3\textwidth]{images/f02mp01}
+	\caption{SOAP Message contents \cite{vogtbild2}}
     \label{fig:Soapenvelope}
 	\end{figure}
 	\FloatBarrier
-
-
 	
 \subsubsection{WSDL}
 Web Service Description Language is a XML based Interface communicationinterface description language
@@ -1127,8 +1135,18 @@ Working with the Service Reusability and Service Composability Principles}\\ Tho
 }
   \newline last used : 12.03.2015, 11:45
 
+  \bibitem{vogtbild1}
+  \textbf{Creating a REST service using ASP.NET Web API},  March 11, 2012\\
+  \textit{http://prideparrot.com/blog/archive/2012/3/creating\_a\_rest\_service\_using\_asp\_net\_web\_api 	 }
+  \newline last used : 19.03.2015, 12:46
 
 
+\bibitem{vogtbild2}
+  \textbf{The SOAP Message Structure},  Foggon D.,  Maharry D.,  Ullman C.\\
+  \textit{http://flylib.com/books/en/2.439.1.22/1/}
+  \newline last used : 19.03.2015, 12:47
+
+ 	 
  	 
  	 
 \end{thebibliography}

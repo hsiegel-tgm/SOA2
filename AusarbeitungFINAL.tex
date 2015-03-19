@@ -250,13 +250,28 @@ As it can be seen in figure \ref{fig:goalssoa}, an increase of interoperability,
 These goals are especially interesting not only to IT-staff members but also for a organization's management. \\
 These strategic goals the are put into more low-level design principles.
 \newpage\noindent
+\subsection{SOA Manifesto}
+The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widely known. Of the Value-Groups, both values are important and should be archived, but the left one is always more important. \\ \\
+\textbf{The wording of the SOA Manifesto is:}\\ \\ 
+"We have been applying service orientation to help organizations 
+consistently deliver sustainable business value, with increased agility
+and cost effectiveness, in line with changing business needs. \\ \\
+Through our work we have come to prioritize: \\
+\begin{itemize}
+\item Business value over technical strategy 
+\item Strategic goals over project-specific benefits 
+\item Intrinsic interoperability over custom integration 
+\item Shared services over specific-purpose implementations 
+\item Flexibility over optimization
+\item Evolutionary refinement over pursuit of initial perfection
+\end{itemize}"\cite{soamaifesto}
 \subsection{Design Principles}
 \label{sec:dp}
 Because SOA is only an Design Paradigm and not a concrete implementation, service orientation Patterns and principles are used.\\\\
 These principles emerged from the theory in software engineering, Separation of Concerns, which means that a problem can be solved easier if divided into smaller parts. This enables to separate a problem into smaller units, and they can then be reused, composed and managed more flexible.  \cite[page 86]{te}\\ Furthermore, they emerged out of all the principles and design considerations that have formed \gls{soa} itself.
 \\
 These paradigms are often already used in \gls{oop}, and they often cohere. For example, if a system is loosly coupled, it automatically comes with more flexibility which therefore helps the service autonomity. \\
-Also, it is not always possible to perfectly achieve all the requirements, so when implementing \gls{soa}, these design principles should be used at the \textit{most possible extend}, but we still speak of \gls{soa} even if not all the rules apply to 100\%. \\ \\
+Also, it is not always possible to perfectly achieve all the requirements, so when implementing \gls{soa}, these design principles should be used at the \textit{most possible extend}, but we still speak of \gls{soa} even if not all the rules apply to 100\%. \\ \\ \\ \\ \newpage
 The design paradigm consists of the following points:
 \begin{enumerate}
 \item Standardized Service contracts
@@ -268,7 +283,14 @@ The design paradigm consists of the following points:
 \item Service Discoverability
 \item Service Composability
 \end{enumerate}\cite[page 25]{grau}\\
-The following discussed principles can be found on searchsoa.com(\cite{photos}) as well, where they are discussed much more in detail.\newpage
+The following discussed principles can be found on searchsoa.com(\cite{photos}) as well, where they are discussed much more in detail.
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/servicepatterns2}
+	\caption{Service design principles, Hannah Siegel}
+	\label{fig:servicecontractcomponents}
+	\end{figure} \FloatBarrier
+\newpage
 \subsubsection{Standardized Service contracts}
 \label{sec:StandardizedServicecontracts}
 Service contracts, as something which is inevitable when using \gls{soa}, means that the service's information, such as metadata, the description of their functionality, their datatypes and their rules of actions is put into an standardized format. \cite[page 86]{te} 
@@ -403,22 +425,6 @@ The UDDI standard is used for locating a service in the registry.
 %\section{JAX-WS}
 %SOAP-based Web services support in Java EE 5,6 and 7 is based on the Java API ....
 %site 112 grey book 
-
-\subsection{SOA Manifesto}
-The \gls{soa} Manifesto has been developed 2009, and it is quite similar to the Agile Manifesto, which is widely known. Of the Value-Groups, both values are important and should be archived, but the left one is always more important. \\ \\
-\textbf{The wording of the SOA Manifesto is:}\\ \\ 
-"We have been applying service orientation to help organizations 
-consistently deliver sustainable business value, with increased agility
-and cost effectiveness, in line with changing business needs. \\ \\
-Through our work we have come to prioritize: \\
-\begin{itemize}
-\item Business value over technical strategy 
-\item Strategic goals over project-specific benefits 
-\item Intrinsic interoperability over custom integration 
-\item Shared services over specific-purpose implementations 
-\item Flexibility over optimization
-\item Evolutionary refinement over pursuit of initial perfection
-\end{itemize}"\cite{soamaifesto}
 \subsection{SOA Lifecycle}
 \textit{"As is true of service-oriented architecture (SOA) itself, the SOA lifecycle is a wide-ranging topic and even experts differ in their definition of it and the areas they believe need to be emphasized.}",\cite{soalycman}.\\\\
 What differentiates the SOA lifecycle from the traditional application lifecycle, is the need for governance to maintain order with loosely coupled services.
@@ -502,8 +508,7 @@ It therefore helps to produce code out of a graphical description, and there is 
 %	\label{fig:bpel}
 %	\end{figure}
 %	\FloatBarrier
-
-
+\newpage
 \section{Implementation}
 \subsection{ESB}
 \label{sec:esb}
@@ -539,8 +544,8 @@ Every service is connected to an service bus (\gls{esb}).(Figure \ref{fig:eai2})
 \FloatBarrier  \noindent
 \textbf{Enterprise Service Bus} \\
 "\textit{An enterprise service bus (ESB) is a software architecture for middleware that provides fundamental services for more complex architectures.}" \cite{esbdef} 
-It manages the integration of all compnents and offers an standard user interface of some kind. \cite{esbdef}\\
-\newpage The ESB's main task are to:
+It manages the integration of all components and offers an standard user interface of some kind. \cite{esbdef}\\
+\\The ESB's main task are to:
 \begin{itemize}
 \item Distribute information across an enterprise quickly and easily
 \item Identify Messages and route them between services

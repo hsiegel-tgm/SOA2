@@ -906,21 +906,21 @@ Even trough \gls{soa} provides a very flexible and cost efficient environment, b
 \textbf{The Good}\\
 The reusability for sure is a great advantage of \gls{soa}, if they are designed with the right patterns.
 Because services share schemas and contracts, not classes and types, a higher platform neutrality is reached. Avoiding type system dependency is what ensures interoperability. \\
-What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}  \\\\
+What probably speaks the most for \gls{soa}, is the \gls{roi}, if applied right. This can be seen in figure \ref{fig:roi}: Even trough the delivery cost with \gls{soa} is 30\% higher, the \gls{roi} after 3 years is 3 times higher! Of course, the exact \gls{roi} depends on various impacts, so the values are just an example. \cite{pcsoa}\\\\
+\begin{figure}[here!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/roi}
+	\caption{ROI \cite{roiph}}
+	\label{fig:roi}
+	\end{figure}
+ \FloatBarrier 
+\noindent
 \textbf{The Bad} \\
 The performance might not be optimal, but nowadays, performance is less important than it was a few years ago. \\
 Because of interoperability, security is more complicated. Also, the tools and know-how available is not exactly great.\\
 Quality assurance and testing might be more difficult, because of the complexity involved in the test environment setup. It therefore becomes more challenging to trace application code at runtime and quickly do problem determination on systems that live on numerous servers and sometimes on disparate platforms.
 \\
 The last problem is that versioning of services. Any behavioural changes to an exposed service can negatively impact consuming applications, because they could  depend on things like error conditions or failure scenarios in previous versions of the service. \cite{pcsoa}
-\FloatBarrier
-\begin{figure}
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/roi}
-	\caption{ROI \cite{roiph}}
-	\label{fig:roi}
-	\end{figure}
- \FloatBarrier\noindent
 \subsection{Conclusion}
 Whereas \gls{soa} can not be seen as an implementation but more as an design principle, it comes with many advantages. Using the Web-oriented approach and also putting Services and Business Processes into the focus, it leaves an very flexible IT-Infrastructure and leads to an cost efficient way of operating.\\
 Depending on a role in an enterprise, staff will be impacted by \gls{soa} in different ways. It will impact almost everyone responsible for delivering applications. When sticking to the design principles and to the standards, \gls{soa} has the potential to become the best approach for building reusable application landscapes. If not, \gls{soa} may become an infrastructure which may be hard to handle and failing it's original purpose of making things easier and increase the \gls{roi}.\\
@@ -930,7 +930,6 @@ Nowadays, many of \gls{soa}'s principles are already used in what we declare as 
 \newpage
 
 \listoffigures
-\printglossaries
 \begin{thebibliography}{56}
 
  \bibitem{searchsoa}
